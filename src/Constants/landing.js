@@ -1,0 +1,3 @@
+export const LANDING_CONTENT_WIDTH = 1920
+
+export const LANDING_PADDING_X = 100
