@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { margin } from '@styled-system/space'
 import themeGet from '@styled-system/theme-get'
 
-import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/landing'
+import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
 
 export const Container = styled.div`
   display: flex;
