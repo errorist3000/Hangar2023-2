@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { margin } from '@styled-system/space'
 import themeGet from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/landing'
@@ -17,31 +16,29 @@ export const Content = styled.div`
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
   max-width: ${LANDING_CONTENT_WIDTH}px;
-  gap: 32px;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  gap: 20px;
+  padding-top: 56px;
+  padding-bottom: 56px;
+  background-color: ${themeGet('colors.bg.default')};
 `
 
 export const Card = styled.div`
+  background-color: ${themeGet('colors.bg.default')};
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-inline: ${themeGet('space.3')}px;
+  width: 100%;
 `
-
 export const IconHolder = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
 
   svg {
     width: 64px;
     height: 64px;
     color: ${themeGet('colors.primary')};
+    margin-bottom: ${themeGet('space.5')}px;
   }
-
-  ${margin}
 `
