@@ -3,12 +3,11 @@ import PropTypes from 'prop-types'
 
 import { ThemeProvider } from 'styled-components'
 
-import { GlobalStyle } from 'Themes'
-import themes from 'Themes/themes'
+import { GlobalStyle, theme } from 'Themes'
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={themes.main}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Component {...pageProps} />
     </ThemeProvider>
