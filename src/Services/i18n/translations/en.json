@@ -1,0 +1,10 @@
+{
+  "block": {
+    "navBar": {
+      "projects": "Projects",
+      "aboutUs": "About Us",
+      "news": "News",
+      "contacts": "Contacts"
+    }
+  }
+}
