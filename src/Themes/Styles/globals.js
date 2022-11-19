@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import themeGet from '@styled-system/theme-get'
 
 export default css`
   html {
@@ -7,6 +8,8 @@ export default css`
   }
 
   body {
+    font-family: ${themeGet('font.fontFamily')};
+    color: ${themeGet('colors.text.body')};
     font-size: 14px;
     line-height: 1.6;
     min-width: 100vw;

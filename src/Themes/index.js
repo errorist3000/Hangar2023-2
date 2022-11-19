@@ -1,7 +1,6 @@
 import { APPEARANCE } from 'Config'
+import GlobalStyle from 'Themes/globalStyle'
 import themes from 'Themes/themes'
-
-import GlobalStyle from './globalStyle'
 
 const theme = themes[APPEARANCE.MAIN]
 

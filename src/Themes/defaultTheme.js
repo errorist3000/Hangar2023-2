@@ -20,11 +20,14 @@ const transitionTime = {
   default: '250ms',
   modal: '150ms',
 }
-const fontFamily = { fontFamily: 'Rubik, sans-serif' }
+const font = {
+  fontFamily: 'Inter, sans-serif',
+  webFonts: ['Inter:wght@400;500;600;700;800'],
+}
 
 const defaultTheme = {
   breakpoints,
-  fontFamily,
+  font,
   fontSizes,
   name: 'defaultTheme',
   space,
