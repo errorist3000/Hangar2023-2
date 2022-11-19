@@ -1,8 +1,7 @@
 import React from 'react'
 
+import { Container, Content } from 'Components/Blocks/Footer/styles'
 import { Column, Row, Text } from 'Components/UI'
-
-import { Container, Content } from './styles'
 
 function Footer() {
   return (
