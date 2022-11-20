@@ -39,7 +39,9 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "12.0.4",
+    "@svgr/webpack": "^6.5.1",
     "@types/node": "18.11.7",
+    "assets-optimizer": "^0.3.0",
     "babel-eslint": "10.1.0",
     "eslint": "8.26.0",
     "eslint-config-airbnb": "19.0.4",
