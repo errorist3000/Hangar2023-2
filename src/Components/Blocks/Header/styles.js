@@ -1,7 +1,13 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import themeGet from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
+
+const contanerShrinkCss = ({ shrink }) =>
+  shrink &&
+  css`
+    height: 56px;
+  `
 
 export const Container = styled.div`
   position: fixed;
@@ -9,8 +15,12 @@ export const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding-inline: ${LANDING_PADDING_X}px;
-  background-color: ${themeGet('colors.bg.secondary')};
-  backdrop-filter: blur(20px);
+  background-color: ${themeGet('colors.bg.tertiary')};
+  backdrop-filter: blur(6px);
+  height: 72px;
+  transition: height ${themeGet('transitionTime.modal')} linear;
+
+  ${contanerShrinkCss}
 `
 
 export const Content = styled.div`
@@ -18,7 +28,8 @@ export const Content = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 72px;
+  height: 100%;
+
   max-width: ${LANDING_CONTENT_WIDTH}px;
 
   color: white;

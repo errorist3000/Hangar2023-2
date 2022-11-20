@@ -21,7 +21,7 @@ function NavBar() {
   return (
     <Row>
       {navBarItems.map(item => (
-        <ItemButton>
+        <ItemButton key={item.text}>
           <Text action3 inverse mr={3}>
             {item.text}
           </Text>
