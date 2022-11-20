@@ -1,13 +1,7 @@
 import React from 'react'
 
 import { LandingLayout } from 'Components/Layouts'
-import {
-  Contacts,
-  Footer,
-  Statistics,
-  Steps,
-  WhySelectUs,
-} from 'Components/Pages/Main'
+import { Contacts, Statistics, Steps, WhySelectUs } from 'Components/Pages/Main'
 
 function Main() {
   return (
@@ -16,7 +10,6 @@ function Main() {
       <WhySelectUs />
       <Statistics />
       <Contacts />
-      <Footer />
     </LandingLayout>
   )
 }

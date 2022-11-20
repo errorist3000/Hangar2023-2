@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/landing'
+import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
 
 export const Container = styled.div`
   display: flex;

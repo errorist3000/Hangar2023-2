@@ -39,6 +39,5 @@ export default css`
     border: none;
     outline: none;
     background: none;
-    cursor: pointer;
   }
 `
