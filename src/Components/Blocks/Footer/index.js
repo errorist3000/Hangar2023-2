@@ -1,41 +1,43 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { Container, Content } from 'Components/Blocks/Footer/styles'
 import { Column, Row, Text } from 'Components/UI'
 
 function Footer() {
+  const { t } = useTranslation('translation', {
+    keyPrefix: 'block.footer',
+  })
   return (
     <Container>
       <Content>
         <Row fullWidth mb={9} spaceBetween>
           <Column maxWidth={518}>
-            <Text mb={3} muted subHeader1>
-              Юридическая информация
+            <Text inMuted mb={3} subHeader1>
+              {t('s1title')}
             </Text>
-            <Text body2 mb={2} muted>
-              ООО “Ангарпро”
+            <Text body2 inMuted mb={2}>
+              {t('s1text')}
             </Text>
-            <Text body2 muted>
-              РФ, 141352, Московская область, Сергиево-Посадский городской
-              округ, пос. Репихово, д. 127, 2 этаж, ком.35
+            <Text body2 inMuted>
+              {t('s2text')}
             </Text>
           </Column>
           <Column maxWidth={518}>
-            <Text mb={3} muted subHeader1>
-              Основная производственная площадка
+            <Text inMuted mb={3} subHeader1>
+              {t('s2title')}
             </Text>
-            <Text body2 mb={2} muted>
-              Россия, Московская область, Сергиево-Посадский район, пос.
-              Репихово, д. 127
+            <Text body2 inMuted mb={2}>
+              {t('s3text')}
             </Text>
           </Column>
         </Row>
         <Row fullWidth spaceBetween>
           <Text body4 mb={3} muted>
-            ⓒ2021. angarPro.dev.by rom
+            {t('s4text')}
           </Text>
           <Text body4 mb={3} muted>
-            mailto: admin@angarpro.com
+            {t('s5text')}
           </Text>
         </Row>
       </Content>
