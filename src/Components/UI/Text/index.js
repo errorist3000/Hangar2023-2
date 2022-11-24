@@ -10,7 +10,7 @@ const h1Css = ({ h1 }) =>
   css`
     font-size: ${themeGet('fontSizes.9')}px;
     letter-spacing: -0.4em;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 110%;
   `
 
@@ -19,7 +19,7 @@ const h2Css = ({ h2 }) =>
   css`
     font-size: ${themeGet('fontSizes.8')}px;
     letter-spacing: -0.04em;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 120%;
   `
 
@@ -28,7 +28,7 @@ const h3Css = ({ h3 }) =>
   css`
     font-size: ${themeGet('fontSizes.7')}px;
     letter-spacing: -0.04em;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 130%;
   `
 
@@ -37,7 +37,7 @@ const h4Css = ({ h4 }) =>
   css`
     font-size: ${themeGet('fontSizes.6')}px;
     letter-spacing: -0.04em;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 143%;
   `
 
@@ -163,7 +163,7 @@ const caption5Css = ({ caption5 }) =>
 const display1Css = ({ display1 }) =>
   display1 &&
   css`
-    font-size: ${themeGet('fontSizes.9')}px;
+    font-size: ${themeGet('fontSizes.8')}px;
     font-weight: 500;
     line-height: 120%;
   `
@@ -235,6 +235,12 @@ const mutedCss = ({ muted }) =>
     color: ${themeGet('colors.text.muted')};
   `
 
+const inMutedCss = ({ inMuted }) =>
+  inMuted &&
+  css`
+    color: ${themeGet('colors.text.inMuted')};
+  `
+
 const Text = styled.p`
   margin: 0;
 
@@ -273,6 +279,7 @@ const Text = styled.p`
   ${bodyCss}
   ${headingCss}
   ${inverseCss}
+  ${inMutedCss}
   ${mutedCss}
 
   ${margin}
@@ -303,6 +310,7 @@ Text.defaultProps = {
   h4: undefined,
   heading: undefined,
   inverse: undefined,
+  inMuted: undefined,
   muted: undefined,
   primary: undefined,
   subHeader1: undefined,
@@ -337,6 +345,7 @@ Text.propTypes = {
   h3: PropTypes.bool,
   h4: PropTypes.bool,
   heading: PropTypes.bool,
+  inMuted: PropTypes.bool,
   inverse: PropTypes.bool,
   letterSpacing: PropTypes.number,
   lineHeight: PropTypes.number,

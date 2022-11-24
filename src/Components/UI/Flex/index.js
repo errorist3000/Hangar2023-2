@@ -17,6 +17,18 @@ const spaceBetweenCss = ({ spaceBetween }) =>
     justify-content: space-between;
   `
 
+const justifyCenterCss = ({ justifyCenter }) =>
+  justifyCenter &&
+  css`
+    justify-content: center;
+  `
+
+const gapCss = ({ gap }) =>
+  gap &&
+  css`
+    gap: ${gap}px;
+  `
+
 const Flex = styled.div`
   display: flex;
 
@@ -25,8 +37,11 @@ const Flex = styled.div`
   ${margin}
   ${padding}
   
+  ${gapCss}
+  
   ${fullWidthCss}
   ${spaceBetweenCss}
+  ${justifyCenterCss}
 `
 
 export const Column = styled(Flex)`
@@ -41,6 +56,7 @@ const DEFAULT_PROPS = {
   center: undefined,
   fullHeight: undefined,
   fullWidth: undefined,
+  gap: undefined,
   grow: undefined,
   justifyCenter: undefined,
   maxWidth: undefined,
@@ -52,6 +68,7 @@ const PROP_TYPES = {
   center: PropTypes.bool,
   fullHeight: PropTypes.bool,
   fullWidth: PropTypes.bool,
+  gap: PropTypes.number,
   grow: PropTypes.bool,
   justifyCenter: PropTypes.bool,
   maxWidth: sizeProps,
