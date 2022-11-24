@@ -15,7 +15,7 @@ export const Content = styled.div`
   justify-content: center;
   gap: 32px;
   padding-top: 80px;
-  max-width: ${LANDING_CONTENT_WIDTH}px;
+  max-width: ${LANDING_CONTENT_WIDTH};
 `
 
 export const ImageHolder = styled.div`
