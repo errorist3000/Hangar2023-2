@@ -10,6 +10,7 @@ const palette = {
   temptress: '#342523',
   americanSilver: '#D0CECE',
   raisinBlack: '#222222',
+  brightGray: '#E9E9E9',
 }
 
 export default palette

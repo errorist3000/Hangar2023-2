@@ -18,11 +18,12 @@ const fontWeights = {
 
 const transitionTime = {
   default: '250ms',
-  modal: '150ms',
+  long: '400ms',
+  short: '150ms',
 }
 const font = {
   fontFamily: 'Inter, sans-serif',
-  webFonts: ['Inter:wght@400;500;600;700;800'],
+  webFonts: ['Inter:wght@400;500;600;700'],
 }
 
 const defaultTheme = {

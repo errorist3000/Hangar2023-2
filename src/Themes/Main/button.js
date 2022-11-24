@@ -1,13 +1,13 @@
 const button = {
   size: {
-    default: 32,
-    small: 24,
-    big: 48,
+    big: 56,
+    default: 48,
+    small: 32,
   },
 
-  borderRadius: { default: 8, small: 4 },
+  borderRadius: { default: 6 },
 
-  fontSize: { default: 16, small: 10 },
+  fontSize: { big: 18, default: `action3`, small: `action4` },
 }
 
 export default button

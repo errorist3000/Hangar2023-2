@@ -1,3 +1,4 @@
+import { darken } from 'polished'
 import palette from 'Themes/palette'
 
 const colors = {
@@ -9,13 +10,12 @@ const colors = {
     tertiary: `${palette.raisinBlack}99`,
   },
 
-  shadow: {},
-
   text: {
     body: palette.mediumBlack,
     heading: palette.darkGunmetalGrey,
     inverse: palette.white,
     muted: palette.spanishGray,
+    inMuted: palette.americanSilver,
   },
 
   button: {
@@ -25,17 +25,26 @@ const colors = {
       border: palette.tiffanyBlue,
 
       hover: {
-        color: palette.tiffanyBlue,
-        bg: palette.white,
-        border: palette.white,
+        bg: darken(0.05, palette.tiffanyBlue),
+        border: darken(0.05, palette.tiffanyBlue),
+      },
+    },
+
+    tertery: {
+      color: palette.tiffanyBlue,
+      bg: palette.brightGray,
+      border: palette.brightGray,
+
+      hover: {
+        bg: darken(0.05, palette.brightGray),
+        border: darken(0.05, palette.brightGray),
       },
     },
 
     outline: {
       hover: {
-        color: palette.white,
-        bg: palette.tiffanyBlue,
-        border: palette.tiffanyBlue,
+        bg: `${palette.raisinBlack}10`,
+        border: palette.white,
       },
     },
   },
