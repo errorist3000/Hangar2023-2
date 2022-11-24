@@ -1,36 +1,43 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
+import { statisticsBgImage } from 'Assets/Images'
 import { Text } from 'Components/UI'
 import { Factory, HourglassHigh, HouseLine, UsersThree } from 'phosphor-react'
 
-import { Card, Container, Content, IconHolder } from './styles'
-
-const CARDS = [
-  {
-    icon: <HourglassHigh />,
-    title: '15',
-    text: 'Лет на рынке',
-  },
-  {
-    icon: <Factory />,
-    title: '3',
-    text: 'Фабрики',
-  },
-  {
-    icon: <HouseLine />,
-    title: '42',
-    text: 'Сдано объектов',
-  },
-  {
-    icon: <UsersThree />,
-    title: '25',
-    text: 'Сотрудников',
-  },
-]
+import { Card, Container, Content, IconHolder, StyledImage } from './styles'
 
 function Statistics() {
+  const { t } = useTranslation('translation', {
+    keyPrefix: 'pages.main.statistics',
+  })
+
+  const CARDS = [
+    {
+      icon: <HourglassHigh />,
+      title: t('s1title'),
+      text: t('s1text'),
+    },
+    {
+      icon: <Factory />,
+      title: t('s2title'),
+      text: t('s2text'),
+    },
+    {
+      icon: <HouseLine />,
+      title: t('s3title'),
+      text: t('s3text'),
+    },
+    {
+      icon: <UsersThree />,
+      title: t('s4title'),
+      text: t('s4text'),
+    },
+  ]
+
   return (
     <Container>
+      <StyledImage src={statisticsBgImage.src} />
       <Content>
         {CARDS.map(card => (
           <Card key={card.text}>

@@ -9,6 +9,8 @@ export const Container = styled.div`
   align-self: flex-start;
   width: 100%;
   padding: 0 ${LANDING_PADDING_X}px;
+  position: relative;
+  overflow: hidden;
 `
 
 export const Content = styled.div`
@@ -17,13 +19,12 @@ export const Content = styled.div`
   width: 100%;
   max-width: ${LANDING_CONTENT_WIDTH}px;
   gap: 20px;
-  padding-top: 56px;
-  padding-bottom: 56px;
-  background-color: ${themeGet('colors.bg.default')};
+  padding: 56px ${LANDING_PADDING_X}px;
+  box-sizing: content-box;
+  position: relative;
 `
 
 export const Card = styled.div`
-  background-color: ${themeGet('colors.bg.default')};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,4 +42,15 @@ export const IconHolder = styled.div`
     color: ${themeGet('colors.primary')};
     margin-bottom: ${themeGet('space.5')}px;
   }
+`
+export const StyledImage = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  opacity: 0.15;
+  min-width: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  transform: translateY(-50%);
+  filter: blur(2px);
 `
