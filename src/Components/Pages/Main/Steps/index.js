@@ -23,11 +23,13 @@ function Steps() {
       icon: <Factory weight={ICON_WEIGHT} />,
     },
     {
-      title: 'dffdv',
+      title: t('s3title'),
+      text: t('s3text'),
       icon: <HouseLine weight={ICON_WEIGHT} />,
     },
     {
-      title: '345435',
+      title: t('s4title'),
+      text: t('s4text'),
       icon: <Handshake weight={ICON_WEIGHT} />,
     },
   ]

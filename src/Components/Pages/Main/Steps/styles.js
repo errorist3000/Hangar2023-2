@@ -9,7 +9,6 @@ export const Container = styled.div`
   justify-content: center;
   align-self: flex-start;
   width: 100%;
-  padding: 0 ${LANDING_PADDING_X}px;
 `
 
 export const Content = styled.div`
@@ -18,8 +17,7 @@ export const Content = styled.div`
   width: 100%;
   max-width: ${LANDING_CONTENT_WIDTH}px;
   gap: 32px;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding: 80px ${LANDING_PADDING_X}px;
 `
 
 export const Card = styled.div`
