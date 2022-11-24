@@ -9,6 +9,7 @@ export const Container = styled.div`
   align-self: flex-start;
   width: 100%;
   padding: 0 ${LANDING_PADDING_X}px;
+  background-color: ${themeGet('colors.bg.primary')};
 `
 
 export const Content = styled.div`
@@ -26,8 +27,6 @@ export const Card = styled.div`
   align-items: center;
   text-align: center;
   max-width: 250px;
-  margin-right: 100px;
-  margin-left: 100px;
 `
 export const IconHolder = styled.div`
   display: flex;

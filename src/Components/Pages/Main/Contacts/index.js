@@ -1,32 +1,35 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { Column, Row, Text } from 'Components/UI'
 import { EnvelopeSimple, PhoneCall } from 'phosphor-react'
 
 import { Card, Container, Content, IconHolder } from './styles'
 
-const CARDS = [
-  {
-    icon: <PhoneCall />,
-    title: 'Позвоните нам',
-    text: '+7(495)103-47-18 +7(495)103-47-18 +7(495)103-47-18',
-  },
-  {
-    icon: <EnvelopeSimple />,
-    title: 'Напишите нам',
-    text: 'post@angarpro.com market@angarpro.com progect@angarpro.com',
-  },
-]
-
 function Contacts() {
+  const { t } = useTranslation('translation', {
+    keyPrefix: 'pages.main.contacts',
+  })
+  const CARDS = [
+    {
+      icon: <PhoneCall />,
+      title: t('s1title'),
+      text: t('s1text'),
+    },
+    {
+      icon: <EnvelopeSimple />,
+      title: t('s2title'),
+      text: t('s2text'),
+    },
+  ]
   return (
     <Container>
       <Content>
         <Column>
           <Text h3 heading mb={9}>
-            КАК С НАМИ СВЯЗАТЬСЯ
+            {t('header')}
           </Text>
-          <Row>
+          <Row gap={200} justifyCenter>
             {CARDS.map(card => (
               <Card key={card.text}>
                 <IconHolder mb={1}>{card.icon}</IconHolder>
