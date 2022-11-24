@@ -19,10 +19,10 @@ function NavBar() {
   )
 
   return (
-    <Row>
+    <Row gap={40}>
       {navBarItems.map(item => (
         <ItemButton key={item.text}>
-          <Text action3 inverse mr={3}>
+          <Text action1 inverse>
             {item.text}
           </Text>
         </ItemButton>
