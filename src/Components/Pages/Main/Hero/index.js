@@ -1,12 +1,13 @@
 import React from 'react'
 
 import { Button, Column, Row, Text } from 'Components/UI'
+import { LANDING_SECTION_ID } from 'Constants/ids'
 
 import { Container, Content } from './styles'
 
 function Hero() {
   return (
-    <Container>
+    <Container id={LANDING_SECTION_ID.hero}>
       <Content>
         <Column>
           <Text h2 inverse mb={10}>

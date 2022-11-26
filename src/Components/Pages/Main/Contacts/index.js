@@ -2,6 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Column, Row, Text } from 'Components/UI'
+import { LANDING_SECTION_ID } from 'Constants/ids'
 import { EnvelopeSimple, PhoneCall } from 'phosphor-react'
 
 import { Card, Container, Content, IconHolder } from './styles'
@@ -24,7 +25,7 @@ function Contacts() {
   ]
   return (
     <Container>
-      <Content>
+      <Content id={LANDING_SECTION_ID.contacts}>
         <Column>
           <Text h3 heading mb={9}>
             {t('header')}

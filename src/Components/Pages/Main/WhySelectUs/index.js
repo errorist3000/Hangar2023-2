@@ -2,7 +2,8 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { partnershipImage } from 'Assets/Images'
-import { Column, Text } from 'Components/UI'
+import { Column, Image, Text } from 'Components/UI'
+import { LANDING_SECTION_ID } from 'Constants/ids'
 
 import { Container, Content, ImageHolder } from './styles'
 
@@ -13,9 +14,9 @@ function WhySelectUs() {
 
   return (
     <Container>
-      <Content>
+      <Content id={LANDING_SECTION_ID.aboutUs}>
         <ImageHolder>
-          <img alt="dvsdvdsv" src={partnershipImage.src} />
+          <Image alt={partnershipImage.alt} src={partnershipImage.src} />
         </ImageHolder>
         <Column maxWidth={626}>
           <Text h3 heading>

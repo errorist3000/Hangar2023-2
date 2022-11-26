@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import { mockGalleryPreviewImage } from 'Assets/Images'
 import { Button, Text } from 'Components/UI'
+import { LANDING_SECTION_ID } from 'Constants/ids'
 import { MapPin } from 'phosphor-react'
 
 import {
@@ -77,7 +78,7 @@ function Gallery() {
 
   return (
     <Container>
-      <Content>
+      <Content id={LANDING_SECTION_ID.gallery}>
         <Text h3 heading mb={3}>
           {t('title')}
         </Text>
@@ -87,7 +88,7 @@ function Gallery() {
         <Text body caption1 mb={10}>
           {t('2subTitle')}
         </Text>
-        <Button big tertery>
+        <Button big tertiary>
           <MapPin weight={ICON_WEIGHT} />
           Объекты на карте
         </Button>
@@ -95,7 +96,7 @@ function Gallery() {
           {CARDS.map(card => (
             <CardHolder key={card.subtext}>
               <Card>
-                <StyledImage src={card.image.src} />
+                <StyledImage alt={card.image.alt} src={card.image.src} />
                 <CaptionHolder>
                   <Text heading mb={2} subHeader3>
                     {card.text}
