@@ -19,6 +19,7 @@ export const Container = styled.div`
   backdrop-filter: blur(6px);
   height: 72px;
   transition: height ${themeGet('transitionTime.modal')} linear;
+  z-index: ${themeGet('zIndexes.landingHeader')};
 
   ${contanerShrinkCss}
 `
