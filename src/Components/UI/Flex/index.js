@@ -11,6 +11,12 @@ const fullWidthCss = ({ fullWidth }) =>
     width: 100%;
   `
 
+const fullHeightCss = ({ fullHeight }) =>
+  fullHeight &&
+  css`
+    height: 100%;
+  `
+
 const spaceBetweenCss = ({ spaceBetween }) =>
   spaceBetween &&
   css`
@@ -39,6 +45,7 @@ const Flex = styled.div`
   
   ${gapCss}
   
+  ${fullHeightCss}
   ${fullWidthCss}
   ${spaceBetweenCss}
   ${justifyCenterCss}

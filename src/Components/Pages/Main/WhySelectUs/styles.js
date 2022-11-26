@@ -21,7 +21,6 @@ export const Content = styled.div`
 export const ImageHolder = styled.div`
   height: 100%;
   width: 520px;
-  background-color: tomato;
   overflow: hidden;
   flex-shrink: 0;
 

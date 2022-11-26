@@ -6,7 +6,7 @@ import { Column, Image, Row, Text } from 'Components/UI'
 import { LANDING_SECTION_ID } from 'Constants/ids'
 import { Calendar } from 'phosphor-react'
 
-import { Card, Container, Content, ImageHolder } from './styles'
+import { Card, Container, Content } from './styles'
 
 function OurNews() {
   const { t } = useTranslation('translation', {
@@ -16,24 +16,25 @@ function OurNews() {
   const CARDS = [
     {
       image: OurNewsPrewiewImage,
-      title: t('s1title'),
-      subTitle: t('s1subTitle'),
-      text: t('s1text'),
-      subText: t('s1subText'),
+      title: 'ТЕПЛЫЙ АНГАР ДЛЯ ХРАНЕНИЯ ТЕХНИКИ',
+      date: '25.06.1975',
+      text: 'Сдали заказчику ангар из сендвич-панелей PIR в деревне назарово, Истринского р-на, МО',
+      subText: 'Размеры - 18 × 48 × 5 метров',
     },
     {
       image: OurNewsPrewiewImage,
-      title: t('s2title'),
-      subTitle: t('s2subTitle'),
-      text: t('s2text'),
-      subText: t('s2subText'),
+      title: 'ТЕПЛЫЙ АНГАР ДЛЯ ХРАНЕНИЯ ТЕХНИКИ',
+      date: '25.06.1975',
+      text: 'Сдали заказчику ангар из сендвич-панелей PIR в деревне назарово, Истринского р-на, МО',
+      subText:
+        'Размеры - 18 × 48 × 5 метров vxfvdfvdf dfvdfvdfv fvdfvdfvdfv dfdfvdfdfv',
     },
     {
       image: OurNewsPrewiewImage,
-      title: t('s3title'),
-      subTitle: t('s3subTitle'),
-      text: t('s3text'),
-      subText: t('s3subText'),
+      title: 'ТЕПЛЫЙ АНГАР ДЛЯ ХРАНЕНИЯ ТЕХНИКИ',
+      date: '25.06.1975',
+      text: 'Сдали заказчику ангар из сендвич-панелей PIR в деревне назарово, Истринского р-на, МО',
+      subText: 'Размеры - 18 × 48 × 5 метров',
     },
   ]
 
@@ -49,25 +50,25 @@ function OurNews() {
         <Row gap={20}>
           {CARDS.map(card => (
             <Card key={card.subtext}>
-              <ImageHolder>
-                <Image alt={partnershipImage.alt} src={card.image.src} />
-              </ImageHolder>
-              <Column px={3} py={2}>
-                <Text heading mb={1} subHeader3>
+              <Image alt={partnershipImage.alt} src={card.image.src} />
+              <Column fullHeight px={3} py={2}>
+                <Text heading mb={2} subHeader3>
                   {card.title}
                 </Text>
-                <Row>
+                <Row mb={4}>
                   <Calendar />
-                  <Text caption2 mb={4} muted>
-                    {card.subTitle}
+                  <Text caption2 muted>
+                    {card.date}
                   </Text>
                 </Row>
-                <Text body body3 mb={3}>
-                  {card.text}
-                </Text>
-                <Text body caption1>
-                  {card.subText}
-                </Text>
+                <Column fullHeight spaceBetween>
+                  <Text body body3 mb={3}>
+                    {card.text}
+                  </Text>
+                  <Text body caption1>
+                    {card.subText}
+                  </Text>
+                </Column>
               </Column>
             </Card>
           ))}

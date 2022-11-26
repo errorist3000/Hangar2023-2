@@ -20,25 +20,21 @@ export const Content = styled.div`
   padding-top: ${themeGet('space.14')}px;
   padding-bottom: ${themeGet('space.14')}px;
 `
-export const ImageHolder = styled.div`
-  height: 100%;
-  width: 412px;
-  background-color: tomato;
-  overflow: hidden;
-  //flex-shrink: 0;
-`
+
 export const Card = styled.div`
+  width: 412px;
   display: flex;
   flex-direction: column;
   align-items: start;
   text-align: start;
-  height: 414px;
   box-shadow: ${themeGet('shadow.medium')};
   z-index: 1;
+  overflow: hidden;
 
   img {
+    height: 240px;
     width: 100%;
-    height: 100%;
+    background-color: ${themeGet('colors.bg.primary')};
     object-fit: cover;
   }
   svg {
