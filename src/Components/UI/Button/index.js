@@ -1,4 +1,4 @@
-import { bool } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import styled, { css } from 'styled-components'
 import { mapToTheme } from 'styled-map'
@@ -19,8 +19,8 @@ const buttonOutlineCss = ({ outline }) =>
     }
   `
 
-const buttonTerteryCss = ({ tertery }) =>
-  tertery &&
+const buttonTertiaryCss = ({ tertiary }) =>
+  tertiary &&
   css`
     background: ${themeGet('colors.button.tertery.bg')};
     border: 1px solid ${themeGet('colors.button.tertery.border')};
@@ -61,19 +61,21 @@ const Button = styled.button`
   ${layout}
 
   ${buttonOutlineCss}
-  ${buttonTerteryCss}
+  ${buttonTertiaryCss}
 `
 
 Button.defaultProps = {
   big: undefined,
   outline: undefined,
   small: undefined,
+  tertiary: undefined,
 }
 
 Button.propTypes = {
-  big: bool,
-  outline: bool,
-  small: bool,
+  big: PropTypes.bool,
+  outline: PropTypes.bool,
+  small: PropTypes.bool,
+  tertiary: PropTypes.bool,
 }
 
 export default Button
