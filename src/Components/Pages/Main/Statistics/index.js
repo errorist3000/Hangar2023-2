@@ -15,22 +15,22 @@ function Statistics() {
   const CARDS = [
     {
       icon: <HourglassHigh />,
-      title: t('s1title'),
+      title: 15,
       text: t('s1text'),
     },
     {
       icon: <Factory />,
-      title: t('s2title'),
+      title: 10,
       text: t('s2text'),
     },
     {
       icon: <HouseLine />,
-      title: t('s3title'),
+      title: 12,
       text: t('s3text'),
     },
     {
       icon: <UsersThree />,
-      title: t('s4title'),
+      title: 20,
       text: t('s4text'),
     },
   ]

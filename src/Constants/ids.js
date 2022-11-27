@@ -11,3 +11,8 @@ export const LANDING_SECTION_ID = {
   news: 'news',
   contacts: 'contacts',
 }
+
+export const DATOCMS_ENDPOINT = {
+  MAIN: 'https://graphql.datocms.com/',
+  PREVIEW: '',
+}

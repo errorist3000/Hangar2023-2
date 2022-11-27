@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { LandingLayout } from 'Components/Layouts'
 import {
@@ -10,12 +11,22 @@ import {
   Steps,
   WhySelectUs,
 } from 'Components/Pages/Main'
+import client from 'Services/DatoCMS/client'
+import homePageQuery from 'Services/DatoCMS/Queries/homePage.graphql'
 
-function Main() {
+export async function getStaticProps() {
+  const { data } = await client.query({
+    query: homePageQuery,
+  })
+
+  return { props: { data } }
+}
+
+function Main({ data }) {
   return (
     <LandingLayout>
       <Hero />
-      <Steps />
+      <Steps data={data?.homePage?.stepSection} />
       <Gallery />
       <WhySelectUs />
       <Statistics />
@@ -23,6 +34,14 @@ function Main() {
       <Contacts />
     </LandingLayout>
   )
+}
+
+Main.defaultProps = {
+  data: {},
+}
+
+Main.propTypes = {
+  data: PropTypes.object,
 }
 
 export default Main

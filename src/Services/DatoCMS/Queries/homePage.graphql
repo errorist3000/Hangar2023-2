@@ -1,0 +1,10 @@
+query HomePage {
+  homePage(locale: ru) {
+    stepSection(locale: ru) {
+      title
+      text
+      order
+      id
+    }
+  }
+}

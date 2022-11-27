@@ -82,11 +82,8 @@ function Gallery() {
         <Text h3 heading mb={3}>
           {t('title')}
         </Text>
-        <Text body caption1 mb={2}>
-          {t('1subTitle')}
-        </Text>
-        <Text body caption1 mb={10}>
-          {t('2subTitle')}
+        <Text body caption1 mb={10} preLine>
+          {t('subtitle')}
         </Text>
         <Button big tertiary>
           <MapPin weight={ICON_WEIGHT} />

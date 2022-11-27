@@ -5,6 +5,13 @@ const isProduction = false
 
 module.exports = {
   extends: ['airbnb', 'prettier', 'plugin:@next/next/recommended'],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
   env: {
     browser: true,
     jest: true,
@@ -92,12 +99,7 @@ module.exports = {
       },
     ],
   },
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-      classes: true,
-    },
-  },
+
   settings: {
     'import/resolver': {
       node: {

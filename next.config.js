@@ -1,4 +1,6 @@
-module.exports = {
+const withGraphql = require('next-plugin-graphql')
+
+module.exports = withGraphql({
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -14,4 +16,4 @@ module.exports = {
   compiler: {
     styledComponents: true,
   },
-}
+})

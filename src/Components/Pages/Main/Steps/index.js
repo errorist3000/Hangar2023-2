@@ -1,35 +1,29 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import React, { useMemo } from 'react'
+import PropTypes from 'prop-types'
 
 import { Text } from 'Components/UI'
 import { DesktopTower, Factory, Handshake, HouseLine } from 'phosphor-react'
+
+import { orderBy } from 'lodash/collection'
 
 import { Card, Container, Content, IconHolder } from './styles'
 
 const ICON_WEIGHT = 'regular'
 
-function Steps() {
-  const { t } = useTranslation('translation', { keyPrefix: 'pages.main.steps' })
+function Steps({ data }) {
+  const sortedDataByOrder = useMemo(() => orderBy(data, 'order', 'asc'), [data])
 
-  const cards = [
+  const icons = [
     {
-      title: t('s1title'),
-      text: t('s1text'),
       icon: <DesktopTower weight={ICON_WEIGHT} />,
     },
     {
-      title: t('s2title'),
-      text: t('s2text'),
       icon: <Factory weight={ICON_WEIGHT} />,
     },
     {
-      title: t('s3title'),
-      text: t('s3text'),
       icon: <HouseLine weight={ICON_WEIGHT} />,
     },
     {
-      title: t('s4title'),
-      text: t('s4text'),
       icon: <Handshake weight={ICON_WEIGHT} />,
     },
   ]
@@ -37,9 +31,9 @@ function Steps() {
   return (
     <Container>
       <Content>
-        {cards.map(card => (
-          <Card key={card.title}>
-            <IconHolder mb={5}>{card.icon}</IconHolder>
+        {sortedDataByOrder.map(card => (
+          <Card key={card.id}>
+            <IconHolder mb={5}>{icons[card.order].icon}</IconHolder>
             <Text heading mb={2} subHeader2>
               {card.title}
             </Text>
@@ -51,6 +45,14 @@ function Steps() {
       </Content>
     </Container>
   )
+}
+
+Steps.defaultProps = {
+  data: [],
+}
+
+Steps.propTypes = {
+  data: PropTypes.array,
 }
 
 export default Steps
