@@ -1,0 +1,5 @@
+fragment ResponsiveImageFields on ResponsiveImage {
+  src
+  srcSet
+  webpSrcSet
+}

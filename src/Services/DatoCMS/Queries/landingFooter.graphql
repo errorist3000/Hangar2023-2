@@ -1,0 +1,7 @@
+#import "Services/DatoCMS/Fragments/landingFooter.graphql"
+
+query LandingFooter {
+  landingFooter(locale: ru) {
+    ...LandingFooterFields
+  }
+}

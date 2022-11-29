@@ -186,6 +186,18 @@ type GlobalSeoField {
 
 "Record of type Home page (home_page)"
 type HomePageRecord implements RecordInterface {
+  _allGalleryProjectsLocales(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [ProjectRecordListListNonNullMultiLocaleField!]
+  _allOurNewsSectionLocales(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [NoveltyRecordListListNonNullMultiLocaleField!]
   _allStepSectionLocales(
     "If you want to fallback to a default translation when a translation has not been found"
     fallbackLocales: [SiteLocale!]
@@ -207,7 +219,20 @@ type HomePageRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   createdAt: DateTime!
+  galleryProjects(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [ProjectRecord!]!
   id: ItemId!
+  ourNewsSection(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [NoveltyRecord!]!
+  statisticSection: [StatisticRecord!]!
   stepSection(
     "If you want to fallback to a default translation when a translation has not been found"
     fallbackLocales: [SiteLocale!]
@@ -217,15 +242,104 @@ type HomePageRecord implements RecordInterface {
   updatedAt: DateTime!
 }
 
-"Record of type New (news)"
-type NewsRecord implements RecordInterface {
-  _allDescriptionLocales(
+"Record of type Landing Footer (landing_footer)"
+type LandingFooterRecord implements RecordInterface {
+  _allAdressLocales(
     "If you want to fallback to a default translation when a translation has not been found"
     fallbackLocales: [SiteLocale!]
     "The locale to use to fetch the field's content"
     locale: SiteLocale
   ): [StringMultiLocaleField!]
-  _allSizesLocales(
+  _allLegalAddressLocales(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [StringMultiLocaleField!]
+  _allLegalNameLocales(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [StringMultiLocaleField!]
+  _createdAt: DateTime!
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+  "SEO meta tags"
+  _seoMetaTags(
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  adress(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): String
+  createdAt: DateTime!
+  id: ItemId!
+  legalAddress(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): String
+  legalName(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): String
+  mailangarpro: String
+  mailautor: String
+  updatedAt: DateTime!
+}
+
+type LatLonField {
+  latitude: FloatType!
+  longitude: FloatType!
+}
+
+"Block of type Novelty (novelty)"
+type NoveltyRecord implements RecordInterface {
+  _createdAt: DateTime!
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+  "SEO meta tags"
+  _seoMetaTags(
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  createdAt: DateTime!
+  date: Date
+  description("Process content as markdown" markdown: Boolean): String
+  id: ItemId!
+  image: FileField
+  size: String
+  title: String
+  updatedAt: DateTime!
+}
+
+type NoveltyRecordListListNonNullMultiLocaleField {
+  locale: SiteLocale
+  value: [NoveltyRecord!]!
+}
+
+"Record of type Project (project)"
+type ProjectRecord implements RecordInterface {
+  _allDescriptionLocales(
     "If you want to fallback to a default translation when a translation has not been found"
     fallbackLocales: [SiteLocale!]
     "The locale to use to fetch the field's content"
@@ -252,7 +366,6 @@ type NewsRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   createdAt: DateTime!
-  date: DateTime
   description(
     "If you want to fallback to a default translation when a translation has not been found"
     fallbackLocales: [SiteLocale!]
@@ -260,29 +373,31 @@ type NewsRecord implements RecordInterface {
     locale: SiteLocale
   ): String
   id: ItemId!
-  illustration: FileField
-  sizes(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
+  imageSet: [FileField!]!
+  location: LatLonField
+  rating: IntType
   title(
     "If you want to fallback to a default translation when a translation has not been found"
     fallbackLocales: [SiteLocale!]
     "The locale to use to fetch the field's content"
     locale: SiteLocale
   ): String
+  titleImage: FileField
   updatedAt: DateTime!
+}
+
+type ProjectRecordListListNonNullMultiLocaleField {
+  locale: SiteLocale
+  value: [ProjectRecord!]!
 }
 
 "The query root for this schema"
 type Query {
   "Returns meta information regarding a record collection"
-  _allNewsMeta(
+  _allProjectsMeta(
     "If you want to fallback to a default translation when a translation has not been found"
     fallbackLocales: [SiteLocale!]
-    filter: NewsModelFilter
+    filter: ProjectModelFilter
     "The locale to use to fetch the field's content"
     locale: SiteLocale
   ): CollectionMetadata!
@@ -300,18 +415,18 @@ type Query {
     locale: SiteLocale
   ): Site!
   "Returns a collection of records"
-  allNews(
+  allProjects(
     "If you want to fallback to a default translation when a translation has not been found"
     fallbackLocales: [SiteLocale!]
-    filter: NewsModelFilter
+    filter: ProjectModelFilter
     "Limit the number of results"
     first: IntType = 20
     "The locale to use to fetch the field's content"
     locale: SiteLocale
-    orderBy: [NewsModelOrderBy] = [_updatedAt_DESC]
+    orderBy: [ProjectModelOrderBy] = [_updatedAt_DESC]
     "Skip the first results"
     skip: IntType
-  ): [NewsRecord!]!
+  ): [ProjectRecord!]!
   "Returns a collection of assets"
   allUploads(
     "If you want to fallback to a default translation when a translation has not been found"
@@ -332,15 +447,22 @@ type Query {
     "The locale to use to fetch the field's content"
     locale: SiteLocale
   ): HomePageRecord
-  "Returns a specific record"
-  news(
+  "Returns the single instance record"
+  landingFooter(
     "If you want to fallback to a default translation when a translation has not been found"
     fallbackLocales: [SiteLocale!]
-    filter: NewsModelFilter
     "The locale to use to fetch the field's content"
     locale: SiteLocale
-    orderBy: [NewsModelOrderBy] = [_updatedAt_DESC]
-  ): NewsRecord
+  ): LandingFooterRecord
+  "Returns a specific record"
+  project(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    filter: ProjectModelFilter
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+    orderBy: [ProjectModelOrderBy] = [_updatedAt_DESC]
+  ): ProjectRecord
   "Returns a specific asset"
   upload(
     "If you want to fallback to a default translation when a translation has not been found"
@@ -386,6 +508,29 @@ type Site {
     locale: SiteLocale
   ): GlobalSeoField
   locales: [SiteLocale!]!
+}
+
+"Block of type Statistic (statistic)"
+type StatisticRecord implements RecordInterface {
+  _createdAt: DateTime!
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+  "SEO meta tags"
+  _seoMetaTags(
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  createdAt: DateTime!
+  id: ItemId!
+  number: IntType
+  order: IntType
+  updatedAt: DateTime!
 }
 
 "Block of type Step (step)"
@@ -663,7 +808,7 @@ enum MuxThumbnailFormatType {
   png
 }
 
-enum NewsModelOrderBy {
+enum ProjectModelOrderBy {
   _createdAt_ASC
   _createdAt_DESC
   _firstPublishedAt_ASC
@@ -682,14 +827,12 @@ enum NewsModelOrderBy {
   _updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
-  date_ASC
-  date_DESC
   description_ASC
   description_DESC
   id_ASC
   id_DESC
-  sizes_ASC
-  sizes_DESC
+  rating_ASC
+  rating_DESC
   title_ASC
   title_DESC
   updatedAt_ASC
@@ -756,6 +899,9 @@ scalar BooleanType
 
 scalar CustomData
 
+"A ISO 8601 compliant date value"
+scalar Date
+
 "A ISO 8601 compliant datetime value"
 scalar DateTime
 
@@ -795,24 +941,6 @@ input CreatedAtFilter {
   neq: DateTime
 }
 
-"Specifies how to filter DateTime fields"
-input DateTimeFilter {
-  "Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument."
-  eq: DateTime
-  "Filter records with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument."
-  gt: DateTime
-  "Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument."
-  gte: DateTime
-  "Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument."
-  lt: DateTime
-  "Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument."
-  lte: DateTime
-  "Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument."
-  neq: DateTime
-}
-
 "Specifies how to filter Single-file/image fields"
 input FileFilter {
   "Search for records with an exact match. The specified value must be an Upload ID"
@@ -824,6 +952,20 @@ input FileFilter {
   "Exclude records with an exact match. The specified value must be an Upload ID"
   neq: UploadId
   "Filter records that do not have one of the specified uploads"
+  notIn: [UploadId]
+}
+
+"Specifies how to filter Multiple files/images field"
+input GalleryFilter {
+  "Filter records that have all of the specified uploads. The specified values must be Upload IDs"
+  allIn: [UploadId]
+  "Filter records that have one of the specified uploads. The specified values must be Upload IDs"
+  anyIn: [UploadId]
+  "Search for records with an exact match. The specified values must be Upload IDs"
+  eq: [UploadId]
+  "Filter records with the specified field defined (i.e. with any value) or not"
+  exists: BooleanType
+  "Filter records that do not have any of the specified uploads. The specified values must be Upload IDs"
   notIn: [UploadId]
 }
 
@@ -2018,6 +2160,24 @@ input InUseFilter {
   eq: BooleanType
 }
 
+"Specifies how to filter Integer fields"
+input IntegerFilter {
+  "Search for records with an exact match"
+  eq: IntType
+  "Filter records with the specified field defined (i.e. with any value) or not"
+  exists: BooleanType
+  "Filter records with a value that's strictly greater than the one specified"
+  gt: IntType
+  "Filter records with a value that's greater than or equal to the one specified"
+  gte: IntType
+  "Filter records with a value that's less than the one specified"
+  lt: IntType
+  "Filter records with a value that's less or equal than the one specified"
+  lte: IntType
+  "Exclude records with an exact match"
+  neq: IntType
+}
+
 "Specifies how to filter by ID"
 input ItemIdFilter {
   "Search the record with the specified ID"
@@ -2030,8 +2190,30 @@ input ItemIdFilter {
   notIn: [ItemId]
 }
 
-input NewsModelFilter {
-  OR: [NewsModelFilter]
+"Specifies how to filter Geolocation fields"
+input LatLonFilter {
+  "Filter records with the specified field defined (i.e. with any value) or not"
+  exists: BooleanType
+  "Filter records within the specified radius in meters"
+  near: LatLonNearFilter
+}
+
+input LatLonNearFilter {
+  latitude: FloatType!
+  longitude: FloatType!
+  radius: FloatType!
+}
+
+"Specifies how to filter by image orientation"
+input OrientationFilter {
+  "Search uploads with the specified orientation"
+  eq: UploadOrientation
+  "Exclude uploads with the specified orientation"
+  neq: UploadOrientation
+}
+
+input ProjectModelFilter {
+  OR: [ProjectModelFilter]
   _createdAt: CreatedAtFilter
   _firstPublishedAt: PublishedAtFilter
   _isValid: BooleanFilter
@@ -2041,21 +2223,14 @@ input NewsModelFilter {
   _unpublishingScheduledAt: PublishedAtFilter
   _updatedAt: UpdatedAtFilter
   createdAt: CreatedAtFilter
-  date: DateTimeFilter
   description: StringFilter
   id: ItemIdFilter
-  illustration: FileFilter
-  sizes: StringFilter
+  imageSet: GalleryFilter
+  location: LatLonFilter
+  rating: IntegerFilter
   title: StringFilter
+  titleImage: FileFilter
   updatedAt: UpdatedAtFilter
-}
-
-"Specifies how to filter by image orientation"
-input OrientationFilter {
-  "Search uploads with the specified orientation"
-  eq: UploadOrientation
-  "Exclude uploads with the specified orientation"
-  neq: UploadOrientation
 }
 
 "Specifies how to filter by publication datetime"

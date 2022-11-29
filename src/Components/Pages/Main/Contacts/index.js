@@ -14,13 +14,13 @@ function Contacts() {
   const CARDS = [
     {
       icon: <PhoneCall />,
-      title: t('s1title'),
-      text: t('s1text'),
+      title: t('callUs'),
+      text: '+7(495)103-47-18 +7(495)103-47-18 +7(495)103-47-18',
     },
     {
       icon: <EnvelopeSimple />,
-      title: t('s2title'),
-      text: t('s2text'),
+      title: t('emailUs'),
+      text: 'post@angarpro.com market@angarpro.com progect@angarpro.com',
     },
   ]
   return (

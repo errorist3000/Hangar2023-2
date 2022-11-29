@@ -1,0 +1,5 @@
+fragment StatisticFields on StatisticRecord {
+  id
+  number
+  order
+}

@@ -1,0 +1,16 @@
+#import "Services/DatoCMS/Fragments/responsiveImage.graphql"
+#import "Services/DatoCMS/Fragments/location.graphql"
+
+fragment GalleryProjectsFields on ProjectRecord {
+  location {
+    ...LocationFields
+  }
+  rating
+  title(locale: ru)
+  description(locale: ru)
+  titleImage {
+    responsiveImage {
+      ...ResponsiveImageFields
+    }
+  }
+}

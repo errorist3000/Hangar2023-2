@@ -13,24 +13,29 @@ import {
 } from 'Components/Pages/Main'
 import client from 'Services/DatoCMS/client'
 import homePageQuery from 'Services/DatoCMS/Queries/homePage.graphql'
+import landingFooterQuery from 'Services/DatoCMS/Queries/landingFooter.graphql'
 
 export async function getStaticProps() {
   const { data } = await client.query({
     query: homePageQuery,
   })
 
-  return { props: { data } }
+  const { data: footerData } = await client.query({
+    query: landingFooterQuery,
+  })
+
+  return { props: { data, footerData } }
 }
 
-function Main({ data }) {
+function Main({ data, footerData }) {
   return (
-    <LandingLayout>
+    <LandingLayout footerData={footerData?.landingFooter}>
       <Hero />
       <Steps data={data?.homePage?.stepSection} />
-      <Gallery />
+      <Gallery data={data?.homePage?.galleryProjects} />
       <WhySelectUs />
-      <Statistics />
-      <OurNews />
+      <Statistics data={data?.homePage?.statisticSection} />
+      <OurNews data={data?.homePage?.ourNewsSection} />
       <Contacts />
     </LandingLayout>
   )
@@ -38,10 +43,12 @@ function Main({ data }) {
 
 Main.defaultProps = {
   data: {},
+  footerData: {},
 }
 
 Main.propTypes = {
   data: PropTypes.object,
+  footerData: PropTypes.object,
 }
 
 export default Main

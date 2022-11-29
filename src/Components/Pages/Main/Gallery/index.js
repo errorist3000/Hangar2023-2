@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+import PropTypes from 'prop-types'
 
-import { mockGalleryPreviewImage } from 'Assets/Images'
-import { Button, Text } from 'Components/UI'
+import { Button, Image, Text } from 'Components/UI'
 import { LANDING_SECTION_ID } from 'Constants/ids'
 import { MapPin } from 'phosphor-react'
+
+import { orderBy } from 'lodash/collection'
 
 import {
   CaptionHolder,
@@ -13,68 +15,18 @@ import {
   CardsHolder,
   Container,
   Content,
-  StyledImage,
 } from './styles'
 
 const ICON_WEIGHT = 'bold'
 
-function Gallery() {
+function Gallery({ data }) {
   const { t } = useTranslation('translation', {
     keyPrefix: 'pages.main.gallery',
   })
 
-  const CARDS = [
-    {
-      image: mockGalleryPreviewImage,
-      text: t('s1text'),
-      subtext: t('s2text'),
-    },
-    {
-      image: mockGalleryPreviewImage,
-      text: t('s1text'),
-      subtext: t('s2text'),
-    },
-    {
-      image: mockGalleryPreviewImage,
-      text: t('s1text'),
-      subtext: t('s2text'),
-    },
-    {
-      image: mockGalleryPreviewImage,
-      text: t('s1text'),
-      subtext: t('s2text'),
-    },
-    {
-      image: mockGalleryPreviewImage,
-      text: t('s1text'),
-      subtext: t('s2text'),
-    },
-    {
-      image: mockGalleryPreviewImage,
-      text: t('s1text'),
-      subtext: t('s2text'),
-    },
-    {
-      image: mockGalleryPreviewImage,
-      text: t('s1text'),
-      subtext: t('s2text'),
-    },
-    {
-      image: mockGalleryPreviewImage,
-      text: t('s1text'),
-      subtext: t('s2text'),
-    },
-    {
-      image: mockGalleryPreviewImage,
-      text: t('s1text'),
-      subtext: t('s2text'),
-    },
-    {
-      image: mockGalleryPreviewImage,
-      text: t('s1text'),
-      subtext: t('s2text'),
-    },
-  ]
+  const sortedData = useMemo(() => orderBy(data, 'rating', 'desc'), [data])
+
+  // console.log(sortedData)
 
   return (
     <Container>
@@ -90,16 +42,16 @@ function Gallery() {
           Объекты на карте
         </Button>
         <CardsHolder>
-          {CARDS.map(card => (
-            <CardHolder key={card.subtext}>
+          {sortedData.map(card => (
+            <CardHolder key={card.id}>
               <Card>
-                <StyledImage alt={card.image.alt} src={card.image.src} />
+                <Image alt="fbdfb" src={card.titleImage.responsiveImage.src} />
                 <CaptionHolder>
                   <Text heading mb={2} subHeader3>
-                    {card.text}
+                    {card.title}
                   </Text>
                   <Text caption3 muted>
-                    {card.subtext}
+                    {card.description}
                   </Text>
                 </CaptionHolder>
               </Card>
@@ -112,4 +64,11 @@ function Gallery() {
   )
 }
 
+Gallery.defaultProps = {
+  data: [],
+}
+
+Gallery.propTypes = {
+  data: PropTypes.array,
+}
 export default Gallery

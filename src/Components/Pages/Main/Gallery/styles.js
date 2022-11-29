@@ -45,6 +45,13 @@ export const Card = styled.button`
   bottom: 0;
   transition: all ${themeGet('transitionTime.long')};
 
+  img {
+    filter: grayscale(100%);
+    width: 100%;
+    object-fit: cover;
+    height: 320px;
+  }
+
   p {
     transition: opacity ${themeGet('transitionTime.long')} ease-in;
     opacity: 0;
@@ -56,6 +63,7 @@ export const Card = styled.button`
 
     img {
       filter: grayscale(0);
+      width: 100%;
     }
 
     div {
@@ -68,13 +76,6 @@ export const Card = styled.button`
   }
 `
 
-export const StyledImage = styled.img`
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  filter: grayscale(100%);
-  transition: all ${themeGet('transitionTime.long')};
-`
 export const CaptionHolder = styled.div`
   width: 100%;
   display: flex;

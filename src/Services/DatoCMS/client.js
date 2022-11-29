@@ -13,6 +13,7 @@ const link = new HttpLink({
   uri: DATOCMS_ENDPOINT.MAIN,
   headers,
 })
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link,

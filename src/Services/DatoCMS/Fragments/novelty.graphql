@@ -1,0 +1,14 @@
+#import "Services/DatoCMS/Fragments/responsiveImage.graphql"
+
+fragment NoveltyFields on NoveltyRecord {
+  id
+  size
+  title
+  date
+  description
+  image {
+    responsiveImage {
+      ...ResponsiveImageFields
+    }
+  }
+}

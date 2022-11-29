@@ -8,7 +8,7 @@ export const LANDING_SECTION_ID = {
   hero: 'hero',
   gallery: 'gallery',
   aboutUs: 'aboutUs',
-  news: 'news',
+  ourNews: 'ourNews',
   contacts: 'contacts',
 }
 
