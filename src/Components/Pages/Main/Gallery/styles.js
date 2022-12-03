@@ -31,7 +31,8 @@ export const CardsHolder = styled.div`
 export const CardHolder = styled.div`
   position: relative;
   height: 320px;
-  width: 20vw;
+  width: 320px;
+  //width: 20vw;
 `
 
 export const Card = styled.button`

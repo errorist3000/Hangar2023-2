@@ -306,8 +306,26 @@ type LatLonField {
   longitude: FloatType!
 }
 
-"Block of type Novelty (novelty)"
+"Record of type Novelty (novelty)"
 type NoveltyRecord implements RecordInterface {
+  _allDescriptionLocales(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [StringMultiLocaleField!]
+  _allSizeLocales(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [StringMultiLocaleField!]
+  _allTitleLocales(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [StringMultiLocaleField!]
   _createdAt: DateTime!
   _firstPublishedAt: DateTime
   _isValid: BooleanType!
@@ -324,11 +342,26 @@ type NoveltyRecord implements RecordInterface {
   _updatedAt: DateTime!
   createdAt: DateTime!
   date: Date
-  description("Process content as markdown" markdown: Boolean): String
+  description(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): String
   id: ItemId!
   image: FileField
-  size: String
-  title: String
+  size(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): String
+  title(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): String
   updatedAt: DateTime!
 }
 
@@ -340,6 +373,12 @@ type NoveltyRecordListListNonNullMultiLocaleField {
 "Record of type Project (project)"
 type ProjectRecord implements RecordInterface {
   _allDescriptionLocales(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [StringMultiLocaleField!]
+  _allNameLocales(
     "If you want to fallback to a default translation when a translation has not been found"
     fallbackLocales: [SiteLocale!]
     "The locale to use to fetch the field's content"
@@ -375,6 +414,12 @@ type ProjectRecord implements RecordInterface {
   id: ItemId!
   imageSet: [FileField!]!
   location: LatLonField
+  name(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): String
   rating: IntType
   title(
     "If you want to fallback to a default translation when a translation has not been found"
@@ -393,6 +438,14 @@ type ProjectRecordListListNonNullMultiLocaleField {
 
 "The query root for this schema"
 type Query {
+  "Returns meta information regarding a record collection"
+  _allNoveltiesMeta(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    filter: NoveltyModelFilter
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): CollectionMetadata!
   "Returns meta information regarding a record collection"
   _allProjectsMeta(
     "If you want to fallback to a default translation when a translation has not been found"
@@ -414,6 +467,19 @@ type Query {
     "The locale to use to fetch the field's content"
     locale: SiteLocale
   ): Site!
+  "Returns a collection of records"
+  allNovelties(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    filter: NoveltyModelFilter
+    "Limit the number of results"
+    first: IntType = 20
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+    orderBy: [NoveltyModelOrderBy] = [_updatedAt_DESC]
+    "Skip the first results"
+    skip: IntType
+  ): [NoveltyRecord!]!
   "Returns a collection of records"
   allProjects(
     "If you want to fallback to a default translation when a translation has not been found"
@@ -454,6 +520,15 @@ type Query {
     "The locale to use to fetch the field's content"
     locale: SiteLocale
   ): LandingFooterRecord
+  "Returns a specific record"
+  novelty(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    filter: NoveltyModelFilter
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+    orderBy: [NoveltyModelOrderBy] = [_updatedAt_DESC]
+  ): NoveltyRecord
   "Returns a specific record"
   project(
     "If you want to fallback to a default translation when a translation has not been found"
@@ -808,6 +883,39 @@ enum MuxThumbnailFormatType {
   png
 }
 
+enum NoveltyModelOrderBy {
+  _createdAt_ASC
+  _createdAt_DESC
+  _firstPublishedAt_ASC
+  _firstPublishedAt_DESC
+  _isValid_ASC
+  _isValid_DESC
+  _publicationScheduledAt_ASC
+  _publicationScheduledAt_DESC
+  _publishedAt_ASC
+  _publishedAt_DESC
+  _status_ASC
+  _status_DESC
+  _unpublishingScheduledAt_ASC
+  _unpublishingScheduledAt_DESC
+  _updatedAt_ASC
+  _updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+  date_ASC
+  date_DESC
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  size_ASC
+  size_DESC
+  title_ASC
+  title_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
 enum ProjectModelOrderBy {
   _createdAt_ASC
   _createdAt_DESC
@@ -831,6 +939,8 @@ enum ProjectModelOrderBy {
   description_DESC
   id_ASC
   id_DESC
+  name_ASC
+  name_DESC
   rating_ASC
   rating_DESC
   title_ASC
@@ -939,6 +1049,24 @@ input CreatedAtFilter {
   lte: DateTime
   "Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument."
   neq: DateTime
+}
+
+"Specifies how to filter Date fields"
+input DateFilter {
+  "Search for records with an exact match"
+  eq: Date
+  "Filter records with the specified field defined (i.e. with any value) or not"
+  exists: BooleanType
+  "Filter records with a value that's strictly greater than the one specified"
+  gt: Date
+  "Filter records with a value that's greater than or equal to the one specified"
+  gte: Date
+  "Filter records with a value that's less than the one specified"
+  lt: Date
+  "Filter records with a value that's less or equal than the one specified"
+  lte: Date
+  "Exclude records with an exact match"
+  neq: Date
 }
 
 "Specifies how to filter Single-file/image fields"
@@ -2204,6 +2332,26 @@ input LatLonNearFilter {
   radius: FloatType!
 }
 
+input NoveltyModelFilter {
+  OR: [NoveltyModelFilter]
+  _createdAt: CreatedAtFilter
+  _firstPublishedAt: PublishedAtFilter
+  _isValid: BooleanFilter
+  _publicationScheduledAt: PublishedAtFilter
+  _publishedAt: PublishedAtFilter
+  _status: StatusFilter
+  _unpublishingScheduledAt: PublishedAtFilter
+  _updatedAt: UpdatedAtFilter
+  createdAt: CreatedAtFilter
+  date: DateFilter
+  description: StringFilter
+  id: ItemIdFilter
+  image: FileFilter
+  size: StringFilter
+  title: StringFilter
+  updatedAt: UpdatedAtFilter
+}
+
 "Specifies how to filter by image orientation"
 input OrientationFilter {
   "Search uploads with the specified orientation"
@@ -2227,6 +2375,7 @@ input ProjectModelFilter {
   id: ItemIdFilter
   imageSet: GalleryFilter
   location: LatLonFilter
+  name: StringFilter
   rating: IntegerFilter
   title: StringFilter
   titleImage: FileFilter

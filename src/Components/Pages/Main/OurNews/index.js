@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 
@@ -7,8 +7,6 @@ import { DATO_DATE_FORMAT } from 'Constants/datoCms'
 import { LANDING_SECTION_ID } from 'Constants/ids'
 import { DateTime } from 'luxon'
 import { Calendar } from 'phosphor-react'
-
-import { orderBy } from 'lodash/collection'
 
 import { Card, Container, Content } from './styles'
 
@@ -21,8 +19,6 @@ function OurNews({ data }) {
     keyPrefix: 'pages.main.ourNews',
   })
 
-  const sortedData = useMemo(() => orderBy(data, 'date', 'desc'), [data])
-
   return (
     <Container>
       <Content id={LANDING_SECTION_ID.news}>
@@ -33,9 +29,9 @@ function OurNews({ data }) {
           {t('subHeader')}
         </Text>
         <Row gap={20}>
-          {sortedData.map(card => (
+          {data.map(card => (
             <Card key={card.id}>
-              <Image alt="fbdfb" src={card.image.responsiveImage.src} />
+              <Image data={card.image} />
               <Column fullHeight px={3} py={2}>
                 <Text heading mb={2} subHeader3>
                   {card.title}

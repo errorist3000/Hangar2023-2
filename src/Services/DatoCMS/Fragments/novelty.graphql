@@ -1,14 +1,52 @@
-#import "Services/DatoCMS/Fragments/responsiveImage.graphql"
-
 fragment NoveltyFields on NoveltyRecord {
-  id
-  size
-  title
   date
-  description
+  description(locale: ru)
+  size(locale: ru)
+  title(locale: ru)
   image {
-    responsiveImage {
-      ...ResponsiveImageFields
-    }
+    jpeg1x: url(
+      imgixParams: {
+        h: "236"
+        w: "412"
+        fit: crop
+        crop: focalpoint
+        fm: jpg
+        q: 60
+        dpr: 1
+      }
+    )
+    jpeg2x: url(
+      imgixParams: {
+        h: "236"
+        w: "412"
+        fit: crop
+        crop: focalpoint
+        fm: jpg
+        q: 60
+        dpr: 2
+      }
+    )
+    webp1x: url(
+      imgixParams: {
+        h: "236"
+        w: "412"
+        fit: crop
+        crop: focalpoint
+        fm: webp
+        q: 60
+        dpr: 1
+      }
+    )
+    webp2x: url(
+      imgixParams: {
+        h: "236"
+        w: "412"
+        fit: crop
+        crop: focalpoint
+        fm: webp
+        q: 60
+        dpr: 2
+      }
+    )
   }
 }

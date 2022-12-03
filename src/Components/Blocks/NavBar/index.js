@@ -14,7 +14,7 @@ function NavBar() {
     () => [
       { text: t('projects'), link: `${LANDING_SECTION_ID.gallery}` },
       { text: t('aboutUs'), link: `${LANDING_SECTION_ID.aboutUs}` },
-      { text: t('news'), link: `${LANDING_SECTION_ID.news}` },
+      { text: t('ourNews'), link: `${LANDING_SECTION_ID.news}` },
       { text: t('contacts'), link: `${LANDING_SECTION_ID.contacts}` },
     ],
     [t],

@@ -1,12 +1,10 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 
 import { Button, Image, Text } from 'Components/UI'
 import { LANDING_SECTION_ID } from 'Constants/ids'
 import { MapPin } from 'phosphor-react'
-
-import { orderBy } from 'lodash/collection'
 
 import {
   CaptionHolder,
@@ -24,9 +22,7 @@ function Gallery({ data }) {
     keyPrefix: 'pages.main.gallery',
   })
 
-  const sortedData = useMemo(() => orderBy(data, 'rating', 'desc'), [data])
-
-  // console.log(sortedData)
+  console.log(data)
 
   return (
     <Container>
@@ -42,10 +38,10 @@ function Gallery({ data }) {
           Объекты на карте
         </Button>
         <CardsHolder>
-          {sortedData.map(card => (
+          {data.map(card => (
             <CardHolder key={card.id}>
               <Card>
-                <Image alt="fbdfb" src={card.titleImage.responsiveImage.src} />
+                <Image data={card.titleImage} />
                 <CaptionHolder>
                   <Text heading mb={2} subHeader3>
                     {card.title}

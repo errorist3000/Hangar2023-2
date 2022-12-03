@@ -1,19 +1,25 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import styled from 'styled-components'
 
-const Image = styled.img.attrs(props => ({
-  src: props.src,
-  alt: props.alt,
-}))``
+const BaseImage = styled.img`
+  width: 100%;
+  height: 100%;
+`
 
-Image.defaultProps = {
-  alt: 'Image description',
+function Image({ data }) {
+  return (
+    <BaseImage
+      alt={data?.alt}
+      src={data?.jpeg}
+      srcSet={`${data?.webp1x} 1x,${data?.webp2x} 2x`}
+    />
+  )
 }
 
 Image.propTypes = {
-  alt: PropTypes.string,
-  src: PropTypes.string.isRequired,
+  data: PropTypes.object.isRequired,
 }
 
 export default Image

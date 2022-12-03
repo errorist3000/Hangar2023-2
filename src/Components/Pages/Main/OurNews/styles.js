@@ -31,8 +31,8 @@ export const Card = styled.div`
   z-index: 1;
   overflow: hidden;
 
-  img {
-    height: 240px;
+  > img {
+    height: 236px;
     width: 100%;
     background-color: ${themeGet('colors.bg.primary')};
     object-fit: cover;
