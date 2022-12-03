@@ -1,5 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import themeGet from '@styled-system/theme-get'
+
+import { motion } from 'framer-motion'
 
 export const Container = styled.div`
   display: flex;
@@ -21,26 +23,64 @@ export const Content = styled.div`
     border-radius: 0;
   }
 `
-export const CardsHolder = styled.div`
+
+export const TopHolder = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
+  flex-shrink: 0;
 `
+
+export const BottomHolder = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-shrink: 0;
+`
+
+const cardHolderSizeCss = ({ size }) =>
+  size &&
+  css`
+    width: ${size}px;
+    height: ${size}px;
+  `
 
 export const CardHolder = styled.div`
   position: relative;
-  height: 320px;
-  width: 320px;
-  //width: 20vw;
+
+  ${cardHolderSizeCss}
 `
+
+const cardHoverCss = ({ canHover }) =>
+  canHover &&
+  css`
+    cursor: pointer;
+    &:hover {
+      z-index: 1;
+      box-shadow: ${themeGet('shadow.large')};
+
+      img {
+        filter: grayscale(0);
+        width: 100%;
+      }
+
+      div {
+        height: 96px;
+      }
+
+      p {
+        opacity: 1;
+      }
+    }
+  `
 
 export const Card = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  cursor: pointer;
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -50,7 +90,6 @@ export const Card = styled.button`
     filter: grayscale(100%);
     width: 100%;
     object-fit: cover;
-    height: 320px;
   }
 
   p {
@@ -58,23 +97,7 @@ export const Card = styled.button`
     opacity: 0;
   }
 
-  &:hover {
-    z-index: 1;
-    box-shadow: ${themeGet('shadow.large')};
-
-    img {
-      filter: grayscale(0);
-      width: 100%;
-    }
-
-    div {
-      height: 96px;
-    }
-
-    p {
-      opacity: 1;
-    }
-  }
+  ${cardHoverCss}
 `
 
 export const CaptionHolder = styled.div`

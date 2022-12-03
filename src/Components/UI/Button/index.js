@@ -11,9 +11,7 @@ const buttonOutlineCss = ({ outline }) =>
     background: none;
     border: 1px solid ${themeGet('colors.button.outline.hover.border')};
 
-    &:hover,
-    :focus,
-    :active {
+    &:hover {
       background-color: ${themeGet('colors.button.outline.hover.bg')};
       border: 1px solid ${themeGet('colors.button.outline.hover.border')};
     }
@@ -26,9 +24,7 @@ const buttonTertiaryCss = ({ tertiary }) =>
     border: 1px solid ${themeGet('colors.button.tertery.border')};
     color: ${themeGet('colors.button.tertery.color')};
 
-    &:hover,
-    :focus,
-    :active {
+    &:hover {
       background-color: ${themeGet('colors.button.tertery.hover.bg')};
       border: 1px solid ${themeGet('colors.button.tertery.hover.border')};
       color: ${themeGet('colors.button.tertery.color')};
@@ -49,9 +45,7 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: 600;
 
-  &:hover,
-  :focus,
-  :active {
+  &:hover {
     background-color: ${themeGet('colors.button.primary.hover.bg')};
     border-color: ${themeGet('colors.button.primary.hover.border')};
   }

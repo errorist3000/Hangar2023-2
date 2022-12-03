@@ -12,8 +12,6 @@ function WhySelectUs() {
     keyPrefix: 'pages.main.whySelectUs',
   })
 
-  console.log(partnershipImage)
-
   return (
     <Container>
       <Content id={LANDING_SECTION_ID.aboutUs}>

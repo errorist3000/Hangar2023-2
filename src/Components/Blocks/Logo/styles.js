@@ -24,6 +24,7 @@ export const LogoFull = styled.div`
   cursor: pointer;
 
   > svg {
+    height: 100%;
     .logo-full_svg__first {
       fill: ${themeGet('colors.text.inverse')};
     }
