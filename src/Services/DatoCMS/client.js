@@ -6,7 +6,7 @@ import { DATOCMS_ENDPOINT } from 'Constants/ids'
 const headers = {
   Accept: 'application/json',
   'Content-Type': 'application/json',
-  Authorization: `Bearer ${process.env.REACT_APP_DATOCMS_KEY}`,
+  Authorization: `Bearer ${process.env.NEXT_PUBLIC_DATOCMS_KEY}`,
 }
 
 const link = new HttpLink({

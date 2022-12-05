@@ -48,6 +48,12 @@ const colors = {
       },
     },
   },
+
+  border: {
+    default: palette.spanishGray,
+    primary: palette.mediumBlack,
+    secondary: palette.brightGray,
+  },
 }
 
 export default colors

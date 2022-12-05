@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 
+import { ObjectsOnMapModal } from 'Components/Blocks'
+import { ProjectGalleryModal } from 'Components/Blocks/Modals'
 import { Button, Column, Image, Text } from 'Components/UI'
 import { LANDING_SECTION_ID } from 'Constants/ids'
 import { MapPin } from 'phosphor-react'
@@ -35,6 +37,8 @@ function Gallery({ data }) {
   const [isCollapsed, setIsCollapsed] = useState(true)
   const [isBottomHidden, setIsBottomHidden] = useState(isCollapsed)
   const [canGetHover, setCanGetHover] = useState(true)
+  const [isMapModalOpen, setIsMapModalOpen] = useState(false)
+  const [openProjectId, setOpenProjectId] = useState(null)
 
   const { t } = useTranslation('translation', {
     keyPrefix: 'pages.main.gallery',
@@ -54,7 +58,7 @@ function Gallery({ data }) {
   const renderCard = useCallback(
     card => (
       <CardHolder key={card.id} size={cardSize}>
-        <Card canHover={canGetHover}>
+        <Card canHover={canGetHover} onClick={() => setOpenProjectId(card.id)}>
           <Image data={card.titleImage} />
           <CaptionHolder>
             <Text heading mb={2} subHeader3>
@@ -103,10 +107,12 @@ function Gallery({ data }) {
         <Text body caption1 mb={10} preLine>
           {t('subtitle')}
         </Text>
-        <Button big tertiary>
+
+        <Button big tertiary onClick={() => setIsMapModalOpen(!isMapModalOpen)}>
           <MapPin weight={ICON_WEIGHT} />
           Объекты на карте
         </Button>
+
         <Column>
           <TopHolder>{topData.map(card => renderCard(card))}</TopHolder>
 
@@ -128,6 +134,16 @@ function Gallery({ data }) {
           Показать все
         </Button>
       </Content>
+      <ObjectsOnMapModal
+        isOpen={isMapModalOpen}
+        onClose={() => setIsMapModalOpen(false)}
+      />
+
+      <ProjectGalleryModal
+        isOpen={openProjectId}
+        projectId={openProjectId}
+        onClose={() => setOpenProjectId(null)}
+      />
     </Container>
   )
 }

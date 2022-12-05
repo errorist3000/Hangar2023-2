@@ -4,6 +4,7 @@ fragment GalleryProjectsFields on ProjectRecord {
   location {
     ...LocationFields
   }
+  id
   rating
   title(locale: ru)
   description(locale: ru)

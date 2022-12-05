@@ -184,6 +184,33 @@ type GlobalSeoField {
   twitterAccount: String
 }
 
+"Record of type Hero (hero)"
+type HeroRecord implements RecordInterface {
+  _createdAt: DateTime!
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+  "SEO meta tags"
+  _seoMetaTags(
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  createdAt: DateTime!
+  id: ItemId!
+  image: FileField
+  updatedAt: DateTime!
+}
+
+type HeroRecordListListNonNullMultiLocaleField {
+  locale: SiteLocale
+  value: [HeroRecord!]!
+}
+
 "Record of type Home page (home_page)"
 type HomePageRecord implements RecordInterface {
   _allGalleryProjectsLocales(
@@ -192,6 +219,12 @@ type HomePageRecord implements RecordInterface {
     "The locale to use to fetch the field's content"
     locale: SiteLocale
   ): [ProjectRecordListListNonNullMultiLocaleField!]
+  _allHeroSectionLocales(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [HeroRecordListListNonNullMultiLocaleField!]
   _allOurNewsSectionLocales(
     "If you want to fallback to a default translation when a translation has not been found"
     fallbackLocales: [SiteLocale!]
@@ -225,6 +258,12 @@ type HomePageRecord implements RecordInterface {
     "The locale to use to fetch the field's content"
     locale: SiteLocale
   ): [ProjectRecord!]!
+  heroSection(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [HeroRecord!]!
   id: ItemId!
   ourNewsSection(
     "If you want to fallback to a default translation when a translation has not been found"
@@ -439,6 +478,14 @@ type ProjectRecordListListNonNullMultiLocaleField {
 "The query root for this schema"
 type Query {
   "Returns meta information regarding a record collection"
+  _allHerosMeta(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    filter: HeroModelFilter
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): CollectionMetadata!
+  "Returns meta information regarding a record collection"
   _allNoveltiesMeta(
     "If you want to fallback to a default translation when a translation has not been found"
     fallbackLocales: [SiteLocale!]
@@ -467,6 +514,19 @@ type Query {
     "The locale to use to fetch the field's content"
     locale: SiteLocale
   ): Site!
+  "Returns a collection of records"
+  allHeros(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    filter: HeroModelFilter
+    "Limit the number of results"
+    first: IntType = 20
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+    orderBy: [HeroModelOrderBy] = [_updatedAt_DESC]
+    "Skip the first results"
+    skip: IntType
+  ): [HeroRecord!]!
   "Returns a collection of records"
   allNovelties(
     "If you want to fallback to a default translation when a translation has not been found"
@@ -506,6 +566,15 @@ type Query {
     "Skip the first results"
     skip: IntType
   ): [FileField!]!
+  "Returns a specific record"
+  hero(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    filter: HeroModelFilter
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+    orderBy: [HeroModelOrderBy] = [_updatedAt_DESC]
+  ): HeroRecord
   "Returns the single instance record"
   homePage(
     "If you want to fallback to a default translation when a translation has not been found"
@@ -690,6 +759,31 @@ enum FaviconType {
   appleTouchIcon
   icon
   msApplication
+}
+
+enum HeroModelOrderBy {
+  _createdAt_ASC
+  _createdAt_DESC
+  _firstPublishedAt_ASC
+  _firstPublishedAt_DESC
+  _isValid_ASC
+  _isValid_DESC
+  _publicationScheduledAt_ASC
+  _publicationScheduledAt_DESC
+  _publishedAt_ASC
+  _publishedAt_DESC
+  _status_ASC
+  _status_DESC
+  _unpublishingScheduledAt_ASC
+  _unpublishingScheduledAt_DESC
+  _updatedAt_ASC
+  _updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 enum ImgixParamsAuto {
@@ -1095,6 +1189,22 @@ input GalleryFilter {
   exists: BooleanType
   "Filter records that do not have any of the specified uploads. The specified values must be Upload IDs"
   notIn: [UploadId]
+}
+
+input HeroModelFilter {
+  OR: [HeroModelFilter]
+  _createdAt: CreatedAtFilter
+  _firstPublishedAt: PublishedAtFilter
+  _isValid: BooleanFilter
+  _publicationScheduledAt: PublishedAtFilter
+  _publishedAt: PublishedAtFilter
+  _status: StatusFilter
+  _unpublishingScheduledAt: PublishedAtFilter
+  _updatedAt: UpdatedAtFilter
+  createdAt: CreatedAtFilter
+  id: ItemIdFilter
+  image: FileFilter
+  updatedAt: UpdatedAtFilter
 }
 
 input ImgixParams {

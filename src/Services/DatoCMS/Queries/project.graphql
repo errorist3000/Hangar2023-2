@@ -1,0 +1,16 @@
+query ProjectQuery($id: ItemIdFilter) {
+  project(filter: { id: $id }) {
+    id
+    description
+    name
+    title
+    location {
+      latitude
+      longitude
+    }
+    imageSet {
+      id
+      url
+    }
+  }
+}

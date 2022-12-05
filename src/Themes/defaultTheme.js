@@ -28,6 +28,7 @@ const font = {
 
 const zIndexes = {
   landingHeader: 500,
+  modal: 9000,
 }
 
 const defaultTheme = {
