@@ -279,6 +279,7 @@ type HomePageRecord implements RecordInterface {
     locale: SiteLocale
   ): [StepRecord!]!
   updatedAt: DateTime!
+  whySelectUsSection: FileField
 }
 
 "Record of type Landing Footer (landing_footer)"
@@ -733,6 +734,28 @@ type UploadVideoField {
     "The file extension of the requested image format. Either png, jpg or gif"
     format: MuxThumbnailFormatType = jpg
   ): String!
+}
+
+"Block of type WhySelect (whyselect)"
+type WhyselectRecord implements RecordInterface {
+  _createdAt: DateTime!
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+  "SEO meta tags"
+  _seoMetaTags(
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  createdAt: DateTime!
+  id: ItemId!
+  image: FileField
+  updatedAt: DateTime!
 }
 
 type focalPoint {

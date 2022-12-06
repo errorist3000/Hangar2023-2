@@ -33,7 +33,7 @@ function Main({ data, footerData }) {
       <Hero />
       <Steps data={data?.homePage?.stepSection} />
       <Gallery data={data?.homePage?.galleryProjects} />
-      <WhySelectUs />
+      <WhySelectUs data={data?.homePage?.whySelectUsSection} />
       <Statistics data={data?.homePage?.statisticSection} />
       <OurNews data={data?.homePage?.ourNewsSection} />
       <Contacts />
