@@ -7,6 +7,7 @@ import { ProjectGalleryModal } from 'Components/Blocks/Modals'
 import { Button, Column, Image, Text } from 'Components/UI'
 import { LANDING_SECTION_ID } from 'Constants/ids'
 import { MapPin } from 'phosphor-react'
+import { pageScroll } from 'Services/Utils'
 
 import {
   BottomHolder,
@@ -84,6 +85,11 @@ function Gallery({ data }) {
     setIsBottomHidden(isCollapsed)
   }, [isCollapsed])
 
+  const handleShowAllClick = useCallback(() => {
+    setIsCollapsed(!isCollapsed)
+    pageScroll(LANDING_SECTION_ID.gallery)
+  }, [isCollapsed])
+
   useEffect(() => {
     setWindowWidth(window.innerWidth)
     setColumnAmount(getColumnAmount(window.innerWidth))
@@ -110,7 +116,7 @@ function Gallery({ data }) {
 
         <Button big tertiary onClick={() => setIsMapModalOpen(!isMapModalOpen)}>
           <MapPin weight={ICON_WEIGHT} />
-          Объекты на карте
+          {t('mapButton')}
         </Button>
 
         <Column>
@@ -130,8 +136,8 @@ function Gallery({ data }) {
             {bottomData.map(card => renderCard(card))}
           </BottomHolder>
         </Column>
-        <Button big onClick={() => setIsCollapsed(!isCollapsed)}>
-          Показать все
+        <Button big onClick={handleShowAllClick}>
+          {isCollapsed ? t('openButton') : t('closeButton')}
         </Button>
       </Content>
       <ObjectsOnMapModal
