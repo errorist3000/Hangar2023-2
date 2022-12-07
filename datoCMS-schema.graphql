@@ -186,6 +186,24 @@ type GlobalSeoField {
 
 "Record of type Hero (hero)"
 type HeroRecord implements RecordInterface {
+  _allSubtitleLocales(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [StringMultiLocaleField!]
+  _allTextLocales(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [StringMultiLocaleField!]
+  _allTitleLocales(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): [StringMultiLocaleField!]
   _createdAt: DateTime!
   _firstPublishedAt: DateTime
   _isValid: BooleanType!
@@ -203,6 +221,24 @@ type HeroRecord implements RecordInterface {
   createdAt: DateTime!
   id: ItemId!
   image: FileField
+  subtitle(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): String
+  text(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): String
+  title(
+    "If you want to fallback to a default translation when a translation has not been found"
+    fallbackLocales: [SiteLocale!]
+    "The locale to use to fetch the field's content"
+    locale: SiteLocale
+  ): String
   updatedAt: DateTime!
 }
 
@@ -805,6 +841,12 @@ enum HeroModelOrderBy {
   createdAt_DESC
   id_ASC
   id_DESC
+  subtitle_ASC
+  subtitle_DESC
+  text_ASC
+  text_DESC
+  title_ASC
+  title_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
@@ -1227,6 +1269,9 @@ input HeroModelFilter {
   createdAt: CreatedAtFilter
   id: ItemIdFilter
   image: FileFilter
+  subtitle: StringFilter
+  text: StringFilter
+  title: StringFilter
   updatedAt: UpdatedAtFilter
 }
 

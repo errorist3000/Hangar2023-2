@@ -7,7 +7,7 @@ const colors = {
     default: palette.white,
     primary: palette.cultured,
     secondary: palette.raisinBlack,
-    tertiary: `${palette.raisinBlack}99`,
+    tertiary: palette.raisinBlack,
   },
 
   text: {
