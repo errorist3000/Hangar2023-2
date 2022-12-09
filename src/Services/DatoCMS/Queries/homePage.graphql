@@ -2,6 +2,7 @@
 #import "Services/DatoCMS/Fragments/statistic.graphql"
 #import "Services/DatoCMS/Fragments/novelty.graphql"
 #import "Services/DatoCMS/Fragments/galleryProject.graphql"
+#import "Services/DatoCMS/Fragments/hero.graphql"
 
 query HomePage {
   homePage(locale: ru) {
@@ -63,6 +64,9 @@ query HomePage {
           dpr: 2
         }
       )
+    }
+    heroSection(locale: ru) {
+      ...HeroFields
     }
   }
 }
