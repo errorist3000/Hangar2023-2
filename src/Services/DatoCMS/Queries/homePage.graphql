@@ -1,6 +1,5 @@
 #import "Services/DatoCMS/Fragments/step.graphql"
 #import "Services/DatoCMS/Fragments/statistic.graphql"
-#import "Services/DatoCMS/Fragments/novelty.graphql"
 #import "Services/DatoCMS/Fragments/galleryProject.graphql"
 #import "Services/DatoCMS/Fragments/hero.graphql"
 
@@ -11,9 +10,6 @@ query HomePage {
     }
     statisticSection {
       ...StatisticFields
-    }
-    ourNewsSection(locale: ru) {
-      ...NoveltyFields
     }
     galleryProjects(locale: ru) {
       ...GalleryProjectsFields

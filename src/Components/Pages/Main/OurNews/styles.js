@@ -12,13 +12,28 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
-  display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   max-width: ${LANDING_CONTENT_WIDTH}px;
   padding-top: ${themeGet('space.14')}px;
   padding-bottom: ${themeGet('space.14')}px;
+
+  .swiper-wrapper {
+    padding-bottom: ${themeGet('space.7')}px;
+  }
+
+  .swiper-scrollbar-horizontal {
+    background-color: ${themeGet('colors.bg.primary')};
+    height: 6px;
+    border-radius: 3px;
+  }
+
+  .swiper-scrollbar-drag {
+    background-color: ${themeGet('colors.primary')};
+    height: 100%;
+    border-radius: inherit;
+  }
 `
 
 export const Card = styled.div`

@@ -12,43 +12,50 @@ import {
   WhySelectUs,
 } from 'Components/Pages/Main'
 import client from 'Services/DatoCMS/client'
+import allNoveltiesQuery from 'Services/DatoCMS/Queries/allNovelties.graphql'
 import homePageQuery from 'Services/DatoCMS/Queries/homePage.graphql'
 import landingFooterQuery from 'Services/DatoCMS/Queries/landingFooter.graphql'
 
 export async function getStaticProps() {
-  const { data } = await client.query({
+  const { data: pageData } = await client.query({
     query: homePageQuery,
+  })
+
+  const { data: allNoveltiesData } = await client.query({
+    query: allNoveltiesQuery,
   })
 
   const { data: footerData } = await client.query({
     query: landingFooterQuery,
   })
 
-  return { props: { data, footerData } }
+  return { props: { pageData, allNoveltiesData, footerData } }
 }
 
-function Main({ data, footerData }) {
+function Main({ pageData, allNoveltiesData, footerData }) {
   return (
     <LandingLayout footerData={footerData?.landingFooter}>
-      <Hero />
-      <Steps data={data?.homePage?.stepSection} />
-      <Gallery data={data?.homePage?.galleryProjects} />
-      <WhySelectUs data={data?.homePage?.whySelectUsSection} />
-      <Statistics data={data?.homePage?.statisticSection} />
-      <OurNews data={data?.homePage?.ourNewsSection} />
+      <Hero data={pageData?.homePage?.heroSection} />
+      <Steps data={pageData?.homePage?.stepSection} />
+      <Gallery data={pageData?.homePage?.galleryProjects} />
+      <WhySelectUs data={pageData?.homePage?.whySelectUsSection} />
+      <Statistics data={pageData?.homePage?.statisticSection} />
+      <OurNews data={allNoveltiesData?.allNovelties} />
       <Contacts />
     </LandingLayout>
   )
 }
 
 Main.defaultProps = {
-  data: {},
+  allNoveltiesData: {},
   footerData: {},
+  pageData: {},
 }
 
 Main.propTypes = {
-  data: PropTypes.object,
+  allNoveltiesData: PropTypes.object,
   footerData: PropTypes.object,
+  pageData: PropTypes.object,
 }
 
 export default Main

@@ -1,8 +1,9 @@
 fragment NoveltyFields on NoveltyRecord {
   date
-  description(locale: ru)
-  size(locale: ru)
   title(locale: ru)
+  description(locale: ru)
+  id
+  size(locale: ru)
   image {
     jpeg1x: url(
       imgixParams: {

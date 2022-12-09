@@ -7,6 +7,8 @@ import { DATO_DATE_FORMAT } from 'Constants/datoCms'
 import { LANDING_SECTION_ID } from 'Constants/ids'
 import { DateTime } from 'luxon'
 import { Calendar } from 'phosphor-react'
+import { Scrollbar } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { Card, Container, Content } from './styles'
 
@@ -28,32 +30,41 @@ function OurNews({ data }) {
         <Text body caption1 mb={10}>
           {t('subHeader')}
         </Text>
-        <Row gap={20}>
-          {data.map(card => (
-            <Card key={card.id}>
-              <Image data={card.image} />
-              <Column fullHeight px={3} py={2}>
-                <Text heading mb={2} subHeader3>
-                  {card.title}
-                </Text>
-                <Row mb={4}>
-                  <Calendar />
-                  <Text caption2 ml={1} muted>
-                    {getPrettyDate(card.date)}
+
+        <Swiper
+          grabCursor
+          modules={[Scrollbar]}
+          scrollbar
+          slidesPerView={3}
+          spaceBetween={20}
+        >
+          {data.map(slide => (
+            <SwiperSlide key={slide.id}>
+              <Card>
+                <Image data={slide.image} />
+                <Column fullHeight px={3} py={2}>
+                  <Text heading mb={2} subHeader3>
+                    {slide.title}
                   </Text>
-                </Row>
-                <Column fullHeight spaceBetween>
-                  <Text body body3 mb={3}>
-                    {card.description}
-                  </Text>
-                  <Text body caption1>
-                    {card.size}
-                  </Text>
+                  <Row mb={4}>
+                    <Calendar />
+                    <Text caption2 ml={1} muted>
+                      {getPrettyDate(slide.date)}
+                    </Text>
+                  </Row>
+                  <Column fullHeight spaceBetween>
+                    <Text body body3 mb={3}>
+                      {slide.description}
+                    </Text>
+                    <Text body caption1>
+                      {slide.size}
+                    </Text>
+                  </Column>
                 </Column>
-              </Column>
-            </Card>
+              </Card>
+            </SwiperSlide>
           ))}
-        </Row>
+        </Swiper>
       </Content>
     </Container>
   )
