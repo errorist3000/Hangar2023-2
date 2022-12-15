@@ -30,7 +30,7 @@ const colors = {
       },
     },
 
-    tertery: {
+    tertiary: {
       color: palette.tiffanyBlue,
       bg: palette.brightGray,
       border: palette.brightGray,
@@ -43,7 +43,7 @@ const colors = {
 
     outline: {
       hover: {
-        bg: `${palette.raisinBlack}10`,
+        bg: `${palette.raisinBlack}50`,
         border: palette.white,
       },
     },
