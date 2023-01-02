@@ -1,1166 +1,1056 @@
 # This file was generated based on ".graphqlconfig". Do not edit manually.
 
 schema {
-  query: Query
+    query: Query
 }
 
 interface FileFieldInterface {
-  _createdAt: DateTime!
-  _updatedAt: DateTime!
-  alt(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  author: String
-  basename: String!
-  blurUpThumb(
-    "Imgix transformations to apply to the image"
-    imgixParams: ImgixParams
-    "Controls the \"punch\" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0)"
-    punch: Float = 1.0
-    "JPEG quality (defaults to 70%)"
-    quality: Int = 70
-    "Maximum image dimension (defaults to 24px)"
-    size: Int = 24
-  ): String
-  blurhash: String
-  colors: [ColorField!]!
-  copyright: String
-  customData(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): CustomData!
-  exifInfo: CustomData!
-  filename: String!
-  focalPoint(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): focalPoint
-  format: String!
-  height: IntType
-  id: UploadId!
-  md5: String!
-  mimeType: String!
-  notes: String
-  responsiveImage(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "Imgix transformations to apply to the image"
-    imgixParams: ImgixParams
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-    "Specify a custom `sizes` attribute for the image"
-    sizes: String
-  ): ResponsiveImage
-  size: IntType!
-  smartTags: [String!]!
-  tags: [String!]!
-  title(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  url(
-    "Imgix transformations to apply to the image"
-    imgixParams: ImgixParams
-  ): String!
-  video: UploadVideoField
-  width: IntType
+    _createdAt: DateTime!
+    _updatedAt: DateTime!
+    alt(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    author: String
+    basename: String!
+    blurUpThumb(
+        "Imgix transformations to apply to the image"
+        imgixParams: ImgixParams,
+        "Controls the \"punch\" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0)"
+        punch: Float = 1.0,
+        "JPEG quality (defaults to 70%)"
+        quality: Int = 70,
+        "Maximum image dimension (defaults to 24px)"
+        size: Int = 24
+    ): String
+    blurhash: String
+    colors: [ColorField!]!
+    copyright: String
+    customData(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): CustomData!
+    exifInfo: CustomData!
+    filename: String!
+    focalPoint(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): focalPoint
+    format: String!
+    height: IntType
+    id: UploadId!
+    md5: String!
+    mimeType: String!
+    notes: String
+    responsiveImage(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "Imgix transformations to apply to the image"
+        imgixParams: ImgixParams,
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale,
+        "Specify a custom `sizes` attribute for the image"
+        sizes: String
+    ): ResponsiveImage
+    size: IntType!
+    smartTags: [String!]!
+    tags: [String!]!
+    title(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    url(
+        "Imgix transformations to apply to the image"
+        imgixParams: ImgixParams
+    ): String!
+    video: UploadVideoField
+    width: IntType
 }
 
 interface RecordInterface {
-  _createdAt: DateTime!
-  _firstPublishedAt: DateTime
-  _isValid: BooleanType!
-  _modelApiKey: String!
-  _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
-  "SEO meta tags"
-  _seoMetaTags(
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [Tag!]!
-  _status: ItemStatus!
-  _unpublishingScheduledAt: DateTime
-  _updatedAt: DateTime!
-  id: ItemId!
+    _createdAt: DateTime!
+    _firstPublishedAt: DateTime
+    _isValid: BooleanType!
+    _modelApiKey: String!
+    _publicationScheduledAt: DateTime
+    _publishedAt: DateTime
+    "SEO meta tags"
+    _seoMetaTags(
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [Tag!]!
+    _status: ItemStatus!
+    _unpublishingScheduledAt: DateTime
+    _updatedAt: DateTime!
+    id: ItemId!
 }
 
 type CollectionMetadata {
-  count: IntType!
+    count: IntType!
 }
 
 type ColorField {
-  alpha: IntType!
-  blue: IntType!
-  green: IntType!
-  hex: String!
-  red: IntType!
+    alpha: IntType!
+    blue: IntType!
+    green: IntType!
+    hex: String!
+    red: IntType!
 }
 
 type FileField implements FileFieldInterface {
-  _createdAt: DateTime!
-  _updatedAt: DateTime!
-  alt(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  author: String
-  basename: String!
-  blurUpThumb(
-    "Imgix transformations to apply to the image"
-    imgixParams: ImgixParams
-    "Controls the \"punch\" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0)"
-    punch: Float = 1.0
-    "JPEG quality (defaults to 70%)"
-    quality: Int = 70
-    "Maximum image dimension (defaults to 24px)"
-    size: Int = 24
-  ): String
-  blurhash: String
-  colors: [ColorField!]!
-  copyright: String
-  customData(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): CustomData!
-  exifInfo: CustomData!
-  filename: String!
-  focalPoint(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): focalPoint
-  format: String!
-  height: IntType
-  id: UploadId!
-  md5: String!
-  mimeType: String!
-  notes: String
-  responsiveImage(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "Imgix transformations to apply to the image"
-    imgixParams: ImgixParams
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-    "Specify a custom `sizes` attribute for the image"
-    sizes: String
-  ): ResponsiveImage
-  size: IntType!
-  smartTags: [String!]!
-  tags: [String!]!
-  title(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  url(
-    "Imgix transformations to apply to the image"
-    imgixParams: ImgixParams
-  ): String!
-  video: UploadVideoField
-  width: IntType
+    _createdAt: DateTime!
+    _updatedAt: DateTime!
+    alt(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    author: String
+    basename: String!
+    blurUpThumb(
+        "Imgix transformations to apply to the image"
+        imgixParams: ImgixParams,
+        "Controls the \"punch\" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0)"
+        punch: Float = 1.0,
+        "JPEG quality (defaults to 70%)"
+        quality: Int = 70,
+        "Maximum image dimension (defaults to 24px)"
+        size: Int = 24
+    ): String
+    blurhash: String
+    colors: [ColorField!]!
+    copyright: String
+    customData(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): CustomData!
+    exifInfo: CustomData!
+    filename: String!
+    focalPoint(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): focalPoint
+    format: String!
+    height: IntType
+    id: UploadId!
+    md5: String!
+    mimeType: String!
+    notes: String
+    responsiveImage(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "Imgix transformations to apply to the image"
+        imgixParams: ImgixParams,
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale,
+        "Specify a custom `sizes` attribute for the image"
+        sizes: String
+    ): ResponsiveImage
+    size: IntType!
+    smartTags: [String!]!
+    tags: [String!]!
+    title(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    url(
+        "Imgix transformations to apply to the image"
+        imgixParams: ImgixParams
+    ): String!
+    video: UploadVideoField
+    width: IntType
 }
 
 type GlobalSeoField {
-  facebookPageUrl: String
-  fallbackSeo: SeoField
-  siteName: String
-  titleSuffix: String
-  twitterAccount: String
+    facebookPageUrl: String
+    fallbackSeo: SeoField
+    siteName: String
+    titleSuffix: String
+    twitterAccount: String
 }
 
-"Record of type Hero (hero)"
+"Block of type Hero (hero)"
 type HeroRecord implements RecordInterface {
-  _allSubtitleLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StringMultiLocaleField!]
-  _allTextLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StringMultiLocaleField!]
-  _allTitleLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StringMultiLocaleField!]
-  _createdAt: DateTime!
-  _firstPublishedAt: DateTime
-  _isValid: BooleanType!
-  _modelApiKey: String!
-  _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
-  "SEO meta tags"
-  _seoMetaTags(
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [Tag!]!
-  _status: ItemStatus!
-  _unpublishingScheduledAt: DateTime
-  _updatedAt: DateTime!
-  createdAt: DateTime!
-  id: ItemId!
-  image: FileField
-  subtitle(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  text(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  title(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  updatedAt: DateTime!
+    _createdAt: DateTime!
+    _firstPublishedAt: DateTime
+    _isValid: BooleanType!
+    _modelApiKey: String!
+    _publicationScheduledAt: DateTime
+    _publishedAt: DateTime
+    "SEO meta tags"
+    _seoMetaTags(
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [Tag!]!
+    _status: ItemStatus!
+    _unpublishingScheduledAt: DateTime
+    _updatedAt: DateTime!
+    createdAt: DateTime!
+    id: ItemId!
+    image: FileField
+    order: IntType
+    subtitle: String
+    text: String
+    title: String
+    updatedAt: DateTime!
 }
 
 type HeroRecordListListNonNullMultiLocaleField {
-  locale: SiteLocale
-  value: [HeroRecord!]!
+    locale: SiteLocale
+    value: [HeroRecord!]!
 }
 
 "Record of type Home page (home_page)"
 type HomePageRecord implements RecordInterface {
-  _allGalleryProjectsLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [ProjectRecordListListNonNullMultiLocaleField!]
-  _allHeroSectionLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [HeroRecordListListNonNullMultiLocaleField!]
-  _allOurNewsSectionLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [NoveltyRecordListListNonNullMultiLocaleField!]
-  _allStepSectionLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StepRecordListListNonNullMultiLocaleField!]
-  _createdAt: DateTime!
-  _firstPublishedAt: DateTime
-  _isValid: BooleanType!
-  _modelApiKey: String!
-  _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
-  "SEO meta tags"
-  _seoMetaTags(
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [Tag!]!
-  _status: ItemStatus!
-  _unpublishingScheduledAt: DateTime
-  _updatedAt: DateTime!
-  createdAt: DateTime!
-  galleryProjects(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [ProjectRecord!]!
-  heroSection(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [HeroRecord!]!
-  id: ItemId!
-  ourNewsSection(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [NoveltyRecord!]!
-  statisticSection: [StatisticRecord!]!
-  stepSection(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StepRecord!]!
-  updatedAt: DateTime!
-  whySelectUsSection: FileField
+    _allGalleryProjectsLocales(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [ProjectRecordListListNonNullMultiLocaleField!]
+    _allHeroSectionLocales(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [HeroRecordListListNonNullMultiLocaleField!]
+    _allStepSectionLocales(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [StepRecordListListNonNullMultiLocaleField!]
+    _createdAt: DateTime!
+    _firstPublishedAt: DateTime
+    _isValid: BooleanType!
+    _modelApiKey: String!
+    _publicationScheduledAt: DateTime
+    _publishedAt: DateTime
+    "SEO meta tags"
+    _seoMetaTags(
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [Tag!]!
+    _status: ItemStatus!
+    _unpublishingScheduledAt: DateTime
+    _updatedAt: DateTime!
+    createdAt: DateTime!
+    galleryProjects(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [ProjectRecord!]!
+    heroSection(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [HeroRecord!]!
+    id: ItemId!
+    statisticSection: [StatisticRecord!]!
+    stepSection(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [StepRecord!]!
+    updatedAt: DateTime!
+    whySelectUsSection: FileField
 }
 
 "Record of type Landing Footer (landing_footer)"
 type LandingFooterRecord implements RecordInterface {
-  _allAdressLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StringMultiLocaleField!]
-  _allLegalAddressLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StringMultiLocaleField!]
-  _allLegalNameLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StringMultiLocaleField!]
-  _createdAt: DateTime!
-  _firstPublishedAt: DateTime
-  _isValid: BooleanType!
-  _modelApiKey: String!
-  _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
-  "SEO meta tags"
-  _seoMetaTags(
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [Tag!]!
-  _status: ItemStatus!
-  _unpublishingScheduledAt: DateTime
-  _updatedAt: DateTime!
-  adress(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  createdAt: DateTime!
-  id: ItemId!
-  legalAddress(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  legalName(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  mailangarpro: String
-  mailautor: String
-  updatedAt: DateTime!
+    _allAdressLocales(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [StringMultiLocaleField!]
+    _allLegalAddressLocales(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [StringMultiLocaleField!]
+    _allLegalNameLocales(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [StringMultiLocaleField!]
+    _createdAt: DateTime!
+    _firstPublishedAt: DateTime
+    _isValid: BooleanType!
+    _modelApiKey: String!
+    _publicationScheduledAt: DateTime
+    _publishedAt: DateTime
+    "SEO meta tags"
+    _seoMetaTags(
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [Tag!]!
+    _status: ItemStatus!
+    _unpublishingScheduledAt: DateTime
+    _updatedAt: DateTime!
+    adress(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    createdAt: DateTime!
+    id: ItemId!
+    legalAddress(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    legalName(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    mailangarpro: String
+    mailautor: String
+    updatedAt: DateTime!
 }
 
 type LatLonField {
-  latitude: FloatType!
-  longitude: FloatType!
+    latitude: FloatType!
+    longitude: FloatType!
 }
 
 "Record of type Novelty (novelty)"
 type NoveltyRecord implements RecordInterface {
-  _allDescriptionLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StringMultiLocaleField!]
-  _allSizeLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StringMultiLocaleField!]
-  _allTitleLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StringMultiLocaleField!]
-  _createdAt: DateTime!
-  _firstPublishedAt: DateTime
-  _isValid: BooleanType!
-  _modelApiKey: String!
-  _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
-  "SEO meta tags"
-  _seoMetaTags(
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [Tag!]!
-  _status: ItemStatus!
-  _unpublishingScheduledAt: DateTime
-  _updatedAt: DateTime!
-  createdAt: DateTime!
-  date: Date
-  description(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  id: ItemId!
-  image: FileField
-  size(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  title(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  updatedAt: DateTime!
-}
-
-type NoveltyRecordListListNonNullMultiLocaleField {
-  locale: SiteLocale
-  value: [NoveltyRecord!]!
+    _allDescriptionLocales(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [StringMultiLocaleField!]
+    _allSizeLocales(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [StringMultiLocaleField!]
+    _allTitleLocales(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [StringMultiLocaleField!]
+    _createdAt: DateTime!
+    _firstPublishedAt: DateTime
+    _isValid: BooleanType!
+    _modelApiKey: String!
+    _publicationScheduledAt: DateTime
+    _publishedAt: DateTime
+    "SEO meta tags"
+    _seoMetaTags(
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [Tag!]!
+    _status: ItemStatus!
+    _unpublishingScheduledAt: DateTime
+    _updatedAt: DateTime!
+    createdAt: DateTime!
+    date: Date
+    description(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    id: ItemId!
+    image: FileField
+    size(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    title(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    updatedAt: DateTime!
 }
 
 "Record of type Project (project)"
 type ProjectRecord implements RecordInterface {
-  _allDescriptionLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StringMultiLocaleField!]
-  _allNameLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StringMultiLocaleField!]
-  _allTitleLocales(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [StringMultiLocaleField!]
-  _createdAt: DateTime!
-  _firstPublishedAt: DateTime
-  _isValid: BooleanType!
-  _modelApiKey: String!
-  _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
-  "SEO meta tags"
-  _seoMetaTags(
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [Tag!]!
-  _status: ItemStatus!
-  _unpublishingScheduledAt: DateTime
-  _updatedAt: DateTime!
-  createdAt: DateTime!
-  description(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  id: ItemId!
-  imageSet: [FileField!]!
-  location: LatLonField
-  name(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  rating: IntType
-  title(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): String
-  titleImage: FileField
-  updatedAt: DateTime!
+    _allDescriptionLocales(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [StringMultiLocaleField!]
+    _allNameLocales(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [StringMultiLocaleField!]
+    _allTitleLocales(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [StringMultiLocaleField!]
+    _createdAt: DateTime!
+    _firstPublishedAt: DateTime
+    _isValid: BooleanType!
+    _modelApiKey: String!
+    _publicationScheduledAt: DateTime
+    _publishedAt: DateTime
+    "SEO meta tags"
+    _seoMetaTags(
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [Tag!]!
+    _status: ItemStatus!
+    _unpublishingScheduledAt: DateTime
+    _updatedAt: DateTime!
+    createdAt: DateTime!
+    description(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    id: ItemId!
+    imageSet: [FileField!]!
+    location: LatLonField
+    name(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    rating: IntType
+    title(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): String
+    titleImage: FileField
+    updatedAt: DateTime!
 }
 
 type ProjectRecordListListNonNullMultiLocaleField {
-  locale: SiteLocale
-  value: [ProjectRecord!]!
+    locale: SiteLocale
+    value: [ProjectRecord!]!
 }
 
 "The query root for this schema"
 type Query {
-  "Returns meta information regarding a record collection"
-  _allHerosMeta(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    filter: HeroModelFilter
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): CollectionMetadata!
-  "Returns meta information regarding a record collection"
-  _allNoveltiesMeta(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    filter: NoveltyModelFilter
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): CollectionMetadata!
-  "Returns meta information regarding a record collection"
-  _allProjectsMeta(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    filter: ProjectModelFilter
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): CollectionMetadata!
-  "Returns meta information regarding an assets collection"
-  _allUploadsMeta(
-    filter: UploadFilter
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): CollectionMetadata
-  "Returns the single instance record"
-  _site(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): Site!
-  "Returns a collection of records"
-  allHeros(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    filter: HeroModelFilter
-    "Limit the number of results"
-    first: IntType = 20
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-    orderBy: [HeroModelOrderBy] = [_updatedAt_DESC]
-    "Skip the first results"
-    skip: IntType
-  ): [HeroRecord!]!
-  "Returns a collection of records"
-  allNovelties(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    filter: NoveltyModelFilter
-    "Limit the number of results"
-    first: IntType = 20
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-    orderBy: [NoveltyModelOrderBy] = [_updatedAt_DESC]
-    "Skip the first results"
-    skip: IntType
-  ): [NoveltyRecord!]!
-  "Returns a collection of records"
-  allProjects(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    filter: ProjectModelFilter
-    "Limit the number of results"
-    first: IntType = 20
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-    orderBy: [ProjectModelOrderBy] = [_updatedAt_DESC]
-    "Skip the first results"
-    skip: IntType
-  ): [ProjectRecord!]!
-  "Returns a collection of assets"
-  allUploads(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    filter: UploadFilter
-    "Limit the number of results"
-    first: IntType = 20
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-    orderBy: [UploadOrderBy] = [_createdAt_DESC]
-    "Skip the first results"
-    skip: IntType
-  ): [FileField!]!
-  "Returns a specific record"
-  hero(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    filter: HeroModelFilter
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-    orderBy: [HeroModelOrderBy] = [_updatedAt_DESC]
-  ): HeroRecord
-  "Returns the single instance record"
-  homePage(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): HomePageRecord
-  "Returns the single instance record"
-  landingFooter(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): LandingFooterRecord
-  "Returns a specific record"
-  novelty(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    filter: NoveltyModelFilter
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-    orderBy: [NoveltyModelOrderBy] = [_updatedAt_DESC]
-  ): NoveltyRecord
-  "Returns a specific record"
-  project(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    filter: ProjectModelFilter
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-    orderBy: [ProjectModelOrderBy] = [_updatedAt_DESC]
-  ): ProjectRecord
-  "Returns a specific asset"
-  upload(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    filter: UploadFilter
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-    orderBy: [UploadOrderBy] = [_createdAt_DESC]
-  ): FileField
+    "Returns meta information regarding a record collection"
+    _allNoveltiesMeta(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        filter: NoveltyModelFilter,
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): CollectionMetadata!
+    "Returns meta information regarding a record collection"
+    _allProjectsMeta(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        filter: ProjectModelFilter,
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): CollectionMetadata!
+    "Returns meta information regarding an assets collection"
+    _allUploadsMeta(
+        filter: UploadFilter,
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): CollectionMetadata
+    "Returns the single instance record"
+    _site(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): Site!
+    "Returns a collection of records"
+    allNovelties(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        filter: NoveltyModelFilter,
+        "Limit the number of results"
+        first: IntType = 20,
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale,
+        orderBy: [NoveltyModelOrderBy] = [_updatedAt_DESC],
+        "Skip the first results"
+        skip: IntType
+    ): [NoveltyRecord!]!
+    "Returns a collection of records"
+    allProjects(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        filter: ProjectModelFilter,
+        "Limit the number of results"
+        first: IntType = 20,
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale,
+        orderBy: [ProjectModelOrderBy] = [_updatedAt_DESC],
+        "Skip the first results"
+        skip: IntType
+    ): [ProjectRecord!]!
+    "Returns a collection of assets"
+    allUploads(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        filter: UploadFilter,
+        "Limit the number of results"
+        first: IntType = 20,
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale,
+        orderBy: [UploadOrderBy] = [_createdAt_DESC],
+        "Skip the first results"
+        skip: IntType
+    ): [FileField!]!
+    "Returns the single instance record"
+    homePage(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): HomePageRecord
+    "Returns the single instance record"
+    landingFooter(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): LandingFooterRecord
+    "Returns a specific record"
+    novelty(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        filter: NoveltyModelFilter,
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale,
+        orderBy: [NoveltyModelOrderBy] = [_updatedAt_DESC]
+    ): NoveltyRecord
+    "Returns a specific record"
+    project(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        filter: ProjectModelFilter,
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale,
+        orderBy: [ProjectModelOrderBy] = [_updatedAt_DESC]
+    ): ProjectRecord
+    "Returns a specific asset"
+    upload(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        filter: UploadFilter,
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale,
+        orderBy: [UploadOrderBy] = [_createdAt_DESC]
+    ): FileField
 }
 
 type ResponsiveImage {
-  alt: String
-  aspectRatio: FloatType!
-  base64: String
-  bgColor: String
-  height: IntType!
-  sizes: String!
-  src: String!
-  srcSet: String!
-  title: String
-  webpSrcSet: String!
-  width: IntType!
+    alt: String
+    aspectRatio: FloatType!
+    base64: String
+    bgColor: String
+    height: IntType!
+    sizes: String!
+    src: String!
+    srcSet: String!
+    title: String
+    webpSrcSet: String!
+    width: IntType!
 }
 
 type SeoField {
-  description: String
-  image: FileField
-  title: String
-  twitterCard: String
+    description: String
+    image: FileField
+    title: String
+    twitterCard: String
 }
 
 type Site {
-  favicon: FileField
-  faviconMetaTags(
-    "The variants to build"
-    variants: [FaviconType] = [icon]
-  ): [Tag!]!
-  globalSeo(
-    "If you want to fallback to a default translation when a translation has not been found"
-    fallbackLocales: [SiteLocale!]
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): GlobalSeoField
-  locales: [SiteLocale!]!
+    favicon: FileField
+    faviconMetaTags(
+        "The variants to build"
+        variants: [FaviconType] = [icon]
+    ): [Tag!]!
+    globalSeo(
+        "If you want to fallback to a default translation when a translation has not been found"
+        fallbackLocales: [SiteLocale!],
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): GlobalSeoField
+    locales: [SiteLocale!]!
 }
 
 "Block of type Statistic (statistic)"
 type StatisticRecord implements RecordInterface {
-  _createdAt: DateTime!
-  _firstPublishedAt: DateTime
-  _isValid: BooleanType!
-  _modelApiKey: String!
-  _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
-  "SEO meta tags"
-  _seoMetaTags(
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [Tag!]!
-  _status: ItemStatus!
-  _unpublishingScheduledAt: DateTime
-  _updatedAt: DateTime!
-  createdAt: DateTime!
-  id: ItemId!
-  number: IntType
-  order: IntType
-  updatedAt: DateTime!
+    _createdAt: DateTime!
+    _firstPublishedAt: DateTime
+    _isValid: BooleanType!
+    _modelApiKey: String!
+    _publicationScheduledAt: DateTime
+    _publishedAt: DateTime
+    "SEO meta tags"
+    _seoMetaTags(
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [Tag!]!
+    _status: ItemStatus!
+    _unpublishingScheduledAt: DateTime
+    _updatedAt: DateTime!
+    createdAt: DateTime!
+    id: ItemId!
+    number: IntType
+    order: IntType
+    updatedAt: DateTime!
 }
 
 "Block of type Step (step)"
 type StepRecord implements RecordInterface {
-  _createdAt: DateTime!
-  _firstPublishedAt: DateTime
-  _isValid: BooleanType!
-  _modelApiKey: String!
-  _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
-  "SEO meta tags"
-  _seoMetaTags(
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [Tag!]!
-  _status: ItemStatus!
-  _unpublishingScheduledAt: DateTime
-  _updatedAt: DateTime!
-  createdAt: DateTime!
-  id: ItemId!
-  order: IntType
-  text: String
-  title: String
-  updatedAt: DateTime!
+    _createdAt: DateTime!
+    _firstPublishedAt: DateTime
+    _isValid: BooleanType!
+    _modelApiKey: String!
+    _publicationScheduledAt: DateTime
+    _publishedAt: DateTime
+    "SEO meta tags"
+    _seoMetaTags(
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [Tag!]!
+    _status: ItemStatus!
+    _unpublishingScheduledAt: DateTime
+    _updatedAt: DateTime!
+    createdAt: DateTime!
+    id: ItemId!
+    order: IntType
+    text: String
+    title: String
+    updatedAt: DateTime!
 }
 
 type StepRecordListListNonNullMultiLocaleField {
-  locale: SiteLocale
-  value: [StepRecord!]!
+    locale: SiteLocale
+    value: [StepRecord!]!
 }
 
 type StringMultiLocaleField {
-  locale: SiteLocale
-  value: String
+    locale: SiteLocale
+    value: String
 }
 
 type Tag {
-  attributes: MetaTagAttributes
-  content: String
-  tag: String!
+    attributes: MetaTagAttributes
+    content: String
+    tag: String!
 }
 
 type UploadVideoField {
-  duration: Int
-  framerate: Int
-  mp4Url(
-    "Pick the exact resolution quality specified in the argument"
-    exactRes: VideoMp4Res
-    "Pick highest resolution available up to the specified argument"
-    res: VideoMp4Res
-  ): String
-  muxAssetId: String!
-  muxPlaybackId: String!
-  streamingUrl: String!
-  thumbnailUrl(
-    "The file extension of the requested image format. Either png, jpg or gif"
-    format: MuxThumbnailFormatType = jpg
-  ): String!
+    duration: Int
+    framerate: Int
+    mp4Url(
+        "Pick the exact resolution quality specified in the argument"
+        exactRes: VideoMp4Res,
+        "Pick highest resolution available up to the specified argument"
+        res: VideoMp4Res
+    ): String
+    muxAssetId: String!
+    muxPlaybackId: String!
+    streamingUrl: String!
+    thumbnailUrl(
+        "The file extension of the requested image format. Either png, jpg or gif"
+        format: MuxThumbnailFormatType = jpg
+    ): String!
 }
 
 "Block of type WhySelect (whyselect)"
 type WhyselectRecord implements RecordInterface {
-  _createdAt: DateTime!
-  _firstPublishedAt: DateTime
-  _isValid: BooleanType!
-  _modelApiKey: String!
-  _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
-  "SEO meta tags"
-  _seoMetaTags(
-    "The locale to use to fetch the field's content"
-    locale: SiteLocale
-  ): [Tag!]!
-  _status: ItemStatus!
-  _unpublishingScheduledAt: DateTime
-  _updatedAt: DateTime!
-  createdAt: DateTime!
-  id: ItemId!
-  image: FileField
-  updatedAt: DateTime!
+    _createdAt: DateTime!
+    _firstPublishedAt: DateTime
+    _isValid: BooleanType!
+    _modelApiKey: String!
+    _publicationScheduledAt: DateTime
+    _publishedAt: DateTime
+    "SEO meta tags"
+    _seoMetaTags(
+        "The locale to use to fetch the field's content"
+        locale: SiteLocale
+    ): [Tag!]!
+    _status: ItemStatus!
+    _unpublishingScheduledAt: DateTime
+    _updatedAt: DateTime!
+    createdAt: DateTime!
+    id: ItemId!
+    image: FileField
+    updatedAt: DateTime!
 }
 
 type focalPoint {
-  x: FloatType!
-  y: FloatType!
+    x: FloatType!
+    y: FloatType!
 }
 
 enum ColorBucketType {
-  black
-  blue
-  brown
-  cyan
-  green
-  grey
-  orange
-  pink
-  purple
-  red
-  white
-  yellow
+    black
+    blue
+    brown
+    cyan
+    green
+    grey
+    orange
+    pink
+    purple
+    red
+    white
+    yellow
 }
 
 enum FaviconType {
-  appleTouchIcon
-  icon
-  msApplication
-}
-
-enum HeroModelOrderBy {
-  _createdAt_ASC
-  _createdAt_DESC
-  _firstPublishedAt_ASC
-  _firstPublishedAt_DESC
-  _isValid_ASC
-  _isValid_DESC
-  _publicationScheduledAt_ASC
-  _publicationScheduledAt_DESC
-  _publishedAt_ASC
-  _publishedAt_DESC
-  _status_ASC
-  _status_DESC
-  _unpublishingScheduledAt_ASC
-  _unpublishingScheduledAt_DESC
-  _updatedAt_ASC
-  _updatedAt_DESC
-  createdAt_ASC
-  createdAt_DESC
-  id_ASC
-  id_DESC
-  subtitle_ASC
-  subtitle_DESC
-  text_ASC
-  text_DESC
-  title_ASC
-  title_DESC
-  updatedAt_ASC
-  updatedAt_DESC
+    appleTouchIcon
+    icon
+    msApplication
 }
 
 enum ImgixParamsAuto {
-  compress
-  enhance
-  format
-  redeye
+    compress
+    enhance
+    format
+    redeye
 }
 
 enum ImgixParamsBlendAlign {
-  bottom
-  center
-  left
-  middle
-  right
-  top
+    bottom
+    center
+    left
+    middle
+    right
+    top
 }
 
 enum ImgixParamsBlendCrop {
-  bottom
-  faces
-  left
-  right
-  top
+    bottom
+    faces
+    left
+    right
+    top
 }
 
 enum ImgixParamsBlendFit {
-  clamp
-  clip
-  crop
-  max
-  scale
+    clamp
+    clip
+    crop
+    max
+    scale
 }
 
 enum ImgixParamsBlendMode {
-  burn
-  color
-  darken
-  difference
-  dodge
-  exclusion
-  hardlight
-  hue
-  lighten
-  luminosity
-  multiply
-  normal
-  overlay
-  saturation
-  screen
-  softlight
+    burn
+    color
+    darken
+    difference
+    dodge
+    exclusion
+    hardlight
+    hue
+    lighten
+    luminosity
+    multiply
+    normal
+    overlay
+    saturation
+    screen
+    softlight
 }
 
 enum ImgixParamsBlendSize {
-  inherit
+    inherit
 }
 
 enum ImgixParamsCh {
-  dpr
-  saveData
-  width
+    dpr
+    saveData
+    width
 }
 
 enum ImgixParamsCrop {
-  bottom
-  edges
-  entropy
-  faces
-  focalpoint
-  left
-  right
-  top
+    bottom
+    edges
+    entropy
+    faces
+    focalpoint
+    left
+    right
+    top
 }
 
 enum ImgixParamsCs {
-  adobergb1998
-  srgb
-  strip
-  tinysrgb
+    adobergb1998
+    srgb
+    strip
+    tinysrgb
 }
 
 enum ImgixParamsFill {
-  blur
-  solid
+    blur
+    solid
 }
 
 enum ImgixParamsFit {
-  clamp
-  clip
-  crop
-  facearea
-  fill
-  fillmax
-  max
-  min
-  scale
+    clamp
+    clip
+    crop
+    facearea
+    fill
+    fillmax
+    max
+    min
+    scale
 }
 
 enum ImgixParamsFlip {
-  h
-  hv
-  v
+    h
+    hv
+    v
 }
 
 enum ImgixParamsFm {
-  avif
-  blurhash
-  gif
-  jp2
-  jpg
-  json
-  jxr
-  mp4
-  pjpg
-  png
-  png32
-  png8
-  webm
-  webp
+    avif
+    blurhash
+    gif
+    jp2
+    jpg
+    json
+    jxr
+    mp4
+    pjpg
+    png
+    png32
+    png8
+    webm
+    webp
 }
 
 enum ImgixParamsIptc {
-  allow
-  block
+    allow
+    block
 }
 
 enum ImgixParamsMarkAlign {
-  bottom
-  center
-  left
-  middle
-  right
-  top
+    bottom
+    center
+    left
+    middle
+    right
+    top
 }
 
 enum ImgixParamsMarkFit {
-  clip
-  crop
-  fill
-  max
-  scale
+    clip
+    crop
+    fill
+    max
+    scale
 }
 
 enum ImgixParamsMarkTile {
-  grid
+    grid
 }
 
 enum ImgixParamsPalette {
-  css
-  json
+    css
+    json
 }
 
 enum ImgixParamsTransparency {
-  grid
+    grid
 }
 
 enum ImgixParamsTrim {
-  auto
-  color
+    auto
+    color
 }
 
 enum ImgixParamsTxtAlign {
-  bottom
-  center
-  left
-  middle
-  right
-  top
+    bottom
+    center
+    left
+    middle
+    right
+    top
 }
 
 enum ImgixParamsTxtClip {
-  ellipsis
-  end
-  middle
-  start
+    ellipsis
+    end
+    middle
+    start
 }
 
 enum ImgixParamsTxtFit {
-  max
+    max
 }
 
 enum ItemStatus {
-  draft
-  published
-  updated
+    draft
+    published
+    updated
 }
 
 enum MuxThumbnailFormatType {
-  gif
-  jpg
-  png
+    gif
+    jpg
+    png
 }
 
 enum NoveltyModelOrderBy {
-  _createdAt_ASC
-  _createdAt_DESC
-  _firstPublishedAt_ASC
-  _firstPublishedAt_DESC
-  _isValid_ASC
-  _isValid_DESC
-  _publicationScheduledAt_ASC
-  _publicationScheduledAt_DESC
-  _publishedAt_ASC
-  _publishedAt_DESC
-  _status_ASC
-  _status_DESC
-  _unpublishingScheduledAt_ASC
-  _unpublishingScheduledAt_DESC
-  _updatedAt_ASC
-  _updatedAt_DESC
-  createdAt_ASC
-  createdAt_DESC
-  date_ASC
-  date_DESC
-  description_ASC
-  description_DESC
-  id_ASC
-  id_DESC
-  size_ASC
-  size_DESC
-  title_ASC
-  title_DESC
-  updatedAt_ASC
-  updatedAt_DESC
+    _createdAt_ASC
+    _createdAt_DESC
+    _firstPublishedAt_ASC
+    _firstPublishedAt_DESC
+    _isValid_ASC
+    _isValid_DESC
+    _publicationScheduledAt_ASC
+    _publicationScheduledAt_DESC
+    _publishedAt_ASC
+    _publishedAt_DESC
+    _status_ASC
+    _status_DESC
+    _unpublishingScheduledAt_ASC
+    _unpublishingScheduledAt_DESC
+    _updatedAt_ASC
+    _updatedAt_DESC
+    createdAt_ASC
+    createdAt_DESC
+    date_ASC
+    date_DESC
+    description_ASC
+    description_DESC
+    id_ASC
+    id_DESC
+    size_ASC
+    size_DESC
+    title_ASC
+    title_DESC
+    updatedAt_ASC
+    updatedAt_DESC
 }
 
 enum ProjectModelOrderBy {
-  _createdAt_ASC
-  _createdAt_DESC
-  _firstPublishedAt_ASC
-  _firstPublishedAt_DESC
-  _isValid_ASC
-  _isValid_DESC
-  _publicationScheduledAt_ASC
-  _publicationScheduledAt_DESC
-  _publishedAt_ASC
-  _publishedAt_DESC
-  _status_ASC
-  _status_DESC
-  _unpublishingScheduledAt_ASC
-  _unpublishingScheduledAt_DESC
-  _updatedAt_ASC
-  _updatedAt_DESC
-  createdAt_ASC
-  createdAt_DESC
-  description_ASC
-  description_DESC
-  id_ASC
-  id_DESC
-  name_ASC
-  name_DESC
-  rating_ASC
-  rating_DESC
-  title_ASC
-  title_DESC
-  updatedAt_ASC
-  updatedAt_DESC
+    _createdAt_ASC
+    _createdAt_DESC
+    _firstPublishedAt_ASC
+    _firstPublishedAt_DESC
+    _isValid_ASC
+    _isValid_DESC
+    _publicationScheduledAt_ASC
+    _publicationScheduledAt_DESC
+    _publishedAt_ASC
+    _publishedAt_DESC
+    _status_ASC
+    _status_DESC
+    _unpublishingScheduledAt_ASC
+    _unpublishingScheduledAt_DESC
+    _updatedAt_ASC
+    _updatedAt_DESC
+    createdAt_ASC
+    createdAt_DESC
+    description_ASC
+    description_DESC
+    id_ASC
+    id_DESC
+    name_ASC
+    name_DESC
+    rating_ASC
+    rating_DESC
+    title_ASC
+    title_DESC
+    updatedAt_ASC
+    updatedAt_DESC
 }
 
 enum ResolutionType {
-  icon
-  large
-  medium
-  small
+    icon
+    large
+    medium
+    small
 }
 
 enum SiteLocale {
-  ru
+    ru
 }
 
 enum UploadOrderBy {
-  _createdAt_ASC
-  _createdAt_DESC
-  _updatedAt_ASC
-  _updatedAt_DESC
-  basename_ASC
-  basename_DESC
-  filename_ASC
-  filename_DESC
-  format_ASC
-  format_DESC
-  id_ASC
-  id_DESC
-  mimeType_ASC
-  mimeType_DESC
-  resolution_ASC
-  resolution_DESC
-  size_ASC
-  size_DESC
+    _createdAt_ASC
+    _createdAt_DESC
+    _updatedAt_ASC
+    _updatedAt_DESC
+    basename_ASC
+    basename_DESC
+    filename_ASC
+    filename_DESC
+    format_ASC
+    format_DESC
+    id_ASC
+    id_DESC
+    mimeType_ASC
+    mimeType_DESC
+    resolution_ASC
+    resolution_DESC
+    size_ASC
+    size_DESC
 }
 
 enum UploadOrientation {
-  landscape
-  portrait
-  square
+    landscape
+    portrait
+    square
 }
 
 enum UploadType {
-  archive
-  audio
-  image
-  pdfdocument
-  presentation
-  richtext
-  spreadsheet
-  video
+    archive
+    audio
+    image
+    pdfdocument
+    presentation
+    richtext
+    spreadsheet
+    video
 }
 
 enum VideoMp4Res {
-  high
-  low
-  medium
+    high
+    low
+    medium
 }
 
 "Represents `true` or `false` values."
@@ -1188,1741 +1078,1852 @@ scalar UploadId
 
 "Specifies how to filter Boolean fields"
 input BooleanFilter {
-  "Search for records with an exact match"
-  eq: BooleanType
+    "Search for records with an exact match"
+    eq: BooleanType
 }
 
 "Specifies how to filter by creation datetime"
 input CreatedAtFilter {
-  "Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument."
-  eq: DateTime
-  "Filter records with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument."
-  gt: DateTime
-  "Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument."
-  gte: DateTime
-  "Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument."
-  lt: DateTime
-  "Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument."
-  lte: DateTime
-  "Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument."
-  neq: DateTime
+    "Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument."
+    eq: DateTime
+    "Filter records with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument."
+    gt: DateTime
+    "Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument."
+    gte: DateTime
+    "Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument."
+    lt: DateTime
+    "Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument."
+    lte: DateTime
+    "Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument."
+    neq: DateTime
 }
 
 "Specifies how to filter Date fields"
 input DateFilter {
-  "Search for records with an exact match"
-  eq: Date
-  "Filter records with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter records with a value that's strictly greater than the one specified"
-  gt: Date
-  "Filter records with a value that's greater than or equal to the one specified"
-  gte: Date
-  "Filter records with a value that's less than the one specified"
-  lt: Date
-  "Filter records with a value that's less or equal than the one specified"
-  lte: Date
-  "Exclude records with an exact match"
-  neq: Date
+    "Search for records with an exact match"
+    eq: Date
+    "Filter records with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Filter records with a value that's strictly greater than the one specified"
+    gt: Date
+    "Filter records with a value that's greater than or equal to the one specified"
+    gte: Date
+    "Filter records with a value that's less than the one specified"
+    lt: Date
+    "Filter records with a value that's less or equal than the one specified"
+    lte: Date
+    "Exclude records with an exact match"
+    neq: Date
 }
 
 "Specifies how to filter Single-file/image fields"
 input FileFilter {
-  "Search for records with an exact match. The specified value must be an Upload ID"
-  eq: UploadId
-  "Filter records with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter records that have one of the specified uploads"
-  in: [UploadId]
-  "Exclude records with an exact match. The specified value must be an Upload ID"
-  neq: UploadId
-  "Filter records that do not have one of the specified uploads"
-  notIn: [UploadId]
+    "Search for records with an exact match. The specified value must be an Upload ID"
+    eq: UploadId
+    "Filter records with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Filter records that have one of the specified uploads"
+    in: [UploadId]
+    "Exclude records with an exact match. The specified value must be an Upload ID"
+    neq: UploadId
+    "Filter records that do not have one of the specified uploads"
+    notIn: [UploadId]
 }
 
 "Specifies how to filter Multiple files/images field"
 input GalleryFilter {
-  "Filter records that have all of the specified uploads. The specified values must be Upload IDs"
-  allIn: [UploadId]
-  "Filter records that have one of the specified uploads. The specified values must be Upload IDs"
-  anyIn: [UploadId]
-  "Search for records with an exact match. The specified values must be Upload IDs"
-  eq: [UploadId]
-  "Filter records with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter records that do not have any of the specified uploads. The specified values must be Upload IDs"
-  notIn: [UploadId]
-}
-
-input HeroModelFilter {
-  OR: [HeroModelFilter]
-  _createdAt: CreatedAtFilter
-  _firstPublishedAt: PublishedAtFilter
-  _isValid: BooleanFilter
-  _publicationScheduledAt: PublishedAtFilter
-  _publishedAt: PublishedAtFilter
-  _status: StatusFilter
-  _unpublishingScheduledAt: PublishedAtFilter
-  _updatedAt: UpdatedAtFilter
-  createdAt: CreatedAtFilter
-  id: ItemIdFilter
-  image: FileFilter
-  subtitle: StringFilter
-  text: StringFilter
-  title: StringFilter
-  updatedAt: UpdatedAtFilter
+    "Filter records that have all of the specified uploads. The specified values must be Upload IDs"
+    allIn: [UploadId]
+    "Filter records that have one of the specified uploads. The specified values must be Upload IDs"
+    anyIn: [UploadId]
+    "Search for records with an exact match. The specified values must be Upload IDs"
+    eq: [UploadId]
+    "Filter records with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Filter records that do not have any of the specified uploads. The specified values must be Upload IDs"
+    notIn: [UploadId]
 }
 
 input ImgixParams {
-  """
-  Aspect Ratio
+    """
 
-  Specifies an aspect ratio to maintain when resizing and cropping the image
+    Aspect Ratio
 
-  Depends on: `fit=crop`
+    Specifies an aspect ratio to maintain when resizing and cropping the image
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/size/ar)
-  """
-  ar: String
-  """
-  Automatic
+    Depends on: `fit=crop`
 
-  Applies automatic enhancements to images.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/size/ar)
+    """
+    ar: String
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/auto)
-  """
-  auto: [ImgixParamsAuto!]
-  """
-  Background Color
+    Automatic
 
-  Colors the background of padded and partially-transparent images.
+    Applies automatic enhancements to images.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/bg)
-  """
-  bg: String
-  """
-  Blend
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/auto)
+    """
+    auto: [ImgixParamsAuto!]
+    """
 
-  Specifies the location of the blend image.
+    Background Color
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend)
-  """
-  blend: String
-  """
-  Blend Align
+    Colors the background of padded and partially-transparent images.
 
-  Changes the blend alignment relative to the parent image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/bg)
+    """
+    bg: String
+    """
 
-  Depends on: `blend`
+    Blend
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-align)
-  """
-  blendAlign: [ImgixParamsBlendAlign!]
-  """
-  Blend Alpha
+    Specifies the location of the blend image.
 
-  Changes the alpha of the blend image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend)
+    """
+    blend: String
+    """
 
-  Depends on: `blend`
+    Blend Align
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-alpha)
-  """
-  blendAlpha: IntType
-  """
-  Blend Color
+    Changes the blend alignment relative to the parent image.
 
-  Specifies a color to use when applying the blend.
+    Depends on: `blend`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-color)
-  """
-  blendColor: String
-  """
-  Blend Crop
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-align)
+    """
+    blendAlign: [ImgixParamsBlendAlign!]
+    """
 
-  Specifies the type of crop for blend images.
+    Blend Alpha
 
-  Depends on: `blend`
+    Changes the alpha of the blend image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-crop)
-  """
-  blendCrop: [ImgixParamsBlendCrop!]
-  """
-  Blend Fit
+    Depends on: `blend`
 
-  Specifies the fit mode for blend images.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-alpha)
+    """
+    blendAlpha: IntType
+    """
 
-  Depends on: `blend`
+    Blend Color
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-fit)
-  """
-  blendFit: ImgixParamsBlendFit
-  """
-  Blend Height
+    Specifies a color to use when applying the blend.
 
-  Adjusts the height of the blend image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-color)
+    """
+    blendColor: String
+    """
 
-  Depends on: `blend`
+    Blend Crop
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-h)
-  """
-  blendH: FloatType
-  """
-  Blend Mode
+    Specifies the type of crop for blend images.
 
-  Sets the blend mode for a blend image.
+    Depends on: `blend`
 
-  Depends on: `blend`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-crop)
+    """
+    blendCrop: [ImgixParamsBlendCrop!]
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-mode)
-  """
-  blendMode: ImgixParamsBlendMode
-  """
-  Blend Padding
+    Blend Fit
 
-  Applies padding to the blend image.
+    Specifies the fit mode for blend images.
 
-  Depends on: `blend`
+    Depends on: `blend`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-pad)
-  """
-  blendPad: IntType
-  """
-  Blend Size
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-fit)
+    """
+    blendFit: ImgixParamsBlendFit
+    """
 
-  Adjusts the size of the blend image.
+    Blend Height
 
-  Depends on: `blend`
+    Adjusts the height of the blend image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-size)
-  """
-  blendSize: ImgixParamsBlendSize
-  """
-  Blend Width
+    Depends on: `blend`
 
-  Adjusts the width of the blend image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-h)
+    """
+    blendH: FloatType
+    """
 
-  Depends on: `blend`
+    Blend Mode
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-w)
-  """
-  blendW: FloatType
-  """
-  Blend X Position
+    Sets the blend mode for a blend image.
 
-  Adjusts the x-offset of the blend image relative to its parent.
+    Depends on: `blend`
 
-  Depends on: `blend`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-mode)
+    """
+    blendMode: ImgixParamsBlendMode
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-x)
-  """
-  blendX: IntType
-  """
-  Blend Y Position
+    Blend Padding
 
-  Adjusts the y-offset of the blend image relative to its parent.
+    Applies padding to the blend image.
 
-  Depends on: `blend`
+    Depends on: `blend`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-y)
-  """
-  blendY: IntType
-  """
-  Gaussian Blur
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-pad)
+    """
+    blendPad: IntType
+    """
 
-  Applies a gaussian blur to an image.
+    Blend Size
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/blur)
-  """
-  blur: IntType
-  """
-  Border Size & Color
+    Adjusts the size of the blend image.
 
-  Applies a border to an image.
+    Depends on: `blend`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border)
-  """
-  border: String
-  """
-  Border Bottom
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-size)
+    """
+    blendSize: ImgixParamsBlendSize
+    """
 
-  Sets bottom border of an image.
+    Blend Width
 
-  Depends on: `border`
+    Adjusts the width of the blend image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-bottom)
-  """
-  borderBottom: IntType
-  """
-  Border Left
+    Depends on: `blend`
 
-  Sets left border of an image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-w)
+    """
+    blendW: FloatType
+    """
 
-  Depends on: `border`
+    Blend X Position
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-left)
-  """
-  borderLeft: IntType
-  """
-  Outer Border Radius
+    Adjusts the x-offset of the blend image relative to its parent.
 
-  Sets the outer radius of the image's border in pixels.
+    Depends on: `blend`
 
-  Depends on: `border`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-x)
+    """
+    blendX: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-radius)
-  """
-  borderRadius: String
-  """
-  Inner Border Radius
+    Blend Y Position
 
-  Sets the inner radius of the image's border in pixels.
+    Adjusts the y-offset of the blend image relative to its parent.
 
-  Depends on: `border`
+    Depends on: `blend`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-radius-inner)
-  """
-  borderRadiusInner: String
-  """
-  Border Right
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-y)
+    """
+    blendY: IntType
+    """
 
-  Sets right border of an image.
+    Gaussian Blur
 
-  Depends on: `border`
+    Applies a gaussian blur to an image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-right)
-  """
-  borderRight: IntType
-  """
-  Border Top
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/blur)
+    """
+    blur: IntType
+    """
 
-  Sets top border of an image.
+    Border Size & Color
 
-  Depends on: `border`
+    Applies a border to an image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-top)
-  """
-  borderTop: IntType
-  """
-  Brightness
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border)
+    """
+    border: String
+    """
 
-  Adjusts the brightness of the source image.
+    Border Bottom
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/bri)
-  """
-  bri: IntType
-  """
-  Client Hints
+    Sets bottom border of an image.
 
-  Sets one or more Client-Hints headers
+    Depends on: `border`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/format/ch)
-  """
-  ch: [ImgixParamsCh!]
-  """
-  Chroma Subsampling
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-bottom)
+    """
+    borderBottom: IntType
+    """
 
-  Specifies the output chroma subsampling rate.
+    Border Left
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/format/chromasub)
-  """
-  chromasub: IntType
-  """
-  Color Quantization
+    Sets left border of an image.
 
-  Limits the number of unique colors in an image.
+    Depends on: `border`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/format/colorquant)
-  """
-  colorquant: IntType
-  """
-  Palette Color Count
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-left)
+    """
+    borderLeft: IntType
+    """
 
-  Specifies how many colors to include in a palette-extraction response.
+    Outer Border Radius
 
-  Depends on: `palette`
+    Sets the outer radius of the image's border in pixels.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/colors)
-  """
-  colors: IntType
-  """
-  Contrast
+    Depends on: `border`
 
-  Adjusts the contrast of the source image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-radius)
+    """
+    borderRadius: String
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/con)
-  """
-  con: IntType
-  """
-  Mask Corner Radius
+    Inner Border Radius
 
-  Specifies the radius value for a rounded corner mask.
+    Sets the inner radius of the image's border in pixels.
 
-  Depends on: `mask=corners`
+    Depends on: `border`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/mask/corner-radius)
-  """
-  cornerRadius: String
-  """
-  Crop Mode
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-radius-inner)
+    """
+    borderRadiusInner: String
+    """
 
-  Specifies how to crop an image.
+    Border Right
 
-  Depends on: `fit=crop`
+    Sets right border of an image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/size/crop)
-  """
-  crop: [ImgixParamsCrop!]
-  """
-  Color Space
+    Depends on: `border`
 
-  Specifies the color space of the output image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-right)
+    """
+    borderRight: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/format/cs)
-  """
-  cs: ImgixParamsCs
-  """
-  Download
+    Border Top
 
-  Forces a URL to use send-file in its response.
+    Sets top border of an image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/format/dl)
-  """
-  dl: String
-  """
-  Dots Per Inch
+    Depends on: `border`
 
-  Sets the DPI value in the EXIF header.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-top)
+    """
+    borderTop: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/format/dpi)
-  """
-  dpi: IntType
-  """
-  Device Pixel Ratio
+    Brightness
 
-  Adjusts the device-pixel ratio of the output image.
+    Adjusts the brightness of the source image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/dpr)
-  """
-  dpr: FloatType
-  """
-  Duotone
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/bri)
+    """
+    bri: IntType
+    """
 
-  Applies a duotone effect to the source image.
+    Client Hints
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/duotone)
-  """
-  duotone: String
-  """
-  Duotone Alpha
+    Sets one or more Client-Hints headers
 
-  Changes the alpha of the duotone effect atop the source image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/format/ch)
+    """
+    ch: [ImgixParamsCh!]
+    """
 
-  Depends on: `duotone`
+    Chroma Subsampling
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/duotone-alpha)
-  """
-  duotoneAlpha: IntType
-  """
-  Exposure
+    Specifies the output chroma subsampling rate.
 
-  Adjusts the exposure of the output image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/format/chromasub)
+    """
+    chromasub: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/exp)
-  """
-  exp: IntType
-  """
-  Url Expiration Timestamp
+    Color Quantization
 
-  A Unix timestamp specifying a UTC time. Requests made to this URL after that time will output a 404 status code.
+    Limits the number of unique colors in an image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/expires)
-  """
-  expires: IntType
-  """
-  Face Index
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/format/colorquant)
+    """
+    colorquant: IntType
+    """
 
-  Selects a face to crop to.
+    Palette Color Count
 
-  Depends on: `fit=facearea`
+    Specifies how many colors to include in a palette-extraction response.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/face-detection/faceindex)
-  """
-  faceindex: IntType
-  """
-  Face Padding
+    Depends on: `palette`
 
-  Adjusts padding around a selected face.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/colors)
+    """
+    colors: IntType
+    """
 
-  Depends on: `fit=facearea`
+    Contrast
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/face-detection/facepad)
-  """
-  facepad: FloatType
-  """
-  Json Face Data
+    Adjusts the contrast of the source image.
 
-  Specifies that face data should be included in output when combined with `fm=json`.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/con)
+    """
+    con: IntType
+    """
 
-  Depends on: `fm=json`
+    Mask Corner Radius
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/face-detection/faces)
-  """
-  faces: IntType
-  """
-  Fill Mode
+    Specifies the radius value for a rounded corner mask.
 
-  Determines how to fill in additional space created by the fit setting
+    Depends on: `mask=corners`
 
-  Depends on: `fit`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/mask/corner-radius)
+    """
+    cornerRadius: String
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill)
-  """
-  fill: ImgixParamsFill
-  """
-  Fill Color
+    Crop Mode
 
-  Sets the fill color for images with additional space created by the fit setting
+    Specifies how to crop an image.
 
-  Depends on: `fill=solid`
+    Depends on: `fit=crop`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-color)
-  """
-  fillColor: String
-  """
-  Resize Fit Mode
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/size/crop)
+    """
+    crop: [ImgixParamsCrop!]
+    """
 
-  Specifies how to map the source image to the output image dimensions.
+    Color Space
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/size/fit)
-  """
-  fit: ImgixParamsFit
-  """
-  Flip Axis
+    Specifies the color space of the output image.
 
-  Flips an image on a specified axis.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/format/cs)
+    """
+    cs: ImgixParamsCs
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/rotation/flip)
-  """
-  flip: ImgixParamsFlip
-  """
-  Output Format
+    Download
 
-  Changes the format of the output image.
+    Forces a URL to use send-file in its response.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/format/fm)
-  """
-  fm: ImgixParamsFm
-  """
-  Focal Point Debug
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/format/dl)
+    """
+    dl: String
+    """
 
-  Displays crosshairs identifying the location of the set focal point
+    Dots Per Inch
 
-  Depends on: `fit=crop`, `crop=focalpoint`
+    Sets the DPI value in the EXIF header.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-debug)
-  """
-  fpDebug: BooleanType
-  """
-  Focal Point X Position
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/format/dpi)
+    """
+    dpi: IntType
+    """
 
-  Sets the relative horizontal value for the focal point of an image
+    Device Pixel Ratio
 
-  Depends on: `fit=crop`, `crop=focalpoint`
+    Adjusts the device-pixel ratio of the output image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-x)
-  """
-  fpX: FloatType
-  """
-  Focal Point Y Position
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/dpr)
+    """
+    dpr: FloatType
+    """
 
-  Sets the relative vertical value for the focal point of an image
+    Duotone
 
-  Depends on: `fit=crop`, `crop=focalpoint`
+    Applies a duotone effect to the source image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-y)
-  """
-  fpY: FloatType
-  """
-  Focal Point Zoom
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/duotone)
+    """
+    duotone: String
+    """
 
-  Sets the relative zoom value for the focal point of an image
+    Duotone Alpha
 
-  Depends on: `fit=crop`, `crop=focalpoint`
+    Changes the alpha of the duotone effect atop the source image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-z)
-  """
-  fpZ: FloatType
-  """
-  Gamma
+    Depends on: `duotone`
 
-  Adjusts the gamma of the source image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/duotone-alpha)
+    """
+    duotoneAlpha: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/gam)
-  """
-  gam: IntType
-  """
-  Grid Colors
+    Exposure
 
-  Sets grid colors for the transparency checkerboard grid.
+    Adjusts the exposure of the output image.
 
-  Depends on: `transparency`
-  """
-  gridColors: String
-  """
-  Grid Size
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/exp)
+    """
+    exp: IntType
+    """
 
-  Sets grid size for the transparency checkerboard grid.
+    Url Expiration Timestamp
 
-  Depends on: `transparency`
-  """
-  gridSize: IntType
-  """
-  Image Height
+    A Unix timestamp specifying a UTC time. Requests made to this URL after that time will output a 404 status code.
 
-  Adjusts the height of the output image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/expires)
+    """
+    expires: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/size/h)
-  """
-  h: FloatType
-  """
-  Highlight
+    Face Index
 
-  Adjusts the highlights of the source image.
+    Selects a face to crop to.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/high)
-  """
-  high: IntType
-  """
-  Halftone
+    Depends on: `fit=facearea`
 
-  Applies a half-tone effect to the source image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/face-detection/faceindex)
+    """
+    faceindex: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/htn)
-  """
-  htn: IntType
-  """
-  Hue Shift
+    Face Padding
 
-  Adjusts the hue of the source image.
+    Adjusts padding around a selected face.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/hue)
-  """
-  hue: IntType
-  """
-  Invert
+    Depends on: `fit=facearea`
 
-  Inverts the colors on the source image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/face-detection/facepad)
+    """
+    facepad: FloatType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/invert)
-  """
-  invert: BooleanType
-  """
-  Iptc Passthrough
+    Json Face Data
 
-  Determine if IPTC data should be passed for JPEG images.
-  """
-  iptc: ImgixParamsIptc
-  """
-  Lossless Compression
+    Specifies that face data should be included in output when combined with `fm=json`.
 
-  Specifies that the output image should be a lossless variant.
+    Depends on: `fm=json`
 
-  Depends on: `fm=webp`, `fm=jxr`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/face-detection/faces)
+    """
+    faces: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/format/lossless)
-  """
-  lossless: BooleanType
-  """
-  Watermark Image Url
+    Fill Mode
 
-  Specifies the location of the watermark image.
+    Determines how to fill in additional space created by the fit setting
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark)
-  """
-  mark: String
-  """
-  Watermark Alignment Mode
+    Depends on: `fit`
 
-  Changes the watermark alignment relative to the parent image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill)
+    """
+    fill: ImgixParamsFill
+    """
 
-  Depends on: `mark`
+    Fill Color
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-align)
-  """
-  markAlign: [ImgixParamsMarkAlign!]
-  """
-  Watermark Alpha
+    Sets the fill color for images with additional space created by the fit setting
 
-  Changes the alpha of the watermark image.
+    Depends on: `fill=solid`
 
-  Depends on: `mark`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-color)
+    """
+    fillColor: String
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-alpha)
-  """
-  markAlpha: IntType
-  """
-  Watermark Base Url
+    Resize Fit Mode
 
-  Changes base URL of the watermark image.
+    Specifies how to map the source image to the output image dimensions.
 
-  Depends on: `mark`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/size/fit)
+    """
+    fit: ImgixParamsFit
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-base)
-  """
-  markBase: String
-  """
-  Watermark Fit Mode
+    Flip Axis
 
-  Specifies the fit mode for watermark images.
+    Flips an image on a specified axis.
 
-  Depends on: `mark`, `markw`, `markh`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/rotation/flip)
+    """
+    flip: ImgixParamsFlip
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-fit)
-  """
-  markFit: ImgixParamsMarkFit
-  """
-  Watermark Height
+    Output Format
 
-  Adjusts the height of the watermark image.
+    Changes the format of the output image.
 
-  Depends on: `mark`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/format/fm)
+    """
+    fm: ImgixParamsFm
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-h)
-  """
-  markH: FloatType
-  """
-  Watermark Padding
+    Focal Point Debug
 
-  Applies padding to the watermark image.
+    Displays crosshairs identifying the location of the set focal point
 
-  Depends on: `mark`
+    Depends on: `fit=crop`, `crop=focalpoint`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-pad)
-  """
-  markPad: IntType
-  """
-  Watermark Rotation
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-debug)
+    """
+    fpDebug: BooleanType
+    """
 
-  Rotates a watermark or tiled watermarks by a specified number of degrees.
+    Focal Point X Position
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-rot)
-  """
-  markRot: FloatType
-  """
-  Watermark Scale
+    Sets the relative horizontal value for the focal point of an image
 
-  Adjusts the scale of the watermark image.
+    Depends on: `fit=crop`, `crop=focalpoint`
 
-  Depends on: `mark`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-x)
+    """
+    fpX: FloatType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-scale)
-  """
-  markScale: IntType
-  """
-  Watermark Tile
+    Focal Point Y Position
 
-  Adds tiled watermark.
+    Sets the relative vertical value for the focal point of an image
 
-  Depends on: `mark`
+    Depends on: `fit=crop`, `crop=focalpoint`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-tile)
-  """
-  markTile: ImgixParamsMarkTile
-  """
-  Watermark Width
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-y)
+    """
+    fpY: FloatType
+    """
 
-  Adjusts the width of the watermark image.
+    Focal Point Zoom
 
-  Depends on: `mark`
+    Sets the relative zoom value for the focal point of an image
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-w)
-  """
-  markW: FloatType
-  """
-  Watermark X Position
+    Depends on: `fit=crop`, `crop=focalpoint`
 
-  Adjusts the x-offset of the watermark image relative to its parent.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-z)
+    """
+    fpZ: FloatType
+    """
 
-  Depends on: `mark`
+    Gamma
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-x)
-  """
-  markX: IntType
-  """
-  Watermark Y Position
+    Adjusts the gamma of the source image.
 
-  Adjusts the y-offset of the watermark image relative to its parent.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/gam)
+    """
+    gam: IntType
+    """
 
-  Depends on: `mark`
+    Grid Colors
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-y)
-  """
-  markY: IntType
-  """
-  Mask Type
+    Sets grid colors for the transparency checkerboard grid.
 
-  Defines the type of mask and specifies the URL if that type is selected.
+    Depends on: `transparency`
+    """
+    gridColors: String
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/mask)
-  """
-  mask: String
-  """
-  Mask Background Color
+    Grid Size
 
-  Colors the background of the transparent mask area of images
+    Sets grid size for the transparency checkerboard grid.
 
-  Depends on: `mask`
+    Depends on: `transparency`
+    """
+    gridSize: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/mask/mask-bg)
-  """
-  maskBg: String
-  """
-  Maximum Height
+    Image Height
 
-  Specifies the maximum height of the output image in pixels.
+    Adjusts the height of the output image.
 
-  Depends on: `fit=crop`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/size/h)
+    """
+    h: FloatType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/size/max-height)
-  """
-  maxH: IntType
-  """
-  Maximum Width
+    Highlight
 
-  Specifies the maximum width of the output image in pixels.
+    Adjusts the highlights of the source image.
 
-  Depends on: `fit=crop`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/high)
+    """
+    high: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/size/max-width)
-  """
-  maxW: IntType
-  """
-  Minimum Height
+    Halftone
 
-  Specifies the minimum height of the output image in pixels.
+    Applies a half-tone effect to the source image.
 
-  Depends on: `fit=crop`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/htn)
+    """
+    htn: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/size/min-height)
-  """
-  minH: IntType
-  """
-  Minimum Width
+    Hue Shift
 
-  Specifies the minimum width of the output image in pixels.
+    Adjusts the hue of the source image.
 
-  Depends on: `fit=crop`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/hue)
+    """
+    hue: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/size/min-width)
-  """
-  minW: IntType
-  """
-  Monochrome
+    Invert
 
-  Applies a monochrome effect to the source image.
+    Inverts the colors on the source image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/monochrome)
-  """
-  monochrome: String
-  """
-  Noise Reduction Bound
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/invert)
+    """
+    invert: BooleanType
+    """
 
-  Reduces the noise in an image.
+    Iptc Passthrough
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/noise-reduction/nr)
-  """
-  nr: IntType
-  """
-  Noise Reduction Sharpen
+    Determine if IPTC data should be passed for JPEG images.
+    """
+    iptc: ImgixParamsIptc
+    """
 
-  Provides a threshold by which to sharpen an image.
+    Lossless Compression
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/noise-reduction/nrs)
-  """
-  nrs: IntType
-  """
-  Orientation
+    Specifies that the output image should be a lossless variant.
 
-  Changes the image orientation.
+    Depends on: `fm=webp`, `fm=jxr`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/rotation/orient)
-  """
-  orient: IntType
-  """
-  Padding
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/format/lossless)
+    """
+    lossless: BooleanType
+    """
 
-  Pads an image.
+    Watermark Image Url
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad)
-  """
-  pad: IntType
-  """
-  Padding Bottom
+    Specifies the location of the watermark image.
 
-  Sets bottom padding of an image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark)
+    """
+    mark: String
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-bottom)
-  """
-  padBottom: IntType
-  """
-  Padding Left
+    Watermark Alignment Mode
 
-  Sets left padding of an image.
+    Changes the watermark alignment relative to the parent image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-left)
-  """
-  padLeft: IntType
-  """
-  Padding Right
+    Depends on: `mark`
 
-  Sets right padding of an image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-align)
+    """
+    markAlign: [ImgixParamsMarkAlign!]
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-right)
-  """
-  padRight: IntType
-  """
-  Padding Top
+    Watermark Alpha
 
-  Sets top padding of an image.
+    Changes the alpha of the watermark image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-top)
-  """
-  padTop: IntType
-  """
-  Pdf Page Number
+    Depends on: `mark`
 
-  Selects a page from a PDF for display.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-alpha)
+    """
+    markAlpha: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/pdf/page)
-  """
-  page: IntType
-  """
-  Color Palette Extraction
+    Watermark Base Url
 
-  Specifies an output format for palette-extraction.
+    Changes base URL of the watermark image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/palette)
-  """
-  palette: ImgixParamsPalette
-  """
-  Pdf Annotation
+    Depends on: `mark`
 
-  Enables or disables PDF annotation.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-base)
+    """
+    markBase: String
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/pdf/pdf-annotation)
-  """
-  pdfAnnotation: BooleanType
-  """
-  Css Prefix
+    Watermark Fit Mode
 
-  Specifies a CSS prefix for all classes in palette-extraction.
+    Specifies the fit mode for watermark images.
 
-  Depends on: `palette=css`
+    Depends on: `mark`, `markw`, `markh`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/prefix)
-  """
-  prefix: String
-  """
-  Pixellate
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-fit)
+    """
+    markFit: ImgixParamsMarkFit
+    """
 
-  Applies a pixelation effect to an image.
+    Watermark Height
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/px)
-  """
-  px: IntType
-  """
-  Output Quality
+    Adjusts the height of the watermark image.
 
-  Adjusts the quality of an output image.
+    Depends on: `mark`
 
-  Depends on: `fm=jpg`, `fm=pjpg`, `fm=webp`, `fm=jxr`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-h)
+    """
+    markH: FloatType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/format/q)
-  """
-  q: IntType
-  """
-  Source Rectangle Region
+    Watermark Padding
 
-  Crops an image to a specified rectangle.
+    Applies padding to the watermark image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/size/rect)
-  """
-  rect: String
-  """
-  Rotation
+    Depends on: `mark`
 
-  Rotates an image by a specified number of degrees.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-pad)
+    """
+    markPad: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/rotation/rot)
-  """
-  rot: FloatType
-  """
-  Saturation
+    Watermark Rotation
 
-  Adjusts the saturation of an image.
+    Rotates a watermark or tiled watermarks by a specified number of degrees.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/sat)
-  """
-  sat: IntType
-  """
-  Sepia Tone
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-rot)
+    """
+    markRot: FloatType
+    """
 
-  Applies a sepia effect to an image.
+    Watermark Scale
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/sepia)
-  """
-  sepia: IntType
-  """
-  Shadow
+    Adjusts the scale of the watermark image.
 
-  Adjusts the highlights of the source image.
+    Depends on: `mark`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/shad)
-  """
-  shad: FloatType
-  """
-  Sharpen
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-scale)
+    """
+    markScale: IntType
+    """
 
-  Adjusts the sharpness of the source image.
+    Watermark Tile
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/sharp)
-  """
-  sharp: FloatType
-  """
-  Transparency
+    Adds tiled watermark.
 
-  Adds checkerboard behind images which support transparency.
+    Depends on: `mark`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/transparency)
-  """
-  transparency: ImgixParamsTransparency
-  """
-  Trim Image
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-tile)
+    """
+    markTile: ImgixParamsMarkTile
+    """
 
-  Trims the source image.
+    Watermark Width
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim)
-  """
-  trim: ImgixParamsTrim
-  """
-  Trim Color
+    Adjusts the width of the watermark image.
 
-  Specifies a trim color on a trim operation.
+    Depends on: `mark`
 
-  Depends on: `trim=color`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-w)
+    """
+    markW: FloatType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-color)
-  """
-  trimColor: String
-  """
-  Trim Mean Difference
+    Watermark X Position
 
-  Specifies the mean difference on a trim operation.
+    Adjusts the x-offset of the watermark image relative to its parent.
 
-  Depends on: `trim=auto`
+    Depends on: `mark`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-md)
-  """
-  trimMd: FloatType
-  """
-  Trim Padding
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-x)
+    """
+    markX: IntType
+    """
 
-  Pads the area of the source image before trimming.
+    Watermark Y Position
 
-  Depends on: `trim`
+    Adjusts the y-offset of the watermark image relative to its parent.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-pad)
-  """
-  trimPad: IntType
-  """
-  Trim Standard Deviation
+    Depends on: `mark`
 
-  Specifies the standard deviation on a trim operation.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-y)
+    """
+    markY: IntType
+    """
 
-  Depends on: `trim=auto`
+    Mask Type
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-sd)
-  """
-  trimSd: FloatType
-  """
-  Trim Tolerance
+    Defines the type of mask and specifies the URL if that type is selected.
 
-  Specifies the tolerance on a trim operation.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/mask)
+    """
+    mask: String
+    """
 
-  Depends on: `trim=color`
+    Mask Background Color
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-tol)
-  """
-  trimTol: FloatType
-  """
-  Text String
+    Colors the background of the transparent mask area of images
 
-  Sets the text string to render.
+    Depends on: `mask`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt)
-  """
-  txt: String
-  """
-  Text Align
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/mask/mask-bg)
+    """
+    maskBg: String
+    """
 
-  Sets the vertical and horizontal alignment of rendered text relative to the base image.
+    Maximum Height
 
-  Depends on: `txt`
+    Specifies the maximum height of the output image in pixels.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-align)
-  """
-  txtAlign: [ImgixParamsTxtAlign!]
-  """
-  Text Clipping Mode
+    Depends on: `fit=crop`
 
-  Sets the clipping properties of rendered text.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/size/max-height)
+    """
+    maxH: IntType
+    """
 
-  Depends on: `txt`
+    Maximum Width
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-clip)
-  """
-  txtClip: [ImgixParamsTxtClip!]
-  """
-  Text Color
+    Specifies the maximum width of the output image in pixels.
 
-  Specifies the color of rendered text.
+    Depends on: `fit=crop`
 
-  Depends on: `txt`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/size/max-width)
+    """
+    maxW: IntType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-color)
-  """
-  txtColor: String
-  """
-  Text Fit Mode
+    Minimum Height
 
-  Specifies the fit approach for rendered text.
+    Specifies the minimum height of the output image in pixels.
 
-  Depends on: `txt`
+    Depends on: `fit=crop`
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-fit)
-  """
-  txtFit: ImgixParamsTxtFit
-  """
-  Text Font
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/size/min-height)
+    """
+    minH: IntType
+    """
 
-  Selects a font for rendered text.
+    Minimum Width
 
-  Depends on: `txt`
+    Specifies the minimum width of the output image in pixels.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-font)
-  """
-  txtFont: String
-  """
-  Text Leading
+    Depends on: `fit=crop`
 
-  Sets the leading (line spacing) for rendered text. Only works on the multi-line text endpoint.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/size/min-width)
+    """
+    minW: IntType
+    """
 
-  Depends on: `txt`
+    Monochrome
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/typesetting/txt-lead)
-  """
-  txtLead: IntType
-  """
-  Text Ligatures
+    Applies a monochrome effect to the source image.
 
-  Controls the level of ligature substitution
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/monochrome)
+    """
+    monochrome: String
+    """
 
-  Depends on: `txt`
+    Noise Reduction Bound
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-lig)
-  """
-  txtLig: IntType
-  """
-  Text Outline
+    Reduces the noise in an image.
 
-  Outlines the rendered text with a specified color.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/noise-reduction/nr)
+    """
+    nr: IntType
+    """
 
-  Depends on: `txt`
+    Noise Reduction Sharpen
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-line)
-  """
-  txtLine: IntType
-  """
-  Text Outline Color
+    Provides a threshold by which to sharpen an image.
 
-  Specifies a text outline color.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/noise-reduction/nrs)
+    """
+    nrs: IntType
+    """
 
-  Depends on: `txt`, `txtline`
+    Orientation
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-line-color)
-  """
-  txtLineColor: String
-  """
-  Text Padding
+    Changes the image orientation.
 
-  Specifies the padding (in device-independent pixels) between a textbox and the edges of the base image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/rotation/orient)
+    """
+    orient: IntType
+    """
 
-  Depends on: `txt`
+    Padding
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-pad)
-  """
-  txtPad: IntType
-  """
-  Text Shadow
+    Pads an image.
 
-  Applies a shadow to rendered text.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad)
+    """
+    pad: IntType
+    """
 
-  Depends on: `txt`
+    Padding Bottom
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-shad)
-  """
-  txtShad: FloatType
-  """
-  Text Font Size
+    Sets bottom padding of an image.
 
-  Sets the font size of rendered text.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-bottom)
+    """
+    padBottom: IntType
+    """
 
-  Depends on: `txt`
+    Padding Left
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-size)
-  """
-  txtSize: IntType
-  """
-  Text Tracking
+    Sets left padding of an image.
 
-  Sets the tracking (letter spacing) for rendered text. Only works on the multi-line text endpoint.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-left)
+    """
+    padLeft: IntType
+    """
 
-  Depends on: `txt`
+    Padding Right
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/typesetting/txt-track)
-  """
-  txtTrack: IntType
-  """
-  Text Width
+    Sets right padding of an image.
 
-  Sets the width of rendered text.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-right)
+    """
+    padRight: IntType
+    """
 
-  Depends on: `txt`
+    Padding Top
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-width)
-  """
-  txtWidth: IntType
-  """
-  Text X Position
+    Sets top padding of an image.
 
-  Sets the horizontal (x) position of the text in pixels relative to the left edge of the base image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-top)
+    """
+    padTop: IntType
+    """
 
-  Depends on: `txt`
+    Pdf Page Number
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-x)
-  """
-  txtX: IntType
-  """
-  Text Y Position
+    Selects a page from a PDF for display.
 
-  Sets the vertical (y) position of the text in pixels relative to the top edge of the base image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/pdf/page)
+    """
+    page: IntType
+    """
 
-  Depends on: `txt`
+    Color Palette Extraction
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-y)
-  """
-  txtY: IntType
-  """
-  Unsharp Mask
+    Specifies an output format for palette-extraction.
 
-  Sharpens the source image using an unsharp mask.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/palette)
+    """
+    palette: ImgixParamsPalette
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/usm)
-  """
-  usm: IntType
-  """
-  Unsharp Mask Radius
+    Pdf Annotation
 
-  Specifies the radius for an unsharp mask operation.
+    Enables or disables PDF annotation.
 
-  Depends on: `usm`
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/pdf/pdf-annotation)
+    """
+    pdfAnnotation: BooleanType
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/usmrad)
-  """
-  usmrad: FloatType
-  """
-  Vibrance
+    Css Prefix
 
-  Adjusts the vibrance of an image.
+    Specifies a CSS prefix for all classes in palette-extraction.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/vib)
-  """
-  vib: IntType
-  """
-  Image Width
+    Depends on: `palette=css`
 
-  Adjusts the width of the output image.
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/prefix)
+    """
+    prefix: String
+    """
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/size/w)
-  """
-  w: FloatType
+    Pixellate
+
+    Applies a pixelation effect to an image.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/px)
+    """
+    px: IntType
+    """
+
+    Output Quality
+
+    Adjusts the quality of an output image.
+
+    Depends on: `fm=jpg`, `fm=pjpg`, `fm=webp`, `fm=jxr`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/format/q)
+    """
+    q: IntType
+    """
+
+    Source Rectangle Region
+
+    Crops an image to a specified rectangle.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/size/rect)
+    """
+    rect: String
+    """
+
+    Rotation
+
+    Rotates an image by a specified number of degrees.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/rotation/rot)
+    """
+    rot: FloatType
+    """
+
+    Saturation
+
+    Adjusts the saturation of an image.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/sat)
+    """
+    sat: IntType
+    """
+
+    Sepia Tone
+
+    Applies a sepia effect to an image.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/sepia)
+    """
+    sepia: IntType
+    """
+
+    Shadow
+
+    Adjusts the highlights of the source image.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/shad)
+    """
+    shad: FloatType
+    """
+
+    Sharpen
+
+    Adjusts the sharpness of the source image.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/sharp)
+    """
+    sharp: FloatType
+    """
+
+    Transparency
+
+    Adds checkerboard behind images which support transparency.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/transparency)
+    """
+    transparency: ImgixParamsTransparency
+    """
+
+    Trim Image
+
+    Trims the source image.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim)
+    """
+    trim: ImgixParamsTrim
+    """
+
+    Trim Color
+
+    Specifies a trim color on a trim operation.
+
+    Depends on: `trim=color`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-color)
+    """
+    trimColor: String
+    """
+
+    Trim Mean Difference
+
+    Specifies the mean difference on a trim operation.
+
+    Depends on: `trim=auto`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-md)
+    """
+    trimMd: FloatType
+    """
+
+    Trim Padding
+
+    Pads the area of the source image before trimming.
+
+    Depends on: `trim`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-pad)
+    """
+    trimPad: IntType
+    """
+
+    Trim Standard Deviation
+
+    Specifies the standard deviation on a trim operation.
+
+    Depends on: `trim=auto`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-sd)
+    """
+    trimSd: FloatType
+    """
+
+    Trim Tolerance
+
+    Specifies the tolerance on a trim operation.
+
+    Depends on: `trim=color`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-tol)
+    """
+    trimTol: FloatType
+    """
+
+    Text String
+
+    Sets the text string to render.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt)
+    """
+    txt: String
+    """
+
+    Text Align
+
+    Sets the vertical and horizontal alignment of rendered text relative to the base image.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-align)
+    """
+    txtAlign: [ImgixParamsTxtAlign!]
+    """
+
+    Text Clipping Mode
+
+    Sets the clipping properties of rendered text.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-clip)
+    """
+    txtClip: [ImgixParamsTxtClip!]
+    """
+
+    Text Color
+
+    Specifies the color of rendered text.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-color)
+    """
+    txtColor: String
+    """
+
+    Text Fit Mode
+
+    Specifies the fit approach for rendered text.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-fit)
+    """
+    txtFit: ImgixParamsTxtFit
+    """
+
+    Text Font
+
+    Selects a font for rendered text.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-font)
+    """
+    txtFont: String
+    """
+
+    Text Leading
+
+    Sets the leading (line spacing) for rendered text. Only works on the multi-line text endpoint.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/typesetting/txt-lead)
+    """
+    txtLead: IntType
+    """
+
+    Text Ligatures
+
+    Controls the level of ligature substitution
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-lig)
+    """
+    txtLig: IntType
+    """
+
+    Text Outline
+
+    Outlines the rendered text with a specified color.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-line)
+    """
+    txtLine: IntType
+    """
+
+    Text Outline Color
+
+    Specifies a text outline color.
+
+    Depends on: `txt`, `txtline`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-line-color)
+    """
+    txtLineColor: String
+    """
+
+    Text Padding
+
+    Specifies the padding (in device-independent pixels) between a textbox and the edges of the base image.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-pad)
+    """
+    txtPad: IntType
+    """
+
+    Text Shadow
+
+    Applies a shadow to rendered text.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-shad)
+    """
+    txtShad: FloatType
+    """
+
+    Text Font Size
+
+    Sets the font size of rendered text.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-size)
+    """
+    txtSize: IntType
+    """
+
+    Text Tracking
+
+    Sets the tracking (letter spacing) for rendered text. Only works on the multi-line text endpoint.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/typesetting/txt-track)
+    """
+    txtTrack: IntType
+    """
+
+    Text Width
+
+    Sets the width of rendered text.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-width)
+    """
+    txtWidth: IntType
+    """
+
+    Text X Position
+
+    Sets the horizontal (x) position of the text in pixels relative to the left edge of the base image.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-x)
+    """
+    txtX: IntType
+    """
+
+    Text Y Position
+
+    Sets the vertical (y) position of the text in pixels relative to the top edge of the base image.
+
+    Depends on: `txt`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-y)
+    """
+    txtY: IntType
+    """
+
+    Unsharp Mask
+
+    Sharpens the source image using an unsharp mask.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/usm)
+    """
+    usm: IntType
+    """
+
+    Unsharp Mask Radius
+
+    Specifies the radius for an unsharp mask operation.
+
+    Depends on: `usm`
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/usmrad)
+    """
+    usmrad: FloatType
+    """
+
+    Vibrance
+
+    Adjusts the vibrance of an image.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/vib)
+    """
+    vib: IntType
+    """
+
+    Image Width
+
+    Adjusts the width of the output image.
+
+    [Open Imgix reference »](https://docs.imgix.com/apis/url/size/w)
+    """
+    w: FloatType
 }
 
 "Specifies how to filter by usage"
 input InUseFilter {
-  "Search uploads that are currently used by some record or not"
-  eq: BooleanType
+    "Search uploads that are currently used by some record or not"
+    eq: BooleanType
 }
 
 "Specifies how to filter Integer fields"
 input IntegerFilter {
-  "Search for records with an exact match"
-  eq: IntType
-  "Filter records with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter records with a value that's strictly greater than the one specified"
-  gt: IntType
-  "Filter records with a value that's greater than or equal to the one specified"
-  gte: IntType
-  "Filter records with a value that's less than the one specified"
-  lt: IntType
-  "Filter records with a value that's less or equal than the one specified"
-  lte: IntType
-  "Exclude records with an exact match"
-  neq: IntType
+    "Search for records with an exact match"
+    eq: IntType
+    "Filter records with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Filter records with a value that's strictly greater than the one specified"
+    gt: IntType
+    "Filter records with a value that's greater than or equal to the one specified"
+    gte: IntType
+    "Filter records with a value that's less than the one specified"
+    lt: IntType
+    "Filter records with a value that's less or equal than the one specified"
+    lte: IntType
+    "Exclude records with an exact match"
+    neq: IntType
 }
 
 "Specifies how to filter by ID"
 input ItemIdFilter {
-  "Search the record with the specified ID"
-  eq: ItemId
-  "Search records with the specified IDs"
-  in: [ItemId]
-  "Exclude the record with the specified ID"
-  neq: ItemId
-  "Search records that do not have the specified IDs"
-  notIn: [ItemId]
+    "Search the record with the specified ID"
+    eq: ItemId
+    "Search records with the specified IDs"
+    in: [ItemId]
+    "Exclude the record with the specified ID"
+    neq: ItemId
+    "Search records that do not have the specified IDs"
+    notIn: [ItemId]
 }
 
 "Specifies how to filter Geolocation fields"
 input LatLonFilter {
-  "Filter records with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter records within the specified radius in meters"
-  near: LatLonNearFilter
+    "Filter records with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Filter records within the specified radius in meters"
+    near: LatLonNearFilter
 }
 
 input LatLonNearFilter {
-  latitude: FloatType!
-  longitude: FloatType!
-  radius: FloatType!
+    latitude: FloatType!
+    longitude: FloatType!
+    radius: FloatType!
 }
 
 input NoveltyModelFilter {
-  OR: [NoveltyModelFilter]
-  _createdAt: CreatedAtFilter
-  _firstPublishedAt: PublishedAtFilter
-  _isValid: BooleanFilter
-  _publicationScheduledAt: PublishedAtFilter
-  _publishedAt: PublishedAtFilter
-  _status: StatusFilter
-  _unpublishingScheduledAt: PublishedAtFilter
-  _updatedAt: UpdatedAtFilter
-  createdAt: CreatedAtFilter
-  date: DateFilter
-  description: StringFilter
-  id: ItemIdFilter
-  image: FileFilter
-  size: StringFilter
-  title: StringFilter
-  updatedAt: UpdatedAtFilter
+    OR: [NoveltyModelFilter]
+    _createdAt: CreatedAtFilter
+    _firstPublishedAt: PublishedAtFilter
+    _isValid: BooleanFilter
+    _publicationScheduledAt: PublishedAtFilter
+    _publishedAt: PublishedAtFilter
+    _status: StatusFilter
+    _unpublishingScheduledAt: PublishedAtFilter
+    _updatedAt: UpdatedAtFilter
+    createdAt: CreatedAtFilter
+    date: DateFilter
+    description: StringFilter
+    id: ItemIdFilter
+    image: FileFilter
+    size: StringFilter
+    title: StringFilter
+    updatedAt: UpdatedAtFilter
 }
 
 "Specifies how to filter by image orientation"
 input OrientationFilter {
-  "Search uploads with the specified orientation"
-  eq: UploadOrientation
-  "Exclude uploads with the specified orientation"
-  neq: UploadOrientation
+    "Search uploads with the specified orientation"
+    eq: UploadOrientation
+    "Exclude uploads with the specified orientation"
+    neq: UploadOrientation
 }
 
 input ProjectModelFilter {
-  OR: [ProjectModelFilter]
-  _createdAt: CreatedAtFilter
-  _firstPublishedAt: PublishedAtFilter
-  _isValid: BooleanFilter
-  _publicationScheduledAt: PublishedAtFilter
-  _publishedAt: PublishedAtFilter
-  _status: StatusFilter
-  _unpublishingScheduledAt: PublishedAtFilter
-  _updatedAt: UpdatedAtFilter
-  createdAt: CreatedAtFilter
-  description: StringFilter
-  id: ItemIdFilter
-  imageSet: GalleryFilter
-  location: LatLonFilter
-  name: StringFilter
-  rating: IntegerFilter
-  title: StringFilter
-  titleImage: FileFilter
-  updatedAt: UpdatedAtFilter
+    OR: [ProjectModelFilter]
+    _createdAt: CreatedAtFilter
+    _firstPublishedAt: PublishedAtFilter
+    _isValid: BooleanFilter
+    _publicationScheduledAt: PublishedAtFilter
+    _publishedAt: PublishedAtFilter
+    _status: StatusFilter
+    _unpublishingScheduledAt: PublishedAtFilter
+    _updatedAt: UpdatedAtFilter
+    createdAt: CreatedAtFilter
+    description: StringFilter
+    id: ItemIdFilter
+    imageSet: GalleryFilter
+    location: LatLonFilter
+    name: StringFilter
+    rating: IntegerFilter
+    title: StringFilter
+    titleImage: FileFilter
+    updatedAt: UpdatedAtFilter
 }
 
 "Specifies how to filter by publication datetime"
 input PublishedAtFilter {
-  "Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument."
-  eq: DateTime
-  "Filter records with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument."
-  gt: DateTime
-  "Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument."
-  gte: DateTime
-  "Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument."
-  lt: DateTime
-  "Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument."
-  lte: DateTime
-  "Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument."
-  neq: DateTime
+    "Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument."
+    eq: DateTime
+    "Filter records with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument."
+    gt: DateTime
+    "Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument."
+    gte: DateTime
+    "Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument."
+    lt: DateTime
+    "Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument."
+    lte: DateTime
+    "Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument."
+    neq: DateTime
 }
 
 "Specifies how to filter by upload type"
 input ResolutionFilter {
-  "Search uploads with the specified resolution"
-  eq: ResolutionType
-  "Search uploads with the specified resolutions"
-  in: [ResolutionType]
-  "Exclude uploads with the specified resolution"
-  neq: ResolutionType
-  "Search uploads without the specified resolutions"
-  notIn: [ResolutionType]
+    "Search uploads with the specified resolution"
+    eq: ResolutionType
+    "Search uploads with the specified resolutions"
+    in: [ResolutionType]
+    "Exclude uploads with the specified resolution"
+    neq: ResolutionType
+    "Search uploads without the specified resolutions"
+    notIn: [ResolutionType]
 }
 
 "Specifies how to filter by status"
 input StatusFilter {
-  "Search the record with the specified status"
-  eq: ItemStatus
-  "Search records with the specified statuses"
-  in: [ItemStatus]
-  "Exclude the record with the specified status"
-  neq: ItemStatus
-  "Search records without the specified statuses"
-  notIn: [ItemStatus]
+    "Search the record with the specified status"
+    eq: ItemStatus
+    "Search records with the specified statuses"
+    in: [ItemStatus]
+    "Exclude the record with the specified status"
+    neq: ItemStatus
+    "Search records without the specified statuses"
+    notIn: [ItemStatus]
 }
 
 "Specifies how to filter Single-line string fields"
 input StringFilter {
-  "Search for records with an exact match"
-  eq: String
-  "Filter records with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter records that equal one of the specified values"
-  in: [String]
-  "Filter records with the specified field set as blank (null or empty string)"
-  isBlank: BooleanType
-  "Filter records based on a regular expression"
-  matches: StringMatchesFilter
-  "Exclude records with an exact match"
-  neq: String
-  "Filter records that do not equal one of the specified values"
-  notIn: [String]
-  "Exclude records based on a regular expression"
-  notMatches: StringMatchesFilter
+    "Search for records with an exact match"
+    eq: String
+    "Filter records with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Filter records that equal one of the specified values"
+    in: [String]
+    "Filter records with the specified field set as blank (null or empty string)"
+    isBlank: BooleanType
+    "Filter records based on a regular expression"
+    matches: StringMatchesFilter
+    "Exclude records with an exact match"
+    neq: String
+    "Filter records that do not equal one of the specified values"
+    notIn: [String]
+    "Exclude records based on a regular expression"
+    notMatches: StringMatchesFilter
 }
 
 input StringMatchesFilter {
-  caseSensitive: BooleanType = false
-  pattern: String!
-  regexp: BooleanType = true
+    caseSensitive: BooleanType = false
+    pattern: String!
+    regexp: BooleanType = true
 }
 
 "Specifies how to filter by upload type"
 input TypeFilter {
-  "Search uploads with the specified type"
-  eq: UploadType
-  "Search uploads with the specified types"
-  in: [UploadType]
-  "Exclude uploads with the specified type"
-  neq: UploadType
-  "Search uploads without the specified types"
-  notIn: [UploadType]
+    "Search uploads with the specified type"
+    eq: UploadType
+    "Search uploads with the specified types"
+    in: [UploadType]
+    "Exclude uploads with the specified type"
+    neq: UploadType
+    "Search uploads without the specified types"
+    notIn: [UploadType]
 }
 
 "Specifies how to filter by update datetime"
 input UpdatedAtFilter {
-  "Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument."
-  eq: DateTime
-  "Filter records with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument."
-  gt: DateTime
-  "Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument."
-  gte: DateTime
-  "Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument."
-  lt: DateTime
-  "Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument."
-  lte: DateTime
-  "Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument."
-  neq: DateTime
+    "Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument."
+    eq: DateTime
+    "Filter records with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument."
+    gt: DateTime
+    "Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument."
+    gte: DateTime
+    "Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument."
+    lt: DateTime
+    "Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument."
+    lte: DateTime
+    "Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument."
+    neq: DateTime
 }
 
 "Specifies how to filter by default alt"
 input UploadAltFilter {
-  "Search the uploads with the specified alt"
-  eq: String
-  "Filter uploads with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Search uploads with the specified values as default alt"
-  in: [String]
-  "Filter uploads based on a regular expression"
-  matches: StringMatchesFilter
-  "Exclude the uploads with the specified alt"
-  neq: String
-  "Search uploads that do not have the specified values as default alt"
-  notIn: [String]
-  "Exclude uploads based on a regular expression"
-  notMatches: StringMatchesFilter
+    "Search the uploads with the specified alt"
+    eq: String
+    "Filter uploads with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Search uploads with the specified values as default alt"
+    in: [String]
+    "Filter uploads based on a regular expression"
+    matches: StringMatchesFilter
+    "Exclude the uploads with the specified alt"
+    neq: String
+    "Search uploads that do not have the specified values as default alt"
+    notIn: [String]
+    "Exclude uploads based on a regular expression"
+    notMatches: StringMatchesFilter
 }
 
 "Specifies how to filter by auhtor"
 input UploadAuthorFilter {
-  "Filter uploads with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter uploads based on a regular expression"
-  matches: StringMatchesFilter
-  "Exclude uploads based on a regular expression"
-  notMatches: StringMatchesFilter
+    "Filter uploads with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Filter uploads based on a regular expression"
+    matches: StringMatchesFilter
+    "Exclude uploads based on a regular expression"
+    notMatches: StringMatchesFilter
 }
 
 "Specifies how to filter by basename"
 input UploadBasenameFilter {
-  "Filter uploads based on a regular expression"
-  matches: StringMatchesFilter
-  "Exclude uploads based on a regular expression"
-  notMatches: StringMatchesFilter
+    "Filter uploads based on a regular expression"
+    matches: StringMatchesFilter
+    "Exclude uploads based on a regular expression"
+    notMatches: StringMatchesFilter
 }
 
 "Specifies how to filter by colors"
 input UploadColorsFilter {
-  "Filter uploads that have all of the specified colors"
-  allIn: [ColorBucketType]
-  "Filter uploads that have at least one of the specified colors"
-  anyIn: [ColorBucketType]
-  "Filter uploads that have the specified colors"
-  contains: ColorBucketType
-  "Search for uploads with an exact match"
-  eq: [ColorBucketType]
-  "Filter uploads that do not have any of the specified colors"
-  notIn: [ColorBucketType]
+    "Filter uploads that have all of the specified colors"
+    allIn: [ColorBucketType]
+    "Filter uploads that have at least one of the specified colors"
+    anyIn: [ColorBucketType]
+    "Filter uploads that have the specified colors"
+    contains: ColorBucketType
+    "Search for uploads with an exact match"
+    eq: [ColorBucketType]
+    "Filter uploads that do not have any of the specified colors"
+    notIn: [ColorBucketType]
 }
 
 "Specifies how to filter by copyright"
 input UploadCopyrightFilter {
-  "Filter records with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter uploads based on a regular expression"
-  matches: StringMatchesFilter
-  "Exclude uploads based on a regular expression"
-  notMatches: StringMatchesFilter
+    "Filter records with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Filter uploads based on a regular expression"
+    matches: StringMatchesFilter
+    "Exclude uploads based on a regular expression"
+    notMatches: StringMatchesFilter
 }
 
 "Specifies how to filter by creation datetime"
 input UploadCreatedAtFilter {
-  "Search for uploads with an exact match"
-  eq: DateTime
-  "Filter uploads with a value that's strictly greater than the one specified"
-  gt: DateTime
-  "Filter uploads with a value that's greater than or equal to the one specified"
-  gte: DateTime
-  "Filter uploads with a value that's less than the one specified"
-  lt: DateTime
-  "Filter uploads with a value that's less or equal than the one specified"
-  lte: DateTime
-  "Exclude uploads with an exact match"
-  neq: DateTime
+    "Search for uploads with an exact match"
+    eq: DateTime
+    "Filter uploads with a value that's strictly greater than the one specified"
+    gt: DateTime
+    "Filter uploads with a value that's greater than or equal to the one specified"
+    gte: DateTime
+    "Filter uploads with a value that's less than the one specified"
+    lt: DateTime
+    "Filter uploads with a value that's less or equal than the one specified"
+    lte: DateTime
+    "Exclude uploads with an exact match"
+    neq: DateTime
 }
 
 "Specifies how to filter by filename"
 input UploadFilenameFilter {
-  "Filter uploads based on a regular expression"
-  matches: StringMatchesFilter
-  "Exclude uploads based on a regular expression"
-  notMatches: StringMatchesFilter
+    "Filter uploads based on a regular expression"
+    matches: StringMatchesFilter
+    "Exclude uploads based on a regular expression"
+    notMatches: StringMatchesFilter
 }
 
 input UploadFilter {
-  OR: [UploadFilter]
-  _createdAt: UploadCreatedAtFilter
-  _updatedAt: UploadUpdatedAtFilter
-  alt: UploadAltFilter
-  author: UploadAuthorFilter
-  basename: UploadBasenameFilter
-  colors: UploadColorsFilter
-  copyright: UploadCopyrightFilter
-  filename: UploadFilenameFilter
-  format: UploadFormatFilter
-  height: UploadHeightFilter
-  id: UploadIdFilter
-  inUse: InUseFilter
-  md5: UploadMd5Filter
-  mimeType: UploadMimeTypeFilter
-  notes: UploadNotesFilter
-  orientation: OrientationFilter
-  resolution: ResolutionFilter
-  size: UploadSizeFilter
-  smartTags: UploadTagsFilter
-  tags: UploadTagsFilter
-  title: UploadTitleFilter
-  type: TypeFilter
-  width: UploadWidthFilter
+    OR: [UploadFilter]
+    _createdAt: UploadCreatedAtFilter
+    _updatedAt: UploadUpdatedAtFilter
+    alt: UploadAltFilter
+    author: UploadAuthorFilter
+    basename: UploadBasenameFilter
+    colors: UploadColorsFilter
+    copyright: UploadCopyrightFilter
+    filename: UploadFilenameFilter
+    format: UploadFormatFilter
+    height: UploadHeightFilter
+    id: UploadIdFilter
+    inUse: InUseFilter
+    md5: UploadMd5Filter
+    mimeType: UploadMimeTypeFilter
+    notes: UploadNotesFilter
+    orientation: OrientationFilter
+    resolution: ResolutionFilter
+    size: UploadSizeFilter
+    smartTags: UploadTagsFilter
+    tags: UploadTagsFilter
+    title: UploadTitleFilter
+    type: TypeFilter
+    width: UploadWidthFilter
 }
 
 "Specifies how to filter by format"
 input UploadFormatFilter {
-  "Search the asset with the specified format"
-  eq: String
-  "Search assets with the specified formats"
-  in: [String]
-  "Exclude the asset with the specified format"
-  neq: String
-  "Search assets that do not have the specified formats"
-  notIn: [String]
+    "Search the asset with the specified format"
+    eq: String
+    "Search assets with the specified formats"
+    in: [String]
+    "Exclude the asset with the specified format"
+    neq: String
+    "Search assets that do not have the specified formats"
+    notIn: [String]
 }
 
 "Specifies how to filter by height"
 input UploadHeightFilter {
-  "Search assets with the specified height"
-  eq: IntType
-  "Search all assets larger than the specified height"
-  gt: IntType
-  "Search all assets larger or equal to the specified height"
-  gte: IntType
-  "Search all assets smaller than the specified height"
-  lt: IntType
-  "Search all assets larger or equal to the specified height"
-  lte: IntType
-  "Search assets that do not have the specified height"
-  neq: IntType
+    "Search assets with the specified height"
+    eq: IntType
+    "Search all assets larger than the specified height"
+    gt: IntType
+    "Search all assets larger or equal to the specified height"
+    gte: IntType
+    "Search all assets smaller than the specified height"
+    lt: IntType
+    "Search all assets larger or equal to the specified height"
+    lte: IntType
+    "Search assets that do not have the specified height"
+    neq: IntType
 }
 
 "Specifies how to filter by ID"
 input UploadIdFilter {
-  "Search the asset with the specified ID"
-  eq: UploadId
-  "Search assets with the specified IDs"
-  in: [UploadId]
-  "Exclude the asset with the specified ID"
-  neq: UploadId
-  "Search assets that do not have the specified IDs"
-  notIn: [UploadId]
+    "Search the asset with the specified ID"
+    eq: UploadId
+    "Search assets with the specified IDs"
+    in: [UploadId]
+    "Exclude the asset with the specified ID"
+    neq: UploadId
+    "Search assets that do not have the specified IDs"
+    notIn: [UploadId]
 }
 
 "Specifies how to filter by MD5"
 input UploadMd5Filter {
-  "Search the asset with the specified MD5"
-  eq: String
-  "Search assets with the specified MD5s"
-  in: [String]
-  "Exclude the asset with the specified MD5"
-  neq: String
-  "Search assets that do not have the specified MD5s"
-  notIn: [String]
+    "Search the asset with the specified MD5"
+    eq: String
+    "Search assets with the specified MD5s"
+    in: [String]
+    "Exclude the asset with the specified MD5"
+    neq: String
+    "Search assets that do not have the specified MD5s"
+    notIn: [String]
 }
 
 "Specifies how to filter by mime type"
 input UploadMimeTypeFilter {
-  "Search the asset with the specified mime type"
-  eq: String
-  "Search assets with the specified mime types"
-  in: [String]
-  "Filter uploads based on a regular expression"
-  matches: StringMatchesFilter
-  "Exclude the asset with the specified mime type"
-  neq: String
-  "Search assets that do not have the specified mime types"
-  notIn: [String]
-  "Exclude uploads based on a regular expression"
-  notMatches: StringMatchesFilter
+    "Search the asset with the specified mime type"
+    eq: String
+    "Search assets with the specified mime types"
+    in: [String]
+    "Filter uploads based on a regular expression"
+    matches: StringMatchesFilter
+    "Exclude the asset with the specified mime type"
+    neq: String
+    "Search assets that do not have the specified mime types"
+    notIn: [String]
+    "Exclude uploads based on a regular expression"
+    notMatches: StringMatchesFilter
 }
 
 "Specifies how to filter by notes"
 input UploadNotesFilter {
-  "Filter records with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Filter uploads based on a regular expression"
-  matches: StringMatchesFilter
-  "Exclude uploads based on a regular expression"
-  notMatches: StringMatchesFilter
+    "Filter records with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Filter uploads based on a regular expression"
+    matches: StringMatchesFilter
+    "Exclude uploads based on a regular expression"
+    notMatches: StringMatchesFilter
 }
 
 "Specifies how to filter by size"
 input UploadSizeFilter {
-  "Search assets with the specified size (in bytes)"
-  eq: IntType
-  "Search all assets larger than the specified size (in bytes)"
-  gt: IntType
-  "Search all assets larger or equal to the specified size (in bytes)"
-  gte: IntType
-  "Search all assets smaller than the specified size (in bytes)"
-  lt: IntType
-  "Search all assets larger or equal to the specified size (in bytes)"
-  lte: IntType
-  "Search assets that do not have the specified size (in bytes)"
-  neq: IntType
+    "Search assets with the specified size (in bytes)"
+    eq: IntType
+    "Search all assets larger than the specified size (in bytes)"
+    gt: IntType
+    "Search all assets larger or equal to the specified size (in bytes)"
+    gte: IntType
+    "Search all assets smaller than the specified size (in bytes)"
+    lt: IntType
+    "Search all assets larger or equal to the specified size (in bytes)"
+    lte: IntType
+    "Search assets that do not have the specified size (in bytes)"
+    neq: IntType
 }
 
 "Specifies how to filter by tags"
 input UploadTagsFilter {
-  "Filter uploads linked to all of the specified tags"
-  allIn: [String!]
-  "Filter uploads linked to at least one of the specified tags"
-  anyIn: [String!]
-  "Filter uploads linked to the specified tag"
-  contains: String
-  "Search for uploads with an exact match"
-  eq: [String!]
-  "Filter uploads not linked to any of the specified tags"
-  notIn: [String!]
+    "Filter uploads linked to all of the specified tags"
+    allIn: [String!]
+    "Filter uploads linked to at least one of the specified tags"
+    anyIn: [String!]
+    "Filter uploads linked to the specified tag"
+    contains: String
+    "Search for uploads with an exact match"
+    eq: [String!]
+    "Filter uploads not linked to any of the specified tags"
+    notIn: [String!]
 }
 
 "Specifies how to filter by default title"
 input UploadTitleFilter {
-  "Search the asset with the specified title"
-  eq: String
-  "Filter assets with the specified field defined (i.e. with any value) or not"
-  exists: BooleanType
-  "Search assets with the specified as default title"
-  in: [String]
-  "Filter uploads based on a regular expression"
-  matches: StringMatchesFilter
-  "Exclude the asset with the specified title"
-  neq: String
-  "Search assets that do not have the specified as default title"
-  notIn: [String]
-  "Exclude uploads based on a regular expression"
-  notMatches: StringMatchesFilter
+    "Search the asset with the specified title"
+    eq: String
+    "Filter assets with the specified field defined (i.e. with any value) or not"
+    exists: BooleanType
+    "Search assets with the specified as default title"
+    in: [String]
+    "Filter uploads based on a regular expression"
+    matches: StringMatchesFilter
+    "Exclude the asset with the specified title"
+    neq: String
+    "Search assets that do not have the specified as default title"
+    notIn: [String]
+    "Exclude uploads based on a regular expression"
+    notMatches: StringMatchesFilter
 }
 
 "Specifies how to filter by update datetime"
 input UploadUpdatedAtFilter {
-  "Search for uploads with an exact match"
-  eq: DateTime
-  "Filter uploads with a value that's strictly greater than the one specified"
-  gt: DateTime
-  "Filter uploads with a value that's greater than or equal to the one specified"
-  gte: DateTime
-  "Filter uploads with a value that's less than the one specified"
-  lt: DateTime
-  "Filter uploads with a value that's less or equal than the one specified"
-  lte: DateTime
-  "Exclude uploads with an exact match"
-  neq: DateTime
+    "Search for uploads with an exact match"
+    eq: DateTime
+    "Filter uploads with a value that's strictly greater than the one specified"
+    gt: DateTime
+    "Filter uploads with a value that's greater than or equal to the one specified"
+    gte: DateTime
+    "Filter uploads with a value that's less than the one specified"
+    lt: DateTime
+    "Filter uploads with a value that's less or equal than the one specified"
+    lte: DateTime
+    "Exclude uploads with an exact match"
+    neq: DateTime
 }
 
 "Specifies how to filter by width"
 input UploadWidthFilter {
-  "Search assets with the specified width"
-  eq: IntType
-  "Search all assets larger than the specified width"
-  gt: IntType
-  "Search all assets larger or equal to the specified width"
-  gte: IntType
-  "Search all assets smaller than the specified width"
-  lt: IntType
-  "Search all assets larger or equal to the specified width"
-  lte: IntType
-  "Search assets that do not have the specified width"
-  neq: IntType
+    "Search assets with the specified width"
+    eq: IntType
+    "Search all assets larger than the specified width"
+    gt: IntType
+    "Search all assets larger or equal to the specified width"
+    gte: IntType
+    "Search all assets smaller than the specified width"
+    lt: IntType
+    "Search all assets larger or equal to the specified width"
+    lte: IntType
+    "Search assets that do not have the specified width"
+    neq: IntType
 }

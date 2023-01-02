@@ -38,11 +38,11 @@ function WhySelectUs({ data }) {
 }
 
 WhySelectUs.defaultProps = {
-  data: [],
+  data: {},
 }
 
 WhySelectUs.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.object,
 }
 
 export default WhySelectUs

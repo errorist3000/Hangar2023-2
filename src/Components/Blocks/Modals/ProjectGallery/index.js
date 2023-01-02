@@ -30,8 +30,6 @@ function ProjectGallery({ isOpen, projectId, onClose }) {
 
   const projectData = data?.project
 
-  console.log(isMap)
-
   return (
     <ClientOnly>
       <Modal isCustom isOpen={isOpen}>
