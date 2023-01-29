@@ -2,7 +2,9 @@ import React, { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Row, Text } from 'Components/UI'
+
 import { LANDING_SECTION_ID } from 'Constants/ids'
+
 import { pageScroll } from 'Services/Utils'
 
 import { ItemButton } from './styles'
