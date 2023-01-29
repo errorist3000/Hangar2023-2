@@ -15,7 +15,7 @@ const colors = {
     heading: palette.darkGunmetalGrey,
     inverse: palette.white,
     muted: palette.spanishGray,
-    inMuted: palette.americanSilver,
+    mutedInverse: palette.americanSilver,
   },
 
   button: {
