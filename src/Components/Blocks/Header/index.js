@@ -26,8 +26,6 @@ function Header() {
     }
   })
 
-  console.log(isScrolled)
-
   return (
     <Container shrink={isScrolled}>
       <Content>

@@ -1,10 +1,11 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import themeGet from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
 
 export const Container = styled.div`
   display: flex;
+  align-items: center;
   justify-content: center;
   align-self: flex-start;
   width: 100%;
@@ -43,14 +44,20 @@ export const IconHolder = styled.div`
     margin-bottom: ${themeGet('space.5')}px;
   }
 `
+
+const styledImageTopCss = ({ top }) =>
+  top &&
+  css`
+    top: ${top}px;
+  `
+
 export const StyledImage = styled.img`
   position: absolute;
-  top: 50%;
   left: 0;
-  opacity: 0.15;
+  opacity: 0.25;
   min-width: 100%;
   object-fit: contain;
   object-position: bottom;
-  transform: translateY(-50%);
-  filter: blur(2px);
+
+  ${styledImageTopCss}
 `

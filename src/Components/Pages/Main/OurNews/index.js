@@ -1,69 +1,80 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import PropTypes from 'prop-types'
 
-import { Card, Container, Content } from 'Components/Pages/Main/OurNews/styles'
-import { Row, Text } from 'Components/UI'
+import { Column, Image, Row, Text } from 'Components/UI'
+import { DATO_DATE_FORMAT } from 'Constants/datoCms'
+import { LANDING_SECTION_ID } from 'Constants/ids'
+import { DateTime } from 'luxon'
 import { Calendar } from 'phosphor-react'
+import { Scrollbar } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-function OurNews() {
+import { Card, Container, Content } from './styles'
+
+function getPrettyDate(date) {
+  return DateTime.fromFormat(date, DATO_DATE_FORMAT).toFormat('dd.MM.yyyy')
+}
+
+function OurNews({ data }) {
   const { t } = useTranslation('translation', {
     keyPrefix: 'pages.main.ourNews',
   })
 
-  const CARDS = [
-    {
-      title: t('s1title'),
-      subTitle: t('s1subTitle'),
-      text: t('s1text'),
-      subText: t('s1subText'),
-    },
-    {
-      title: t('s2title'),
-      subTitle: t('s2subTitle'),
-      text: t('s2text'),
-      subText: t('s2subText'),
-    },
-    {
-      title: t('s3title'),
-      subTitle: t('s3subTitle'),
-      text: t('s3text'),
-      subText: t('s3subText'),
-    },
-  ]
-
   return (
     <Container>
-      <Content>
+      <Content id={LANDING_SECTION_ID.news}>
         <Text h3 heading mb={3}>
           {t('header')}
         </Text>
         <Text body caption1 mb={10}>
           {t('subHeader')}
         </Text>
-        <Row gap={20}>
-          {CARDS.map(card => (
-            <Card key={card.subtext}>
-              <Text heading mb={1} subHeader3>
-                {card.title}
-              </Text>
-              <Row>
-                <Calendar />
-                <Text caption2 mb={4} muted>
-                  {card.subTitle}
-                </Text>
-              </Row>
-              <Text body body3 mb={3}>
-                {card.text}
-              </Text>
-              <Text body caption1>
-                {card.subText}
-              </Text>
-            </Card>
+
+        <Swiper
+          grabCursor
+          modules={[Scrollbar]}
+          scrollbar
+          slidesPerView={3}
+          spaceBetween={20}
+        >
+          {data.map(slide => (
+            <SwiperSlide key={slide.id}>
+              <Card>
+                <Image data={slide.image} />
+                <Column fullHeight px={3} py={2}>
+                  <Text heading mb={2} subHeader3>
+                    {slide.title}
+                  </Text>
+                  <Row mb={4}>
+                    <Calendar />
+                    <Text caption2 ml={1} muted>
+                      {getPrettyDate(slide.date)}
+                    </Text>
+                  </Row>
+                  <Column fullHeight spaceBetween>
+                    <Text body body3 mb={3}>
+                      {slide.description}
+                    </Text>
+                    <Text body caption1>
+                      {slide.size}
+                    </Text>
+                  </Column>
+                </Column>
+              </Card>
+            </SwiperSlide>
           ))}
-        </Row>
+        </Swiper>
       </Content>
     </Container>
   )
 }
 
+OurNews.defaultProps = {
+  data: [],
+}
+
+OurNews.propTypes = {
+  data: PropTypes.array,
+}
 export default OurNews

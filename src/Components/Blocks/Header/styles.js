@@ -3,7 +3,7 @@ import themeGet from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
 
-const contanerShrinkCss = ({ shrink }) =>
+const containerShrinkCss = ({ shrink }) =>
   shrink &&
   css`
     height: 56px;
@@ -15,12 +15,13 @@ export const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding-inline: ${LANDING_PADDING_X}px;
-  background-color: ${themeGet('colors.bg.tertiary')};
+  background-color: ${themeGet('colors.bg.tertiary')}99;
   backdrop-filter: blur(6px);
   height: 72px;
   transition: height ${themeGet('transitionTime.modal')} linear;
+  z-index: ${themeGet('zIndexes.landingHeader')};
 
-  ${contanerShrinkCss}
+  ${containerShrinkCss}
 `
 
 export const Content = styled.div`

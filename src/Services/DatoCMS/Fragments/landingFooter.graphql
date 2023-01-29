@@ -1,0 +1,8 @@
+fragment LandingFooterFields on LandingFooterRecord {
+  id
+  legalAddress(locale: ru)
+  legalName(locale: ru)
+  mailautor
+  mailangarpro
+  adress(locale: ru)
+}

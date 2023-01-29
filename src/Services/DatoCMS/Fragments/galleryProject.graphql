@@ -1,0 +1,58 @@
+#import "Services/DatoCMS/Fragments/location.graphql"
+
+fragment GalleryProjectsFields on ProjectRecord {
+  location {
+    ...LocationFields
+  }
+  id
+  rating
+  title(locale: ru)
+  description(locale: ru)
+  titleImage {
+    alt
+    jpeg1x: url(
+      imgixParams: {
+        h: "320"
+        w: "320"
+        fit: crop
+        crop: focalpoint
+        fm: jpg
+        q: 60
+        dpr: 1
+      }
+    )
+    jpeg2x: url(
+      imgixParams: {
+        h: "320"
+        w: "320"
+        fit: crop
+        crop: focalpoint
+        fm: jpg
+        q: 60
+        dpr: 2
+      }
+    )
+    webp1x: url(
+      imgixParams: {
+        h: "320"
+        w: "320"
+        fit: crop
+        crop: focalpoint
+        fm: webp
+        q: 60
+        dpr: 1
+      }
+    )
+    webp2x: url(
+      imgixParams: {
+        h: "320"
+        w: "320"
+        fit: crop
+        crop: focalpoint
+        fm: webp
+        q: 60
+        dpr: 2
+      }
+    )
+  }
+}

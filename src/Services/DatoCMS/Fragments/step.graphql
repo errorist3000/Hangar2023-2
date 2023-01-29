@@ -1,0 +1,6 @@
+fragment StepFields on StepRecord {
+  title
+  text
+  order
+  id
+}

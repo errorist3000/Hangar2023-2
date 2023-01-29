@@ -1,48 +1,58 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import PropTypes from 'prop-types'
 
 import { Container, Content } from 'Components/Blocks/Footer/styles'
 import { Column, Row, Text } from 'Components/UI'
 
-function Footer() {
+function Footer({ data }) {
   const { t } = useTranslation('translation', {
     keyPrefix: 'block.footer',
   })
+
   return (
     <Container>
       <Content>
         <Row fullWidth mb={9} spaceBetween>
           <Column maxWidth={518}>
             <Text inMuted mb={3} subHeader1>
-              {t('s1title')}
+              {t('titleLegalAddress')}
             </Text>
             <Text body2 inMuted mb={2}>
-              {t('s1text')}
+              {data?.legalName}
             </Text>
             <Text body2 inMuted>
-              {t('s2text')}
+              {data?.legalAddress}
             </Text>
           </Column>
           <Column maxWidth={518}>
             <Text inMuted mb={3} subHeader1>
-              {t('s2title')}
+              {t('titleAddress')}
             </Text>
             <Text body2 inMuted mb={2}>
-              {t('s3text')}
+              {data?.adress}
             </Text>
           </Column>
         </Row>
         <Row fullWidth spaceBetween>
           <Text body4 mb={3} muted>
-            {t('s4text')}
+            {data?.mailautor}
           </Text>
           <Text body4 mb={3} muted>
-            {t('s5text')}
+            {data?.mailangarpro}
           </Text>
         </Row>
       </Content>
     </Container>
   )
+}
+
+Footer.defaultProps = {
+  data: {},
+}
+
+Footer.propTypes = {
+  data: PropTypes.object,
 }
 
 export default Footer

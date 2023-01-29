@@ -1,5 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import themeGet from '@styled-system/theme-get'
+
+import { motion } from 'framer-motion'
 
 export const Container = styled.div`
   display: flex;
@@ -21,61 +23,83 @@ export const Content = styled.div`
     border-radius: 0;
   }
 `
-export const CardsHolder = styled.div`
+
+export const TopHolder = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  grid-template-columns: repeat(4, 1fr);
   width: 100%;
+  flex-shrink: 0;
 `
+
+export const BottomHolder = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-shrink: 0;
+`
+
+const cardHolderSizeCss = ({ size }) =>
+  size &&
+  css`
+    width: ${size}px;
+    height: ${size}px;
+  `
 
 export const CardHolder = styled.div`
   position: relative;
-  height: 320px;
-  width: 20vw;
+
+  ${cardHolderSizeCss}
 `
+
+const cardHoverCss = ({ canHover }) =>
+  canHover &&
+  css`
+    cursor: pointer;
+    &:hover {
+      z-index: 1;
+      box-shadow: ${themeGet('shadow.large')};
+
+      img {
+        filter: grayscale(0);
+        width: 100%;
+      }
+
+      div {
+        height: 96px;
+      }
+
+      p {
+        opacity: 1;
+      }
+    }
+  `
 
 export const Card = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  cursor: pointer;
   position: absolute;
   width: 100%;
   bottom: 0;
   transition: all ${themeGet('transitionTime.long')};
+
+  img {
+    filter: grayscale(100%);
+    width: 100%;
+    object-fit: cover;
+  }
 
   p {
     transition: opacity ${themeGet('transitionTime.long')} ease-in;
     opacity: 0;
   }
 
-  &:hover {
-    z-index: 1;
-    box-shadow: ${themeGet('shadow.large')};
-
-    img {
-      filter: grayscale(0);
-    }
-
-    div {
-      height: 96px;
-    }
-
-    p {
-      opacity: 1;
-    }
-  }
+  ${cardHoverCss}
 `
 
-export const StyledImage = styled.img`
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  filter: grayscale(100%);
-  transition: all ${themeGet('transitionTime.long')};
-`
 export const CaptionHolder = styled.div`
   width: 100%;
   display: flex;

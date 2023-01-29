@@ -1,0 +1,68 @@
+#import "Services/DatoCMS/Fragments/step.graphql"
+#import "Services/DatoCMS/Fragments/statistic.graphql"
+#import "Services/DatoCMS/Fragments/galleryProject.graphql"
+#import "Services/DatoCMS/Fragments/hero.graphql"
+
+query HomePage {
+  homePage(locale: ru) {
+    stepSection(locale: ru) {
+      ...StepFields
+    }
+    statisticSection {
+      ...StatisticFields
+    }
+    galleryProjects(locale: ru) {
+      ...GalleryProjectsFields
+    }
+    whySelectUsSection {
+      alt
+      jpeg1x: url(
+        imgixParams: {
+          h: "398"
+          w: "520"
+          fit: crop
+          crop: focalpoint
+          fm: jpg
+          q: 60
+          dpr: 1
+        }
+      )
+      jpeg2x: url(
+        imgixParams: {
+          h: "398"
+          w: "520"
+          fit: crop
+          crop: focalpoint
+          fm: jpg
+          q: 60
+          dpr: 2
+        }
+      )
+      webp1x: url(
+        imgixParams: {
+          h: "398"
+          w: "520"
+          fit: crop
+          crop: focalpoint
+          fm: webp
+          q: 60
+          dpr: 1
+        }
+      )
+      webp2x: url(
+        imgixParams: {
+          h: "398"
+          w: "520"
+          fit: crop
+          crop: focalpoint
+          fm: webp
+          q: 60
+          dpr: 2
+        }
+      )
+    }
+    heroSection(locale: ru) {
+      ...HeroFields
+    }
+  }
+}

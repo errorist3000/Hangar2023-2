@@ -1,0 +1,59 @@
+query ProjectQuery($id: ItemIdFilter) {
+  project(filter: { id: $id }) {
+    id
+    description
+    name
+    title
+    location {
+      latitude
+      longitude
+    }
+    imageSet {
+      id
+      jpeg1x: url(
+        imgixParams: {
+          h: "690"
+          w: "1170"
+          fit: crop
+          crop: focalpoint
+          fm: jpg
+          q: 60
+          dpr: 1
+        }
+      )
+      jpeg2x: url(
+        imgixParams: {
+          h: "690"
+          w: "1170"
+          fit: crop
+          crop: focalpoint
+          fm: jpg
+          q: 60
+          dpr: 2
+        }
+      )
+      webp1x: url(
+        imgixParams: {
+          h: "690"
+          w: "1170"
+          fit: crop
+          crop: focalpoint
+          fm: webp
+          q: 60
+          dpr: 1
+        }
+      )
+      webp2x: url(
+        imgixParams: {
+          h: "690"
+          w: "1170"
+          fit: crop
+          crop: focalpoint
+          fm: webp
+          q: 60
+          dpr: 2
+        }
+      )
+    }
+  }
+}

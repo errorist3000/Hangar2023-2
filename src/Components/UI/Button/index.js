@@ -1,4 +1,4 @@
-import { bool } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import styled, { css } from 'styled-components'
 import { mapToTheme } from 'styled-map'
@@ -11,24 +11,20 @@ const buttonOutlineCss = ({ outline }) =>
     background: none;
     border: 1px solid ${themeGet('colors.button.outline.hover.border')};
 
-    &:hover,
-    :focus,
-    :active {
+    &:hover {
       background-color: ${themeGet('colors.button.outline.hover.bg')};
       border: 1px solid ${themeGet('colors.button.outline.hover.border')};
     }
   `
 
-const buttonTerteryCss = ({ tertery }) =>
-  tertery &&
+const buttonTertiaryCss = ({ tertiary }) =>
+  tertiary &&
   css`
     background: ${themeGet('colors.button.tertery.bg')};
     border: 1px solid ${themeGet('colors.button.tertery.border')};
     color: ${themeGet('colors.button.tertery.color')};
 
-    &:hover,
-    :focus,
-    :active {
+    &:hover {
       background-color: ${themeGet('colors.button.tertery.hover.bg')};
       border: 1px solid ${themeGet('colors.button.tertery.hover.border')};
       color: ${themeGet('colors.button.tertery.color')};
@@ -49,9 +45,7 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: 600;
 
-  &:hover,
-  :focus,
-  :active {
+  &:hover {
     background-color: ${themeGet('colors.button.primary.hover.bg')};
     border-color: ${themeGet('colors.button.primary.hover.border')};
   }
@@ -61,19 +55,21 @@ const Button = styled.button`
   ${layout}
 
   ${buttonOutlineCss}
-  ${buttonTerteryCss}
+  ${buttonTertiaryCss}
 `
 
 Button.defaultProps = {
   big: undefined,
   outline: undefined,
   small: undefined,
+  tertiary: undefined,
 }
 
 Button.propTypes = {
-  big: bool,
-  outline: bool,
-  small: bool,
+  big: PropTypes.bool,
+  outline: PropTypes.bool,
+  small: PropTypes.bool,
+  tertiary: PropTypes.bool,
 }
 
 export default Button

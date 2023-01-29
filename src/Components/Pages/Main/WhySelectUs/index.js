@@ -1,21 +1,22 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import PropTypes from 'prop-types'
 
-import { partnershipImage } from 'Assets/Images'
-import { Column, Text } from 'Components/UI'
+import { Column, Image, Text } from 'Components/UI'
+import { LANDING_SECTION_ID } from 'Constants/ids'
 
 import { Container, Content, ImageHolder } from './styles'
 
-function WhySelectUs() {
+function WhySelectUs({ data }) {
   const { t } = useTranslation('translation', {
     keyPrefix: 'pages.main.whySelectUs',
   })
 
   return (
     <Container>
-      <Content>
+      <Content id={LANDING_SECTION_ID.aboutUs}>
         <ImageHolder>
-          <img alt="dvsdvdsv" src={partnershipImage.src} />
+          <Image data={data} />
         </ImageHolder>
         <Column maxWidth={626}>
           <Text h3 heading>
@@ -34,6 +35,14 @@ function WhySelectUs() {
       </Content>
     </Container>
   )
+}
+
+WhySelectUs.defaultProps = {
+  data: {},
+}
+
+WhySelectUs.propTypes = {
+  data: PropTypes.object,
 }
 
 export default WhySelectUs

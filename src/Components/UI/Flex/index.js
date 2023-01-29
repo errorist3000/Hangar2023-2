@@ -11,6 +11,18 @@ const fullWidthCss = ({ fullWidth }) =>
     width: 100%;
   `
 
+const fullHeightCss = ({ fullHeight }) =>
+  fullHeight &&
+  css`
+    height: 100%;
+  `
+
+const centerCss = ({ center }) =>
+  center &&
+  css`
+    align-items: center;
+  `
+
 const spaceBetweenCss = ({ spaceBetween }) =>
   spaceBetween &&
   css`
@@ -39,6 +51,8 @@ const Flex = styled.div`
   
   ${gapCss}
   
+  ${centerCss}
+  ${fullHeightCss}
   ${fullWidthCss}
   ${spaceBetweenCss}
   ${justifyCenterCss}
@@ -58,6 +72,7 @@ const DEFAULT_PROPS = {
   fullWidth: undefined,
   gap: undefined,
   grow: undefined,
+  height: undefined,
   justifyCenter: undefined,
   maxWidth: undefined,
   spaceBetween: undefined,
@@ -70,6 +85,7 @@ const PROP_TYPES = {
   fullWidth: PropTypes.bool,
   gap: PropTypes.number,
   grow: PropTypes.bool,
+  height: sizeProps,
   justifyCenter: PropTypes.bool,
   maxWidth: sizeProps,
   spaceBetween: PropTypes.bool,

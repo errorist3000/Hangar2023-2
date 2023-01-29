@@ -26,6 +26,11 @@ const font = {
   webFonts: ['Inter:wght@400;500;600;700'],
 }
 
+const zIndexes = {
+  landingHeader: 500,
+  modal: 9000,
+}
+
 const defaultTheme = {
   breakpoints,
   font,
@@ -34,6 +39,7 @@ const defaultTheme = {
   space,
   transitionTime,
   fontWeights,
+  zIndexes,
 }
 
 export default defaultTheme

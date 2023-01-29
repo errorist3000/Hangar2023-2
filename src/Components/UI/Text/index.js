@@ -241,6 +241,12 @@ const inMutedCss = ({ inMuted }) =>
     color: ${themeGet('colors.text.inMuted')};
   `
 
+const preLineCss = ({ preLine }) =>
+  preLine &&
+  css`
+    white-space: pre-line;
+  `
+
 const Text = styled.p`
   margin: 0;
 
@@ -281,6 +287,8 @@ const Text = styled.p`
   ${inverseCss}
   ${inMutedCss}
   ${mutedCss}
+  
+  ${preLineCss}
 
   ${margin}
   ${typography}
@@ -312,6 +320,7 @@ Text.defaultProps = {
   inverse: undefined,
   inMuted: undefined,
   muted: undefined,
+  preLine: undefined,
   primary: undefined,
   subHeader1: undefined,
   subHeader2: undefined,
@@ -350,6 +359,7 @@ Text.propTypes = {
   letterSpacing: PropTypes.number,
   lineHeight: PropTypes.number,
   muted: PropTypes.bool,
+  preLine: PropTypes.bool,
   primary: PropTypes.bool,
   subHeader1: PropTypes.bool,
   subHeader2: PropTypes.bool,

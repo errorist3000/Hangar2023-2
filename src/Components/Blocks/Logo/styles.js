@@ -1,11 +1,19 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import themeGet from '@styled-system/theme-get'
 
 import Link from 'next/link'
 
-export const Container = styled(Link)`
+const containerCss = css`
   height: 100%;
   width: 152px;
+`
+
+export const ContainerButton = styled.button`
+  ${containerCss}
+`
+
+export const ContainerLink = styled(Link)`
+  ${containerCss}
 `
 
 export const LogoFull = styled.div`
@@ -13,8 +21,10 @@ export const LogoFull = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 
   > svg {
+    height: 100%;
     .logo-full_svg__first {
       fill: ${themeGet('colors.text.inverse')};
     }

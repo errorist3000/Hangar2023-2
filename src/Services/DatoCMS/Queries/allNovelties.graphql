@@ -1,0 +1,7 @@
+#import "Services/DatoCMS/Fragments/novelty.graphql"
+
+query AllNoveltiesQuery {
+  allNovelties(orderBy: date_DESC) {
+    ...NoveltyFields
+  }
+}

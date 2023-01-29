@@ -5,6 +5,13 @@ const isProduction = false
 
 module.exports = {
   extends: ['airbnb', 'prettier', 'plugin:@next/next/recommended'],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
   env: {
     browser: true,
     jest: true,
@@ -37,24 +44,7 @@ module.exports = {
     'no-debugger': isProduction ? 2 : 0,
     'no-redeclare': [2, { builtinGlobals: true }],
     'no-underscore-dangle': ['error', { allow: ['_id', '_rev'] }],
-    'no-shadow': [
-      2,
-      {
-        builtinGlobals: true,
-        allow: [
-          'location',
-          'Document',
-          'Text',
-          'Image',
-          'name',
-          'fontSize',
-          'Option',
-          'Notification',
-          'text',
-          'image',
-        ],
-      },
-    ],
+    'no-shadow': 'off',
     'sort-imports': 0,
     'import/order': 0,
     'simple-import-sort/exports': 1,
@@ -92,12 +82,7 @@ module.exports = {
       },
     ],
   },
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-      classes: true,
-    },
-  },
+
   settings: {
     'import/resolver': {
       node: {
