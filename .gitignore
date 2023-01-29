@@ -35,6 +35,22 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/.idea
 
-datoCMS-schema.graphql
+# Editors and IDEs
+.vscode/*
+!.vscode/snippets
+!.vscode/launch.json
+!.vscode/settings.json
+.idea
+
+graphql.config.json
+graphql.schema.graphql
+schema.graphql
+.graphqlconfig
+
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
