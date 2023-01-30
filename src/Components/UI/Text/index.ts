@@ -15,8 +15,8 @@ type CustomColorProps = {
   body?: boolean
   heading?: boolean
   inverse?: boolean
-  mutedInverse?: boolean
-  muted?: boolean
+  muteInverse?: boolean
+  mute?: boolean
   primary?: boolean
 }
 
@@ -282,16 +282,16 @@ const primaryCss = ({ primary }: CustomColorProps) =>
     color: ${themeGet('colors.primary')};
   `
 
-const mutedCss = ({ muted }: CustomColorProps) =>
-  muted &&
+const muteCss = ({ mute }: CustomColorProps) =>
+  mute &&
   css`
-    color: ${themeGet('colors.text.muted')};
+    color: ${themeGet('colors.text.mute')};
   `
 
-const mutedInverseCss = ({ mutedInverse }: CustomColorProps) =>
-  mutedInverse &&
+const muteInverseCss = ({ muteInverse }: CustomColorProps) =>
+  muteInverse &&
   css`
-    color: ${themeGet('colors.text.mutedInverse')};
+    color: ${themeGet('colors.text.muteInverse')};
   `
 
 const preLineCss = ({ preLine }: CustomGeneralProps) =>
@@ -334,12 +334,12 @@ const Text = styled.p<Props>`
   ${display1Css}
   ${display2Css}
   
-  ${primaryCss}
   ${bodyCss}
   ${headingCss}
   ${inverseCss}
-  ${mutedInverseCss}
-  ${mutedCss}
+  ${muteCss}
+  ${muteInverseCss}
+  ${primaryCss}
   
   ${preLineCss}
 

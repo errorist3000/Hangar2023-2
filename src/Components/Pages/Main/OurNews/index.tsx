@@ -46,7 +46,6 @@ function OurNews({ data }: Props) {
           {data.map(slide => (
             <SwiperSlide key={slide.id}>
               <Card>
-                {/* @ts-ignore */}
                 <Image data={slide.image} />
                 <Column fullHeight px={3} py={2}>
                   <Text heading mb={2} subHeader3>
@@ -54,7 +53,7 @@ function OurNews({ data }: Props) {
                   </Text>
                   <Row mb={4}>
                     <Calendar />
-                    <Text caption2 ml={1} muted>
+                    <Text caption2 ml={1} mute>
                       {getPrettyDate(slide.date)}
                     </Text>
                   </Row>

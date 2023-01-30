@@ -1,19 +1,17 @@
 import React from 'react'
 
-import { ImageSet } from 'Types/imageSet'
-
 import { BaseImage, BaseImageProps } from './styles'
 
-type Props = BaseImageProps & {
-  data: DatoSchema.ResponsiveImage & ImageSet & DatoSchema.FileField
+type Props<T> = BaseImageProps & {
+  data: T
 }
 
-function Image({ data, cover }: Props) {
+function Image({ data, cover }: Props<any>) {
   return (
     <BaseImage
       alt={data?.alt}
       cover={cover}
-      src={data?.src}
+      src={data?.url}
       srcSet={`${data?.webp1x} 1x,${data?.webp2x} 2x`}
     />
   )

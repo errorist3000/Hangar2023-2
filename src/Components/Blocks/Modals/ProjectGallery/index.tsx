@@ -76,7 +76,6 @@ function ProjectGallery({ isOpen, projectId, onClose }: Props) {
               >
                 {projectData?.imageSet?.map(item => (
                   <SwiperSlide key={item.id}>
-                    {/* @ts-ignore */}
                     <Image cover data={item} />
                   </SwiperSlide>
                 ))}

@@ -33,7 +33,6 @@ function Hero({ data }: Props) {
       >
         {sortedDataByOrder.map(slide => (
           <SwiperSlide key={slide.order}>
-            {/* @ts-ignore */}
             <Image data={slide.image} />
             <PictureOverlay />
             <Content>

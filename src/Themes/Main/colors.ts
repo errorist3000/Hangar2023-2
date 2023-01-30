@@ -14,8 +14,8 @@ const colors = {
     body: palette.mediumBlack,
     heading: palette.darkGunmetalGrey,
     inverse: palette.white,
-    muted: palette.spanishGray,
-    mutedInverse: palette.americanSilver,
+    mute: palette.spanishGray,
+    muteInverse: palette.americanSilver,
   },
 
   button: {

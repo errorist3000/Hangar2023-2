@@ -19,7 +19,6 @@ function WhySelectUs({ data }: Props) {
     <Container>
       <Content id={LANDING_SECTION_ID.aboutUs}>
         <ImageHolder>
-          {/* @ts-ignore */}
           <Image data={data} />
         </ImageHolder>
         <Column maxWidth={626}>

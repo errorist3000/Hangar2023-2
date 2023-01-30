@@ -19,30 +19,30 @@ function Footer({ data }: Props) {
       <Content>
         <Row fullWidth mb={9} spaceBetween>
           <Column maxWidth={518}>
-            <Text mb={3} mutedInverse subHeader1>
+            <Text mb={3} muteInverse subHeader1>
               {t('titleLegalAddress')}
             </Text>
-            <Text body2 mb={2} mutedInverse>
+            <Text body2 mb={2} muteInverse>
               {data?.legalName}
             </Text>
-            <Text body2 mutedInverse>
+            <Text body2 muteInverse>
               {data?.legalAddress}
             </Text>
           </Column>
           <Column maxWidth={518}>
-            <Text mb={3} mutedInverse subHeader1>
+            <Text mb={3} muteInverse subHeader1>
               {t('titleAddress')}
             </Text>
-            <Text body2 mb={2} mutedInverse>
+            <Text body2 mb={2} muteInverse>
               {data?.adress}
             </Text>
           </Column>
         </Row>
         <Row fullWidth spaceBetween>
-          <Text body4 mb={3} muted>
+          <Text body4 mb={3} mute>
             {data?.mailautor}
           </Text>
-          <Text body4 mb={3} muted>
+          <Text body4 mb={3} mute>
             {data?.mailangarpro}
           </Text>
         </Row>

@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import { MapPin } from 'phosphor-react'
 
-import { ObjectsOnMapModal } from 'Components/Blocks'
-import { ProjectGalleryModal } from 'Components/Blocks/Modals'
+import { ObjectsOnMapModal, ProjectGalleryModal } from 'Components/Blocks'
 import { Button, Column, Image, Text } from 'Components/UI'
 
 import { LANDING_SECTION_ID } from 'Constants/ids'
@@ -72,13 +71,12 @@ function Gallery({ data }: Props) {
             canHover={canGetHover}
             onClick={() => setOpenProjectId(card.id)}
           >
-            {/* @ts-ignore */}
             <Image data={card.titleImage} />
             <CaptionHolder>
               <Text heading mb={2} subHeader3>
                 {card.title}
               </Text>
-              <Text caption3 muted>
+              <Text caption3 mute>
                 {card.description}
               </Text>
             </CaptionHolder>
