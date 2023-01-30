@@ -3,13 +3,13 @@ import themeGet from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
 
-const containerShrinkCss = ({ shrink }) =>
+const containerShrinkCss = ({ shrink }: { shrink: boolean }) =>
   shrink &&
   css`
     height: 56px;
   `
 
-export const Container = styled.div`
+export const Container = styled.div<{ shrink: boolean }>`
   position: fixed;
   display: flex;
   justify-content: center;

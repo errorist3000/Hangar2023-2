@@ -288,10 +288,10 @@ const mutedCss = ({ muted }: CustomColorProps) =>
     color: ${themeGet('colors.text.muted')};
   `
 
-const inMutedCss = ({ mutedInverse }: CustomColorProps) =>
+const mutedInverseCss = ({ mutedInverse }: CustomColorProps) =>
   mutedInverse &&
   css`
-    color: ${themeGet('colors.text.inMuted')};
+    color: ${themeGet('colors.text.mutedInverse')};
   `
 
 const preLineCss = ({ preLine }: CustomGeneralProps) =>
@@ -302,7 +302,6 @@ const preLineCss = ({ preLine }: CustomGeneralProps) =>
 
 const Text = styled.p<Props>`
   margin: 0;
-  color: ${themeGet('colors.text.body')};
 
   ${h1Css}
   ${h2Css}
@@ -339,7 +338,7 @@ const Text = styled.p<Props>`
   ${bodyCss}
   ${headingCss}
   ${inverseCss}
-  ${inMutedCss}
+  ${mutedInverseCss}
   ${mutedCss}
   
   ${preLineCss}
