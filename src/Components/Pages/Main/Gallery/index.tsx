@@ -157,16 +157,18 @@ function Gallery({ data }: Props) {
           {isCollapsed ? t('openButton') : t('closeButton')}
         </Button>
       </Content>
-      <ObjectsOnMapModal
-        isOpen={isMapModalOpen}
-        onClose={() => setIsMapModalOpen(false)}
-      />
 
-      <ProjectGalleryModal
-        isOpen={!!openProjectId}
-        projectId={openProjectId}
-        onClose={() => setOpenProjectId(undefined)}
-      />
+      {isMapModalOpen && (
+        <ObjectsOnMapModal isOpen onClose={() => setIsMapModalOpen(false)} />
+      )}
+
+      {!!openProjectId && (
+        <ProjectGalleryModal
+          isOpen
+          projectId={openProjectId}
+          onClose={() => setOpenProjectId(undefined)}
+        />
+      )}
     </Container>
   )
 }

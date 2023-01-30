@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ReactI18NextChild } from 'react-i18next'
 
 import CloseButton from 'Components/UI/CloseButton'
@@ -16,7 +16,14 @@ type Props = {
   onClose: () => void
 }
 
-function Modal({ isCustom, isOpen, title, children, onClose }: Props) {
+function Modal({ isCustom, isOpen = false, title, children, onClose }: Props) {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [])
+
   return (
     <StyledModal isOpen={isOpen} onRequestClose={onClose}>
       {!isCustom && (
