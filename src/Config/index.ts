@@ -1,4 +1,4 @@
-export const APPEARANCE = {
-  MAIN: 'main',
-  DARK: 'dark',
+export enum Themes {
+  Dark = 'dark',
+  Main = 'main',
 }

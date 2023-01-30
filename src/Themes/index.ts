@@ -1,9 +1,9 @@
 import GlobalStyle from 'Themes/globalStyle'
 import themes from 'Themes/themes'
 
-import { APPEARANCE } from 'Config'
+import { Themes } from 'Config'
 
-const theme = themes[APPEARANCE.MAIN]
+const theme = themes[Themes.Main]
 
 export { GlobalStyle, theme }
 
