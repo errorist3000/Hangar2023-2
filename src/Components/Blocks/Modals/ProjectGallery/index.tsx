@@ -37,8 +37,6 @@ function ProjectGallery({ isOpen, projectId, onClose }: Props) {
 
   const projectData = data?.project
 
-  if (!projectId) return null
-
   return (
     <ClientOnly>
       <Modal isCustom isOpen={isOpen} onClose={onClose}>
