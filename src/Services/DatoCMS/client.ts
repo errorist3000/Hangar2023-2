@@ -10,15 +10,19 @@ const headers = {
   Authorization: `Bearer ${process.env.NEXT_PUBLIC_DATOCMS_KEY}`,
 }
 
+const cache = new InMemoryCache({
+  dataIdFromObject: obj => obj.id,
+  addTypename: false,
+})
+
 const link = new HttpLink({
   uri: DATOCMS_ENDPOINT.MAIN,
   headers,
 })
 
 const client: ApolloClient<any> = new ApolloClient({
-  cache: new InMemoryCache(),
+  cache,
   link,
-  connectToDevTools: true,
 })
 
 export default client

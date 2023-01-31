@@ -4,7 +4,7 @@ import { ReactI18NextChild } from 'react-i18next'
 type Props = {
   children: ReactI18NextChild
 }
-function ClientOnly({ children = null }: Props) {
+function ClientOnly({ children }: Props) {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {

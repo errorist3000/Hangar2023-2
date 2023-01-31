@@ -45,9 +45,8 @@ next-env.d.ts
 
 graphql.config.json
 graphql.schema.graphql
-schema.graphql
-*schema.graphql
 .graphqlconfig
+*schema.graphql
 
 .yarn/*
 !.yarn/releases

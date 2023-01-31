@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next'
 
 import { MapPin } from 'phosphor-react'
 
+import keyBy from 'lodash/keyBy'
+
 import { ObjectsOnMapModal, ProjectGalleryModal } from 'Components/Blocks'
-import { Button, Column, Image, Text } from 'Components/UI'
+import { Button, ClientOnly, Column, Image, Text } from 'Components/UI'
 
 import { LANDING_SECTION_ID } from 'Constants/ids'
 
@@ -35,16 +37,17 @@ function getColumnAmount(windowWidth: number) {
 
 type Props = {
   data?: DatoSchema.ProjectRecord[]
+  projects?: DatoSchema.ProjectRecord[]
 }
 
-function Gallery({ data }: Props) {
+function Gallery({ data, projects }: Props) {
   const [windowWidth, setWindowWidth] = useState(0)
   const [columnAmount, setColumnAmount] = useState(1)
   const [isCollapsed, setIsCollapsed] = useState(true)
   const [isBottomHidden, setIsBottomHidden] = useState(isCollapsed)
   const [canGetHover, setCanGetHover] = useState(true)
   const [isMapModalOpen, setIsMapModalOpen] = useState(false)
-  const [openProjectId, setOpenProjectId] = useState(undefined)
+  const [openProjectId, setOpenProjectId] = useState(null)
 
   const { t } = useTranslation('translation', {
     keyPrefix: 'pages.main.gallery',
@@ -60,6 +63,8 @@ function Gallery({ data }: Props) {
     () => data?.slice(topData?.length) ?? [],
     [data, topData],
   )
+
+  const projectsById = useMemo(() => keyBy(projects, 'id'), [projects])
 
   const renderCard = useCallback(
     (card: DatoSchema.ProjectRecord) => {
@@ -163,11 +168,13 @@ function Gallery({ data }: Props) {
       )}
 
       {!!openProjectId && (
-        <ProjectGalleryModal
-          isOpen
-          projectId={openProjectId}
-          onClose={() => setOpenProjectId(undefined)}
-        />
+        <ClientOnly>
+          <ProjectGalleryModal
+            isOpen
+            project={projectsById[openProjectId]}
+            onClose={() => setOpenProjectId(null)}
+          />
+        </ClientOnly>
       )}
     </Container>
   )

@@ -1,5 +1,5 @@
-query ProjectQuery($filter: ProjectModelFilter) {
-  project(filter: $filter) {
+query ProjectsQuery {
+  allProjects(first: "100") {
     id
     description
     name

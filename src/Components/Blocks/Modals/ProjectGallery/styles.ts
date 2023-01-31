@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components'
 import themeGet from '@styled-system/theme-get'
 
-const headerRelativeCss = ({ relative }) =>
+const headerRelativeCss = ({ relative }: { relative?: boolean }) =>
   relative &&
   css`
     position: relative;
   `
 
-export const Header = styled.div`
+export const Header = styled.div<{ relative?: boolean }>`
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -48,7 +48,7 @@ export const NavigationButton = styled.button`
   z-index: 9999;
 `
 
-const swiperHolderLowCss = ({ low }) =>
+const swiperHolderLowCss = ({ low }: { low?: boolean }) =>
   low &&
   css`
     max-height: 640px;
@@ -61,7 +61,7 @@ const holderCss = css`
   border-radius: inherit;
 `
 
-export const SwiperHolder = styled.div`
+export const SwiperHolder = styled.div<{ low?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
