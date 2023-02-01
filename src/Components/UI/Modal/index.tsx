@@ -25,7 +25,7 @@ function Modal({ isCustom, isOpen = false, title, children, onClose }: Props) {
   }, [])
 
   return (
-    <StyledModal isOpen={isOpen} onRequestClose={onClose}>
+    <StyledModal ariaHideApp={false} isOpen={isOpen} onRequestClose={onClose}>
       {!isCustom && (
         <>
           <Row center p={5} spaceBetween>

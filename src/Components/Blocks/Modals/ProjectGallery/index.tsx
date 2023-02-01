@@ -4,6 +4,7 @@ import { CaretLeft, CaretRight, MapPin, X } from 'phosphor-react'
 import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+import Map from 'Components/Blocks/Map'
 import { Image, Modal, Text } from 'Components/UI'
 
 import {
@@ -19,6 +20,7 @@ import 'swiper/swiper.min.css'
 type Props = {
   isOpen?: boolean
   project?: DatoSchema.ProjectRecord
+
   onClose: () => void
 }
 function ProjectGallery({ isOpen, project, onClose }: Props) {
@@ -41,7 +43,9 @@ function ProjectGallery({ isOpen, project, onClose }: Props) {
       </Header>
 
       {isMap ? (
-        <MapHolder>Map</MapHolder>
+        <MapHolder>
+          <Map projects={[project]} zoom={11} />
+        </MapHolder>
       ) : (
         <SwiperHolder>
           <Swiper

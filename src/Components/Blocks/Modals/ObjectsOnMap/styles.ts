@@ -48,63 +48,17 @@ export const NavigationButton = styled.button`
   z-index: 9999;
 `
 
-const swiperHolderLowCss = ({ low }: { low?: boolean }) =>
-  low &&
-  css`
-    max-height: 640px;
-  `
-const holderCss = css`
+export const MapHolder = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   max-width: 1170px;
   max-height: 690px;
   width: 90vw;
   height: 90vh;
   border-radius: inherit;
-`
-
-export const SwiperHolder = styled.div<{ low?: boolean }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .swiper {
-    border-radius: inherit;
-    height: 100%;
-  }
-
-  .swiper-button-prev {
-    left: 0;
-  }
-
-  .swiper-button-next {
-    right: 0;
-  }
-
-  .swiper-pagination {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    bottom: 20px;
-    gap: ${themeGet('space.3')}px;
-    z-index: 9999;
-  }
-
-  > img {
-    object-fit: cover;
-  }
-
-  ${holderCss}
-  ${swiperHolderLowCss}
-`
-
-export const MapHolder = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   > div {
     border-radius: inherit;
   }
-
-  ${holderCss}
 `

@@ -164,7 +164,12 @@ function Gallery({ data, projects }: Props) {
       </Content>
 
       {isMapModalOpen && (
-        <ObjectsOnMapModal isOpen onClose={() => setIsMapModalOpen(false)} />
+        <ObjectsOnMapModal
+          isOpen
+          projects={projects}
+          title={t('mapButton')}
+          onClose={() => setIsMapModalOpen(false)}
+        />
       )}
 
       {!!openProjectId && (

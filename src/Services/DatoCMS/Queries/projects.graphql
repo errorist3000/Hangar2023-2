@@ -4,6 +4,9 @@ query ProjectsQuery {
     description
     name
     title
+    titleImage {
+      url
+    }
     location {
       latitude
       longitude

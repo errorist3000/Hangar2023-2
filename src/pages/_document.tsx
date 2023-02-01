@@ -19,6 +19,10 @@ export default function Document() {
             rel="stylesheet"
           />
         ))}
+        <link
+          href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />
