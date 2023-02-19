@@ -1,15 +1,24 @@
 import React, { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { Row, Text } from 'Components/UI'
+import { Text } from 'Components/UI'
 
 import { LANDING_SECTION_ID } from 'Constants/ids'
 
 import { pageScroll } from 'Services/Utils'
 
-import { ItemButton } from './styles'
+import { Container, ItemButton } from './styles'
 
-function NavBar() {
+export enum Kind {
+  Mobile = 'mobile',
+  Desktop = 'desktop',
+}
+
+type Props = {
+  kind?: Kind
+}
+
+function NavBar({ kind = Kind.Desktop }: Props) {
   const { t } = useTranslation('translation', { keyPrefix: 'block.navBar' })
 
   const navBarItems = useMemo(
@@ -23,13 +32,19 @@ function NavBar() {
   )
 
   return (
-    <Row gap={40}>
+    <Container mobile={kind === Kind.Mobile}>
       {navBarItems.map(item => (
         <ItemButton key={item.text} onClick={() => pageScroll(item.link)}>
-          <Text action1>{item.text}</Text>
+          <Text
+            action1
+            heading={kind === Kind.Mobile}
+            inverse={kind === Kind.Desktop}
+          >
+            {item.text}
+          </Text>
         </ItemButton>
       ))}
-    </Row>
+    </Container>
   )
 }
 

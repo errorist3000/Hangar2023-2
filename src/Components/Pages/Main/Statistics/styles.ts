@@ -1,28 +1,36 @@
 import styled, { css } from 'styled-components'
+import { padding } from 'styled-system'
 import themeGet from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
 
-export const Container = styled.div`
+export const Container = styled.div.attrs({
+  px: LANDING_PADDING_X,
+})`
   display: flex;
   align-items: center;
   justify-content: center;
   align-self: flex-start;
   width: 100%;
-  padding: 0 ${LANDING_PADDING_X}px;
   position: relative;
   overflow: hidden;
+
+  ${padding}
 `
 
-export const Content = styled.div`
+export const Content = styled.div.attrs({
+  px: LANDING_PADDING_X,
+  py: 10,
+})`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
   max-width: ${LANDING_CONTENT_WIDTH}px;
   gap: 20px;
-  padding: 56px ${LANDING_PADDING_X}px;
   box-sizing: content-box;
   position: relative;
+
+  ${padding}
 `
 
 export const Card = styled.div`
@@ -32,6 +40,7 @@ export const Card = styled.div`
   text-align: center;
   width: 100%;
 `
+
 export const IconHolder = styled.div`
   display: flex;
   align-items: center;

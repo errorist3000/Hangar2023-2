@@ -2197,6 +2197,11 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.5.tgz#75a2a8e7d8ab4b230414505d92335d1dcb53a6df"
   integrity sha512-L28j2FcJfSZOnL1WBjDYp2vUHCeIFlyYI/53EwD/rKUBQ7MtUUfbQWiyKJGpcnv4/WgrhWsFKrcPstcAt/J0tQ==
 
+"@types/react-css-collapse@^3.6.2":
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/@types/react-css-collapse/-/react-css-collapse-3.6.2.tgz#6e0e242d3eab9027a51dc228d16ea6ff8364c696"
+  integrity sha512-UOY5oWUf+WrUMIA7msiOsQuXiuU97HY85+9mA8vZDg8r/YEZmgqiI7CzkGKOK/2ObVHj/pvwZoJs9H5H12BrNQ==
+
 "@types/react-modal@^3.13.1":
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/@types/react-modal/-/react-modal-3.13.1.tgz#5b9845c205fccc85d9a77966b6e16dc70a60825a"
@@ -5604,6 +5609,11 @@ queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
+
+react-css-collapse@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-css-collapse/-/react-css-collapse-4.1.0.tgz#6cf837a4d035e5b9e5c2eff622f8bbaab8c06739"
+  integrity sha512-t9UNdEShbqbnsgfaejvgY7ghJXP42CBobuItfrccc4KKA8JsbQ4id6rmh2wdmU+QDMS3L4vg8/yTkjGmpyMa4g==
 
 react-dom@18.2.0:
   version "18.2.0"

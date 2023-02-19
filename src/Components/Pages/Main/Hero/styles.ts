@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { padding } from 'styled-system'
 import themeGet from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
@@ -20,7 +21,9 @@ export const Container = styled.div`
   }
 `
 
-export const Content = styled.div`
+export const Content = styled.div.attrs({
+  px: LANDING_PADDING_X,
+})`
   position: relative;
   display: flex;
   justify-content: center;
@@ -28,8 +31,9 @@ export const Content = styled.div`
   padding-top: 224px;
   padding-bottom: 160px;
   max-width: ${LANDING_CONTENT_WIDTH}px;
-  padding-inline: ${LANDING_PADDING_X}px;
   margin: 0 auto;
+
+  ${padding}
 `
 
 export const PictureOverlay = styled.div`

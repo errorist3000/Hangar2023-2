@@ -1,15 +1,19 @@
 import styled from 'styled-components'
+import { padding } from 'styled-system'
 import themeGet from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
 
-export const Container = styled.div`
+export const Container = styled.div.attrs({
+  px: LANDING_PADDING_X,
+})`
   display: flex;
   justify-content: center;
   align-self: flex-start;
   width: 100%;
-  padding: 0 ${LANDING_PADDING_X}px;
   background-color: ${themeGet('colors.bg.primary')};
+
+  ${padding}
 `
 
 export const Content = styled.div`

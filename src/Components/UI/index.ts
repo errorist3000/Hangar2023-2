@@ -7,6 +7,7 @@ import Image from './Image'
 import Loader from './Loader'
 import Modal from './Modal'
 import Text from './Text'
+import View from './View'
 
 export {
   Button,
@@ -19,4 +20,5 @@ export {
   Modal,
   Row,
   Text,
+  View,
 }
