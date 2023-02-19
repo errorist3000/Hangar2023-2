@@ -5,7 +5,7 @@ import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import Map from 'Components/Blocks/Map'
-import { Image, Modal, Text } from 'Components/UI'
+import { Image, Modal, Text, View } from 'Components/UI'
 
 import {
   Header,
@@ -68,12 +68,14 @@ function ProjectGallery({ isOpen, project, onClose }: Props) {
             ))}
           </Swiper>
 
-          <NavigationButton className="swiper-button-prev">
-            <CaretLeft size={80} />
-          </NavigationButton>
-          <NavigationButton className="swiper-button-next">
-            <CaretRight size={80} />
-          </NavigationButton>
+          <View.Desktop>
+            <NavigationButton className="swiper-button-prev">
+              <CaretLeft size={80} />
+            </NavigationButton>
+            <NavigationButton className="swiper-button-next">
+              <CaretRight size={80} />
+            </NavigationButton>
+          </View.Desktop>
         </SwiperHolder>
       )}
     </Modal>

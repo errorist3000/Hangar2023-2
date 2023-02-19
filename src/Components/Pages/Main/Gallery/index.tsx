@@ -6,15 +6,16 @@ import { MapPin } from 'phosphor-react'
 import keyBy from 'lodash/keyBy'
 
 import { ObjectsOnMapModal, ProjectGalleryModal } from 'Components/Blocks'
-import { Button, ClientOnly, Column, Image, Text } from 'Components/UI'
+import { Button, ClientOnly, Column, Image, Text, View } from 'Components/UI'
 
-import { LANDING_SECTION_ID } from 'Constants/ids'
+import { LANDING_PADDING_X, LANDING_SECTION_ID } from 'Constants/ids'
 
 import { pageScroll } from 'Services/Utils'
 
 import {
   BottomHolder,
   CaptionHolder,
+  CaptionOverlay,
   Card,
   CardHolder,
   Container,
@@ -27,7 +28,6 @@ const ICON_WEIGHT = 'bold'
 const COLLAPSED_ROW_AMOUNT = 2
 
 function getColumnAmount(windowWidth: number) {
-  if (windowWidth < 475) return 1
   if (windowWidth < 650) return 2
   if (windowWidth < 769) return 3
   if (windowWidth < 1200) return 4
@@ -42,7 +42,7 @@ type Props = {
 
 function Gallery({ data, projects }: Props) {
   const [windowWidth, setWindowWidth] = useState(0)
-  const [columnAmount, setColumnAmount] = useState(1)
+  const [columnAmount, setColumnAmount] = useState(2)
   const [isCollapsed, setIsCollapsed] = useState(true)
   const [isBottomHidden, setIsBottomHidden] = useState(isCollapsed)
   const [canGetHover, setCanGetHover] = useState(true)
@@ -86,6 +86,13 @@ function Gallery({ data, projects }: Props) {
               </Text>
             </CaptionHolder>
           </Card>
+          <View.Tablet>
+            <CaptionOverlay onClick={() => setOpenProjectId(card.id)}>
+              <Text inverse subHeader4>
+                {card.title}
+              </Text>
+            </CaptionOverlay>
+          </View.Tablet>
         </CardHolder>
       )
     },
@@ -124,12 +131,14 @@ function Gallery({ data, projects }: Props) {
   return (
     <Container>
       <Content id={LANDING_SECTION_ID.gallery}>
-        <Text h3 heading mb={3}>
-          {t('title')}
-        </Text>
-        <Text body caption1 mb={10} preLine>
-          {t('subtitle')}
-        </Text>
+        <Column center px={LANDING_PADDING_X}>
+          <Text h3 heading mb={3}>
+            {t('title')}
+          </Text>
+          <Text body caption1 mb={[7, 7, 7, 10]} preLine>
+            {t('subtitle')}
+          </Text>
+        </Column>
 
         <Button
           big
@@ -158,6 +167,7 @@ function Gallery({ data, projects }: Props) {
             {bottomData?.map(card => renderCard(card))}
           </BottomHolder>
         </Column>
+
         <Button big onClick={handleShowAllClick}>
           {isCollapsed ? t('openButton') : t('closeButton')}
         </Button>

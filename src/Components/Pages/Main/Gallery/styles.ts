@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { styleFn } from 'styled-system'
+import { padding, styleFn } from 'styled-system'
 import themeGet from '@styled-system/theme-get'
 
 import { motion } from 'framer-motion'
@@ -12,17 +12,20 @@ export const Container = styled.div`
   background-color: ${themeGet('colors.bg.primary')};
 `
 
-export const Content = styled.div`
+export const Content = styled.div.attrs({
+  pt: [8, 8, 10, 13],
+})`
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding-top: 80px;
   width: 100%;
 
   button {
     border-radius: 0;
   }
+
+  ${padding}
 `
 
 export const TopHolder = styled.div`
@@ -85,12 +88,16 @@ export const Card = styled.button<{ canHover: boolean }>`
   position: absolute;
   width: 100%;
   bottom: 0;
+  background-color: ${themeGet('colors.bg.default')};
   transition: all ${themeGet('transitionTime.long')};
 
   img {
-    filter: grayscale(100%);
     width: 100%;
     object-fit: cover;
+
+    @media screen and (min-width: ${themeGet('breakpoints.2')}) {
+      filter: grayscale(100%);
+    }
   }
 
   p {
@@ -111,5 +118,17 @@ export const CaptionHolder = styled.div`
   overflow: hidden;
   height: 0;
   transition: height ${themeGet('transitionTime.long')};
-  background-color: ${themeGet('colors.bg.default')};
+`
+
+export const CaptionOverlay = styled.button`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: ${themeGet('colors.bg.tertiary')}44;
+  padding: ${themeGet('space.3')}px ${themeGet('space.1')}px;
+  cursor: pointer;
 `

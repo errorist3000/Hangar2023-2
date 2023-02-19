@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { layout } from 'styled-system'
 import themeGet from '@styled-system/theme-get'
 
 const headerRelativeCss = ({ relative }: { relative?: boolean }) =>
@@ -56,12 +57,13 @@ const swiperHolderLowCss = ({ low }: { low?: boolean }) =>
 const holderCss = css`
   max-width: 1170px;
   max-height: 690px;
-  width: 90vw;
-  height: 90vh;
   border-radius: inherit;
 `
 
-export const SwiperHolder = styled.div<{ low?: boolean }>`
+export const SwiperHolder = styled.div.attrs({
+  width: [1, 1, 1, '90vw'],
+  height: ['100vh', '100vh', '100vh', '90vh'],
+})<{ low?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,11 +95,16 @@ export const SwiperHolder = styled.div<{ low?: boolean }>`
     object-fit: cover;
   }
 
+  ${layout}
+
   ${holderCss}
   ${swiperHolderLowCss}
 `
 
-export const MapHolder = styled.div`
+export const MapHolder = styled.div.attrs({
+  width: [1, 1, 1, '90vw'],
+  height: ['100vh', '100vh', '100vh', '90vh'],
+})`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,6 +112,8 @@ export const MapHolder = styled.div`
   > div {
     border-radius: inherit;
   }
+
+  ${layout}
 
   ${holderCss}
 `

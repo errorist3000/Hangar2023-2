@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { layout } from 'styled-system'
 import themeGet from '@styled-system/theme-get'
 
 const headerRelativeCss = ({ relative }: { relative?: boolean }) =>
@@ -48,17 +49,20 @@ export const NavigationButton = styled.button`
   z-index: 9999;
 `
 
-export const MapHolder = styled.div`
+export const MapHolder = styled.div.attrs({
+  width: [1, 1, 1, '90vw'],
+  height: ['100vh', '100vh', '100vh', '90vh'],
+})`
   display: flex;
   align-items: center;
   justify-content: center;
   max-width: 1170px;
   max-height: 690px;
-  width: 90vw;
-  height: 90vh;
   border-radius: inherit;
 
   > div {
     border-radius: inherit;
   }
+
+  ${layout}
 `
