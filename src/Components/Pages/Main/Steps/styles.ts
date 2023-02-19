@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { margin, MarginProps, padding } from 'styled-system'
+import { grid, margin, MarginProps, padding } from 'styled-system'
 import themeGet from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
@@ -13,15 +13,21 @@ export const Container = styled.div`
 
 export const Content = styled.div.attrs({
   px: LANDING_PADDING_X,
-  py: 13,
+  py: [8, 8, 11, 13],
+  gridTemplateColumns: [
+    'repeat(1, 1fr)',
+    'repeat(2, 1fr)',
+    'repeat(2, 1fr)',
+    'repeat(4, 1fr)',
+  ],
 })`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   width: 100%;
   max-width: ${LANDING_CONTENT_WIDTH}px;
   gap: ${themeGet('space.7')}px;
 
   ${padding}
+  ${grid}
 `
 
 export const Card = styled.div`
