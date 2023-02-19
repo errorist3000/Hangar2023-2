@@ -5,11 +5,11 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import orderBy from 'lodash/orderBy'
 
-import { Button, Column, Image, Row, Text } from 'Components/UI'
+import { Button, Column, Image, Text } from 'Components/UI'
 
 import { LANDING_SECTION_ID } from 'Constants/ids'
 
-import { Container, Content, PictureOverlay } from './styles'
+import { ButtonHolder, Container, Content, PictureOverlay } from './styles'
 
 import 'swiper/swiper.min.css'
 
@@ -46,14 +46,14 @@ function Hero({ data }: Props) {
                 <Text action1 inverse mb={14}>
                   {slide.text}
                 </Text>
-                <Row gap={32} justifyCenter>
+                <ButtonHolder>
                   <Button big outline width={192}>
                     Запрос
                   </Button>
                   <Button big width={192}>
                     Калькулятор
                   </Button>
-                </Row>
+                </ButtonHolder>
               </Column>
             </Content>
           </SwiperSlide>
