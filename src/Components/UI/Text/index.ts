@@ -58,6 +58,7 @@ type Props = CustomColorProps &
   LayoutProps &
   MarginProps &
   TypographyProps
+
 const h1Css = ({ h1 }: CustomTypographyProps) =>
   h1 &&
   css`

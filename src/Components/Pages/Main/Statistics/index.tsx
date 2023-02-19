@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Waypoint } from 'react-waypoint'
 
@@ -8,6 +8,7 @@ import orderBy from 'lodash/orderBy'
 
 import { statisticsBgImage } from 'Assets/Images'
 
+import Odometer from 'Components/Blocks/Odometer'
 import { Text } from 'Components/UI'
 
 import { Card, Container, Content, IconHolder, StyledImage } from './styles'
@@ -24,6 +25,7 @@ function Statistics({ data }: Props) {
   })
   const containerRef = useRef<HTMLDivElement>(null)
   const imageRef = useRef<HTMLImageElement>(null)
+  const [visible, setVisible] = useState(false)
 
   const localeData = useMemo(
     () => [
@@ -56,10 +58,14 @@ function Statistics({ data }: Props) {
   }, [containerRef, imageRef])
 
   const handleEnter = useCallback(() => {
+    setVisible(true)
+
     window.addEventListener('scroll', listener)
   }, [listener])
 
   const handleLeave = useCallback(() => {
+    setVisible(false)
+
     window.removeEventListener('scroll', listener)
   }, [listener])
 
@@ -78,8 +84,8 @@ function Statistics({ data }: Props) {
         {sortedDataByOrder.map(card => (
           <Card key={card.id}>
             <IconHolder>{localeData[card.order].icon}</IconHolder>
-            <Text display1 heading mb={1}>
-              {card.number}
+            <Text as="div" display1 heading mb={1}>
+              <Odometer value={card.number} visible={visible} />
             </Text>
             <Text body subHeader3>
               {localeData[card.order].text}
