@@ -23,7 +23,8 @@ export const Container = styled.div`
 
 export const Content = styled.div.attrs({
   px: LANDING_PADDING_X,
-  minHeight: ['95vh', '95vh', '90vh'],
+  py: 11,
+  minHeight: ['95vh', '95vh', '70vh'],
 })`
   position: relative;
   display: flex;
