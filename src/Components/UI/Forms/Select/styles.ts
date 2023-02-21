@@ -4,14 +4,9 @@ import ReactSelectAsyncCreatable from 'react-select-five/async-creatable'
 import ReactSelectCreatable from 'react-select-five/creatable'
 
 import styled from 'styled-components'
+import { mapToTheme } from 'styled-map'
 import { layout, LayoutProps, margin, MarginProps } from 'styled-system'
 import { themeGet } from '@styled-system/theme-get'
-
-import {
-  ControlWrapper,
-  Indicators,
-  ValueContainerWrapper,
-} from './Components/styles'
 
 export interface SelectVariantProps {
   danger?: boolean
@@ -23,34 +18,6 @@ export type SizeProps = {
   small?: boolean
   medium?: boolean
   large?: boolean
-}
-
-const sizes = {
-  fontSize: {
-    large: themeGet('fontSizes.2'),
-    default: themeGet('fontSizes.1'),
-    small: themeGet('fontSizes.0'),
-  },
-  indicatorPadding: {
-    large: '4px',
-    default: '4px',
-    small: '2px',
-  },
-  valueContainerPadding: {
-    large: '0 12px',
-    default: '0 10px',
-    small: '0 8px',
-  },
-  controlWrapperMinHeight: {
-    large: '48px',
-    default: '40px',
-    small: '32px',
-  },
-  labelFontSize: {
-    large: themeGet('fontSizes.2'),
-    default: themeGet('fontSizes.1'),
-    small: themeGet('fontSizes.0'),
-  },
 }
 
 export type StyledSelectProps = ReactSelectProps &
@@ -90,33 +57,121 @@ export const StyledSelect = styled.div.attrs(
     className,
     classNamePrefix,
   }),
-)<StyledSelectProps>`
-  font-size: 10px;
+)<StyledSelectProps>``
 
-  // These styles applies only for child components, not working for items inside PORTAL
-  ${ControlWrapper} {
-    border-color: red !important;
+export const Wrapper = styled.div<WrapperProps>`
+  min-width: ${mapToTheme('input.minWidth')}px;
+
+  input {
+    font-size: ${mapToTheme('input.fontSize')}px;
   }
 
-  ${Indicators} {
-    padding: 20px;
-  }
+  & .react-select-container {
+    width: 100%;
 
-  ${ValueContainerWrapper} {
-    padding: 20px !important;
-  }
+    & .react-select__control {
+      border-width: 1px;
+      border-style: solid;
+      border-color: ${themeGet('colors.input.border')};
+      border-radius: ${mapToTheme('input.borderRadius')}px;
+      min-height: ${mapToTheme('input.height')}px;
+      padding-inline: ${mapToTheme('input.padding')}px;
+      background-color: ${themeGet('colors.input.bg')};
 
-  ${ControlWrapper} {
-    &.react-select__control {
-      min-height: 100px;
+      &:hover {
+        border-color: ${themeGet('colors.input.hover.border')} !important;
+      }
+    }
+
+    &:active,
+    :focus-within {
+      & .react-select__control {
+      }
     }
   }
 
-  ${layout};
-`
+  & .react-select__control--is-disabled {
+    cursor: default;
+    color: ${themeGet('colors.input.disabled.color')} !important;
+    border-color: ${themeGet('colors.input.disabled.border')} !important;
+    background-color: ${themeGet('colors.input.bg')} !important;
 
-export const Wrapper = styled.div<WrapperProps>`
-  width: 100%;
+    &:hover {
+      border-color: ${themeGet('colors.input.disabled.border')} !important;
+    }
+
+    div {
+      color: ${themeGet('colors.input.disabled.color')};
+    }
+  }
+
+  & .react-select__dropdown-indicator {
+    svg {
+      transition: all ${themeGet('transitionTime.default')};
+    }
+  }
+
+  & .react-select__control--menu-is-open {
+    .react-select__dropdown-indicator {
+      svg {
+        transform: rotateZ(180deg);
+      }
+    }
+  }
+
+  & .react-select__menu {
+    border-radius: 4px !important;
+    box-shadow: ${themeGet('shadows.box')} !important;
+
+    & .react-select__menu-list {
+      padding: 0;
+      color: ${themeGet('colors.text.header')};
+      font-size: ${themeGet('fontSize.1')}px;
+      font-weight: ${themeGet('fontWeight.0')};
+
+      & .react-select__option--is-focused {
+        background-color: ${themeGet('colors.bg.hover')};
+        color: ${themeGet('colors.main')};
+        cursor: pointer;
+      }
+
+      & .react-select__option--is-selected {
+        background-color: ${themeGet('colors.main')};
+        color: ${themeGet('colors.text.contrast')};
+      }
+    }
+  }
+
+  & .react-select__value-container--is-multi {
+    gap: ${themeGet('space.2')}px;
+  }
+
+  & .react-select__multi-value {
+    background: none;
+    margin: 0;
+
+    & .react-select__multi-value__remove {
+      padding: 0;
+      color: ${themeGet('colors.text.header')};
+      cursor: pointer;
+
+      svg {
+        height: 16px;
+        width: 16px;
+      }
+
+      &:hover {
+        background: none;
+      }
+    }
+
+    & .react-select__multi-value__label {
+      font-size: ${themeGet('fontSize.2')}px;
+      font-weight: ${themeGet('fontWeight.0')};
+      color: ${themeGet('colors.text.header')};
+      padding: 0;
+    }
+  }
 
   ${layout};
   ${margin};

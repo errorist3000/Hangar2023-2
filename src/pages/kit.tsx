@@ -1,6 +1,12 @@
 import React from 'react'
 
-import { Inputs } from 'Components/Pages/Kit'
+import {
+  Checkboxes,
+  Inputs,
+  Radios,
+  Ranges,
+  Selects,
+} from 'Components/Pages/Kit'
 import { Column, Text } from 'Components/UI'
 
 function Kit() {
@@ -11,6 +17,10 @@ function Kit() {
       </Text>
 
       <Inputs />
+      <Selects />
+      <Ranges />
+      <Checkboxes />
+      <Radios />
     </Column>
   )
 }

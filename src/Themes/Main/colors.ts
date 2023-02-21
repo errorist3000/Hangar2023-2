@@ -54,6 +54,26 @@ const colors = {
     primary: palette.mediumBlack,
     secondary: palette.brightGray,
   },
+
+  input: {
+    color: palette.mediumBlack,
+    border: palette.americanSilver,
+    placeholder: palette.spanishGray,
+    bg: palette.white,
+
+    hover: {
+      border: palette.mediumBlack,
+    },
+
+    active: {
+      border: palette.mediumBlack,
+    },
+
+    disabled: {
+      color: palette.spanishGray,
+      border: palette.brightGray,
+    },
+  },
 }
 
 export default colors

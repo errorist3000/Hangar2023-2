@@ -1,6 +1,7 @@
 import MaskedInput, { MaskedInputProps } from 'react-text-mask'
 
 import styled, { css } from 'styled-components'
+import { mapToTheme } from 'styled-map'
 import {
   layout,
   LayoutProps,
@@ -12,14 +13,11 @@ import { themeGet } from '@styled-system/theme-get'
 
 export type VariantProps = {
   active?: boolean
-  success?: boolean
-  danger?: boolean
   disabled?: boolean
 }
 
 export type SizeProps = {
   small?: boolean
-  medium?: boolean
   large?: boolean
 }
 
@@ -27,81 +25,13 @@ export type ContainerProps = VariantProps & SizeProps
 
 export type WrapperProps = ContainerProps & MarginProps & LayoutProps
 
-const variants = {
-  borderColor: {
-    default: themeGet('colors.divider.default'),
-    active: themeGet('colors.primary500'),
-    success: themeGet('colors.success500'),
-    danger: themeGet('colors.danger500'),
-  },
-  captionColor: {
-    default: themeGet('colors.text.muted'),
-    success: themeGet('colors.success400'),
-    danger: themeGet('colors.danger400'),
-  },
-}
-
-const sizes = {
-  minHeight: {
-    large: 48,
-    default: 40,
-    small: 32,
-  },
-  padding: {
-    large: 12,
-    default: 10,
-    small: 8,
-  },
-  labelFontSize: {
-    large: themeGet('fontSizes.2'),
-    default: themeGet('fontSizes.1'),
-    small: themeGet('fontSizes.0'),
-  },
-  inputFontSize: {
-    large: themeGet('fontSizes.2'),
-    default: themeGet('fontSizes.1'),
-    small: themeGet('fontSizes.0'),
-  },
-}
-
-const disabledCss: styleFn = ({ disabled }: ContainerProps) =>
-  disabled &&
-  css`
-    color: ${themeGet('colors.text.muted')};
-    input {
-      color: ${themeGet('colors.text.muted')};
-    }
-  `
-
-const hoverCss: styleFn = ({ active }: ContainerProps) =>
-  !active &&
-  css`
-    :hover {
-      border-color: ${themeGet('colors.divider.contrast')} !important;
-    }
-  `
-
-export const Caption = styled.div<
-  MarginProps & {
-    danger?: boolean
-    success?: boolean
-  }
->`
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  font-size: 12px;
-  color: red;
-
-  ${margin};
-`
-
 export const Wrapper = styled.div<WrapperProps>`
   display: flex;
   flex-direction: column;
+  min-width: ${mapToTheme('input.minWidth')}px;
 
   & input {
-    font-size: 10px;
+    font-size: ${mapToTheme('input.fontSize')};
   }
 
   ${margin}
@@ -155,11 +85,10 @@ export const StyledInput = styled.input.attrs((props: StyledInputProps) => ({
   outline: none;
   appearance: none;
   background: transparent;
-  color: ${themeGet('colors.text.heading')};
-  font-weight: ${themeGet('fontWeights.1')};
+  color: ${themeGet('colors.input.color')};
 
   ::placeholder {
-    color: ${themeGet('colors.text.muted')};
+    color: ${themeGet('colors.input.placeholder')};
   }
 `
 
@@ -170,28 +99,33 @@ export const PasswordIconWrapper = styled.div`
   right: 12px;
   user-select: none;
   cursor: pointer;
-
-  svg {
-    height: 14px;
-    width: 20px;
-    fill: none !important;
-    stroke: ${themeGet('colors.neutral400')};
-  }
 `
+
+const containerDisabledCss: styleFn = ({ disabled }: ContainerProps) =>
+  disabled &&
+  css`
+    cursor: default;
+    border-color: ${themeGet('colors.input.disabled.border')};
+
+    &:hover {
+      border-color: ${themeGet('colors.input.disabled.border')};
+    }
+  `
 
 export const Container = styled.div<ContainerProps>`
   display: flex;
-  border: 1px solid blueviolet;
-  border-radius: 6px;
-  align-items: center;
-  padding: 20px;
-  min-height: 100px;
-  position: relative;
+  padding-inline: ${mapToTheme('input.padding')}px;
+  gap: ${themeGet('space.2')}px;
+  min-height: ${mapToTheme('input.height')}px;
+  background-color: ${themeGet('colors.input.bg')};
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${themeGet('colors.input.border')};
+  border-radius: ${mapToTheme('input.borderRadius')}px;
 
-  &:disabled {
-    cursor: default;
+  &:hover {
+    border-color: ${themeGet('colors.input.hover.border')};
   }
 
-  ${disabledCss};
-  ${hoverCss};
+  ${containerDisabledCss}
 `

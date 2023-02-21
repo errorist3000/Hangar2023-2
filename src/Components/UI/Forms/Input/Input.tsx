@@ -18,24 +18,26 @@ import {
 type Props = ContainerProps &
   StyledInputProps &
   WrapperProps & {
-    value?: string | number
-    defaultValue?: string | number
-    required?: boolean
-    disabled?: boolean
-    optional?: boolean
-    label?: ReactNode
     caption?: string
-    placeholder?: string
+    danger?: boolean
+    defaultValue?: string | number
+    disabled?: boolean
+    isLoading?: boolean
+    label?: ReactNode
+    max?: number
     maxLength?: number
     min?: number
-    max?: number
+    optional?: boolean
+    placeholder?: string
     readOnly?: boolean
-    isLoading?: boolean
-    renderBeforeElement?: () => React.ReactNode
     renderAfterElement?: (disabled: boolean) => React.ReactNode
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+    renderBeforeElement?: () => React.ReactNode
+    required?: boolean
+    success?: boolean
     type?: React.HTMLProps<HTMLInputElement>['type']
+    value?: string | number
     onBlur?: (event: React.FocusEvent<HTMLElement>) => void
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
     onFocus?: (event: React.FocusEvent<HTMLElement>) => void
     onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void
   }
@@ -43,32 +45,32 @@ type Props = ContainerProps &
 function Input(
   {
     caption,
-    required,
+    cols,
+    danger,
+    defaultValue,
+    disabled,
+    isLoading,
+    isMulti,
     label,
+    large,
+    mask,
+    max,
+    maxLength,
+    min,
     placeholder,
+    readOnly,
     renderAfterElement,
     renderBeforeElement,
-    success,
-    danger,
-    disabled,
-    isMulti,
-    cols,
-    rows,
+    required,
     resize,
-    type,
-    small,
-    min,
-    max,
-    large,
-    defaultValue,
-    value,
-    mask,
+    rows,
     showMask,
-    maxLength,
-    readOnly,
-    isLoading,
-    onChange,
+    small,
+    success,
+    type,
+    value,
     onBlur,
+    onChange,
     onFocus,
     onKeyDown,
     ...rest
@@ -97,18 +99,16 @@ function Input(
   return (
     <Wrapper {...rest} large={large} small={small}>
       {label && (
-        <Text heading subHeader5>
+        <Text heading={!disabled} mute={disabled} subHeader5>
           {label} {required && '*'}
         </Text>
       )}
 
       <Container
         active={isActive}
-        danger={danger}
         disabled={disabled}
         large={large}
         small={small}
-        success={success}
       >
         {renderBeforeElement && <>{renderBeforeElement()}</>}
 
@@ -146,7 +146,15 @@ function Input(
         {isLoading && <Loader />}
       </Container>
 
-      <Text caption5>{caption}</Text>
+      <Text
+        body={!danger && !disabled && !success}
+        caption5
+        danger={danger}
+        mute={disabled}
+        success={success}
+      >
+        {caption}
+      </Text>
     </Wrapper>
   )
 }

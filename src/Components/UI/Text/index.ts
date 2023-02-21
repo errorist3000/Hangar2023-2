@@ -18,6 +18,8 @@ type CustomColorProps = {
   muteInverse?: boolean
   mute?: boolean
   primary?: boolean
+  danger?: boolean
+  success?: boolean
 }
 
 type CustomTypographyProps = {
@@ -253,16 +255,16 @@ const subHeader3Css = ({ subHeader3 }: CustomTypographyProps) =>
     line-height: 156%;
   `
 
-const subHeader4Css = ({ subHeader5 }: CustomTypographyProps) =>
-  subHeader5 &&
+const subHeader4Css = ({ subHeader4 }: CustomTypographyProps) =>
+  subHeader4 &&
   css`
     font-size: ${themeGet('fontSizes.3')}px;
     font-weight: 600;
     line-height: 165%;
   `
 
-const subHeader5Css = ({ subHeader4 }: CustomTypographyProps) =>
-  subHeader4 &&
+const subHeader5Css = ({ subHeader5 }: CustomTypographyProps) =>
+  subHeader5 &&
   css`
     font-size: ${themeGet('fontSizes.2')}px;
     font-weight: 600;
@@ -302,6 +304,18 @@ const muteInverseCss = ({ muteInverse }: CustomColorProps) =>
   muteInverse &&
   css`
     color: ${themeGet('colors.text.muteInverse')};
+  `
+
+const dangerCss = ({ danger }: CustomColorProps) =>
+  danger &&
+  css`
+    color: ${themeGet('colors.text.danger')};
+  `
+
+const successCss = ({ success }: CustomColorProps) =>
+  success &&
+  css`
+    color: ${themeGet('colors.text.success')};
   `
 
 const preLineCss = ({ preLine }: CustomGeneralProps) =>
@@ -346,11 +360,13 @@ const Text = styled.p<Props>`
   ${display2Css}
   
   ${bodyCss}
+  ${dangerCss}
   ${headingCss}
   ${inverseCss}
   ${muteCss}
   ${muteInverseCss}
   ${primaryCss}
+  ${successCss}
   
   ${preLineCss}
 

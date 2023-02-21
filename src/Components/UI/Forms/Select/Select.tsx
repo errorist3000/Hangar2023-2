@@ -96,7 +96,7 @@ function Select({
   return (
     <Wrapper {...rest} width={width}>
       {label && (
-        <Text mb={2} subHeader5>
+        <Text heading={!disabled} mute={disabled} subHeader5>
           {label} {required && '*'}
         </Text>
       )}
@@ -136,7 +136,6 @@ Select.defaultProps = {
   creatable: false,
   withPortal: false,
   disabled: false,
-  width: 1,
   options: [],
 } as Props
 
