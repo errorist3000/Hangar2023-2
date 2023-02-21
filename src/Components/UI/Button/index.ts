@@ -7,7 +7,7 @@ import {
   MarginProps,
   styleFn,
 } from 'styled-system'
-import themeGet from '@styled-system/theme-get'
+import { themeGet } from '@styled-system/theme-get'
 
 type SizeProps = {
   big?: boolean

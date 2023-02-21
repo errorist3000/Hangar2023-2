@@ -5,7 +5,7 @@ import { Text } from 'Components/UI'
 
 import { LANDING_SECTION_ID } from 'Constants/ids'
 
-import { pageScroll } from 'Services/Utils'
+import Utils from 'Services/Utils'
 
 import { Container, ItemButton } from './styles'
 
@@ -34,7 +34,10 @@ function NavBar({ kind = Kind.Desktop }: Props) {
   return (
     <Container mobile={kind === Kind.Mobile}>
       {navBarItems.map(item => (
-        <ItemButton key={item.text} onClick={() => pageScroll(item.link)}>
+        <ItemButton
+          key={item.text}
+          onClick={() => Utils.Scroll.pageScroll(item.link)}
+        >
           <Text
             action1
             heading={kind === Kind.Mobile}

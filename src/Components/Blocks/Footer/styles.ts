@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { flexbox, margin, MarginProps, padding } from 'styled-system'
-import themeGet from '@styled-system/theme-get'
+import { themeGet } from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
 

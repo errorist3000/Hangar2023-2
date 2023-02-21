@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { styleFn } from 'styled-system'
-import themeGet from '@styled-system/theme-get'
+import { themeGet } from '@styled-system/theme-get'
 
 export type Props = {
   vertical?: boolean

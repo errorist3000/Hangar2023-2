@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { layout } from 'styled-system'
-import themeGet from '@styled-system/theme-get'
+import { themeGet } from '@styled-system/theme-get'
 
 const headerRelativeCss = ({ relative }: { relative?: boolean }) =>
   relative &&

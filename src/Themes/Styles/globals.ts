@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import themeGet from '@styled-system/theme-get'
+import { themeGet } from '@styled-system/theme-get'
 
 export default css`
   html {

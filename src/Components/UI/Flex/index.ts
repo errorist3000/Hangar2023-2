@@ -11,17 +11,19 @@ import {
   styleFn,
 } from 'styled-system'
 
+import { gap, GapProps } from 'Themes/system'
+
 type SizeProps = number | string
 
 type Props = Omit<FlexboxProps, 'flexDirection'> &
   MarginProps &
   FlexboxProps &
   LayoutProps &
-  PaddingProps & {
+  PaddingProps &
+  GapProps & {
     center?: boolean
     fullHeight?: boolean
     fullWidth?: boolean
-    gap?: number
     grow?: boolean
     height?: SizeProps
     justifyCenter?: boolean
@@ -29,6 +31,7 @@ type Props = Omit<FlexboxProps, 'flexDirection'> &
     spaceBetween?: boolean
     width?: SizeProps
   }
+
 const fullWidthCss: styleFn = ({ fullWidth }: Props) =>
   fullWidth &&
   css`
@@ -59,21 +62,14 @@ const justifyCenterCss: styleFn = ({ justifyCenter }: Props) =>
     justify-content: center;
   `
 
-const gapCss: styleFn = ({ gap }: Props) =>
-  gap &&
-  css`
-    gap: ${gap}px;
-  `
-
 const Flex = styled.div<Props>`
   display: flex;
 
   ${flexbox}
   ${layout}
   ${margin}
+  ${gap}
   ${padding}
-  
-  ${gapCss}
   
   ${centerCss}
   ${fullHeightCss}

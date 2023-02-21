@@ -10,7 +10,7 @@ import { Button, ClientOnly, Column, Image, Text, View } from 'Components/UI'
 
 import { LANDING_PADDING_X, LANDING_SECTION_ID } from 'Constants/ids'
 
-import { pageScroll } from 'Services/Utils'
+import Utils from 'Services/Utils'
 
 import {
   BottomHolder,
@@ -111,7 +111,7 @@ function Gallery({ data, projects }: Props) {
 
   const handleShowAllClick = useCallback(() => {
     setIsCollapsed(!isCollapsed)
-    pageScroll(LANDING_SECTION_ID.gallery)
+    Utils.Scroll.pageScroll(LANDING_SECTION_ID.gallery)
   }, [isCollapsed])
 
   useEffect(() => {

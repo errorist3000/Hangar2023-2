@@ -1,3 +1,7 @@
-import { pageScroll } from './scroll'
+import Form from './form'
+import Scroll from './scroll'
 
-export { pageScroll }
+export default {
+  Form,
+  Scroll,
+}

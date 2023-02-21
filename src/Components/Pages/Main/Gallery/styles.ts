@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { padding, styleFn } from 'styled-system'
-import themeGet from '@styled-system/theme-get'
+import { themeGet } from '@styled-system/theme-get'
 
 import { motion } from 'framer-motion'
 

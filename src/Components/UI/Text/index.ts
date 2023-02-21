@@ -9,7 +9,7 @@ import {
   typography,
   TypographyProps,
 } from 'styled-system'
-import themeGet from '@styled-system/theme-get'
+import { themeGet } from '@styled-system/theme-get'
 
 type CustomColorProps = {
   body?: boolean
@@ -31,7 +31,6 @@ type CustomTypographyProps = {
   body3?: boolean
   body4?: boolean
   body5?: boolean
-  body?: boolean
   caption1?: boolean
   caption2?: boolean
   caption3?: boolean
@@ -47,6 +46,7 @@ type CustomTypographyProps = {
   subHeader2?: boolean
   subHeader3?: boolean
   subHeader4?: boolean
+  subHeader5?: boolean
 }
 
 type CustomGeneralProps = { preLine?: boolean }
@@ -63,7 +63,7 @@ const h1Css = ({ h1 }: CustomTypographyProps) =>
   h1 &&
   css`
     font-size: ${themeGet('fontSizes.9')}px;
-    letter-spacing: -0.4em;
+    letter-spacing: -0.04em;
     font-weight: 700;
     line-height: 110%;
   `
@@ -253,13 +253,22 @@ const subHeader3Css = ({ subHeader3 }: CustomTypographyProps) =>
     line-height: 156%;
   `
 
-const subHeader4Css = ({ subHeader4 }: CustomTypographyProps) =>
-  subHeader4 &&
+const subHeader4Css = ({ subHeader5 }: CustomTypographyProps) =>
+  subHeader5 &&
   css`
     font-size: ${themeGet('fontSizes.3')}px;
     font-weight: 600;
     line-height: 165%;
   `
+
+const subHeader5Css = ({ subHeader4 }: CustomTypographyProps) =>
+  subHeader4 &&
+  css`
+    font-size: ${themeGet('fontSizes.2')}px;
+    font-weight: 600;
+    line-height: 180%;
+  `
+
 const bodyCss = ({ body }: CustomColorProps) =>
   body &&
   css`
@@ -319,6 +328,7 @@ const Text = styled.p<Props>`
   ${subHeader2Css}
   ${subHeader3Css}
   ${subHeader4Css}
+  ${subHeader5Css}
   
   ${body1Css}
   ${body2Css}
