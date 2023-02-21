@@ -2169,12 +2169,12 @@
   dependencies:
     "@types/geojson" "*"
 
-"@types/lodash@^4.14.191":
+"@types/lodash@4.14.191":
   version "4.14.191"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.191.tgz#09511e7f7cba275acd8b419ddac8da9a6a79e2fa"
   integrity sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==
 
-"@types/luxon@^3.2.0":
+"@types/luxon@3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@types/luxon/-/luxon-3.2.0.tgz#99901b4ab29a5fdffc88fff59b3b47fbfbe0557b"
   integrity sha512-lGmaGFoaXHuOLXFvuju2bfvZRqxAqkHPx9Y9IQdQABrinJJshJwfNCKV+u7rR3kJbiqfTF/NhOkcxxAFrObyaA==
@@ -2204,19 +2204,19 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.5.tgz#75a2a8e7d8ab4b230414505d92335d1dcb53a6df"
   integrity sha512-L28j2FcJfSZOnL1WBjDYp2vUHCeIFlyYI/53EwD/rKUBQ7MtUUfbQWiyKJGpcnv4/WgrhWsFKrcPstcAt/J0tQ==
 
-"@types/react-css-collapse@^3.6.2":
+"@types/react-css-collapse@3.6.2":
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/@types/react-css-collapse/-/react-css-collapse-3.6.2.tgz#6e0e242d3eab9027a51dc228d16ea6ff8364c696"
   integrity sha512-UOY5oWUf+WrUMIA7msiOsQuXiuU97HY85+9mA8vZDg8r/YEZmgqiI7CzkGKOK/2ObVHj/pvwZoJs9H5H12BrNQ==
 
-"@types/react-modal@^3.13.1":
+"@types/react-modal@3.13.1":
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/@types/react-modal/-/react-modal-3.13.1.tgz#5b9845c205fccc85d9a77966b6e16dc70a60825a"
   integrity sha512-iY/gPvTDIy6Z+37l+ibmrY+GTV4KQTHcCyR5FIytm182RQS69G5ps4PH2FxtC7bAQ2QRHXMevsBgck7IQruHNg==
   dependencies:
     "@types/react" "*"
 
-"@types/react-scroll@^1.8.6":
+"@types/react-scroll@1.8.6":
   version "1.8.6"
   resolved "https://registry.yarnpkg.com/@types/react-scroll/-/react-scroll-1.8.6.tgz#a2b1ea795279548172cd9a2c99fa4e5568297ffb"
   integrity sha512-aMTiNgcmA7dwn1yjoHsiL78RfRnKCXzFyMbv63VrZTXloSfNePBdKtVObC3/My6irwDf0Oz0U4VjEC/vrv6/9w==
@@ -5684,7 +5684,7 @@ react-modal@3.16.1:
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
 
-react-odometerjs@^3.1.0:
+react-odometerjs@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/react-odometerjs/-/react-odometerjs-3.1.0.tgz#81674b6edbb38e0414ef3e44f9a5a1ea4a285f3c"
   integrity sha512-jHG1wyNgg3J7OYaJugixkQTPpUHK5ddfa13XSQlxs5YR5qIWIPwVtjlxSp8xD3UuXjUXjjGAyCyYZ9k3ar8aCg==
