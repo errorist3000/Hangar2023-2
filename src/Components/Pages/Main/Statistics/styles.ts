@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { padding } from 'styled-system'
+import { grid, padding } from 'styled-system'
 import themeGet from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
@@ -20,16 +20,17 @@ export const Container = styled.div.attrs({
 
 export const Content = styled.div.attrs({
   px: LANDING_PADDING_X,
-  py: 10,
+  py: [6, 6, 8, 10],
+  gridTemplateColumns: ['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)'],
 })`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   width: 100%;
   max-width: ${LANDING_CONTENT_WIDTH}px;
   gap: 20px;
   box-sizing: content-box;
   position: relative;
 
+  ${grid}
   ${padding}
 `
 

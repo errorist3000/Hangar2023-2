@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next'
 
 import { EnvelopeSimple, PhoneCall } from 'phosphor-react'
 
-import { Column, Row, Text } from 'Components/UI'
+import { Column, Text } from 'Components/UI'
 
 import { LANDING_SECTION_ID } from 'Constants/ids'
 
-import { Card, Container, Content, IconHolder } from './styles'
+import { Card, Container, Content, ContentWrapper, IconHolder } from './styles'
 
 function Contacts() {
   const { t } = useTranslation('translation', {
@@ -29,10 +29,10 @@ function Contacts() {
     <Container>
       <Content id={LANDING_SECTION_ID.contacts}>
         <Column>
-          <Text h3 heading mb={9}>
+          <Text h3 heading mb={[6, 6, 8, 9]}>
             {t('header')}
           </Text>
-          <Row gap={200} justifyCenter>
+          <ContentWrapper>
             {CARDS.map(card => (
               <Card key={card.text}>
                 <IconHolder>{card.icon}</IconHolder>
@@ -44,7 +44,7 @@ function Contacts() {
                 </Text>
               </Card>
             ))}
-          </Row>
+          </ContentWrapper>
         </Column>
       </Content>
     </Container>

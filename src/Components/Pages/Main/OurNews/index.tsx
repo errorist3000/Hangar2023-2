@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { DateTime } from 'luxon'
@@ -11,7 +11,11 @@ import { Column, Image, Row, Text } from 'Components/UI'
 import { DATO_DATE_FORMAT } from 'Constants/datoCms'
 import { LANDING_SECTION_ID } from 'Constants/ids'
 
-import { Card, Container, Content } from './styles'
+import { useWindowWidth } from 'Hooks'
+
+import { Card, Container, Content, SwiperHolder } from './styles'
+
+const BREAKPOINT = { ONE: 540, TWO: 960 }
 
 function getPrettyDate(date: string) {
   return DateTime.fromFormat(date, DATO_DATE_FORMAT).toFormat('dd.MM.yyyy')
@@ -26,6 +30,16 @@ function OurNews({ data }: Props) {
     keyPrefix: 'pages.main.ourNews',
   })
 
+  const [width, setWidth] = useState(0)
+
+  const slidesPerView = useMemo(() => {
+    if (width < BREAKPOINT.ONE) return 1
+    if (width < BREAKPOINT.TWO) return 2
+    return 3
+  }, [width])
+
+  useWindowWidth({ onWidthChange: setWidth })
+
   return (
     <Container>
       <Content id={LANDING_SECTION_ID.news}>
@@ -36,40 +50,43 @@ function OurNews({ data }: Props) {
           {t('subHeader')}
         </Text>
 
-        <Swiper
-          grabCursor
-          modules={[Scrollbar]}
-          scrollbar
-          slidesPerView={3}
-          spaceBetween={20}
-        >
-          {data.map(slide => (
-            <SwiperSlide key={slide.id}>
-              <Card>
-                <Image data={slide.image} />
-                <Column fullHeight px={3} py={2}>
-                  <Text heading mb={2} subHeader3>
-                    {slide.title}
-                  </Text>
-                  <Row mb={4}>
-                    <Calendar />
-                    <Text caption2 ml={1} mute>
-                      {getPrettyDate(slide.date)}
+        <SwiperHolder>
+          <Swiper
+            grabCursor
+            modules={[Scrollbar]}
+            scrollbar
+            slidesPerView={slidesPerView}
+            // slidesPerView="auto"
+            spaceBetween={20}
+          >
+            {data.map(slide => (
+              <SwiperSlide key={slide.id}>
+                <Card>
+                  <Image data={slide.image} />
+                  <Column fullHeight px={3} py={2}>
+                    <Text heading mb={2} subHeader3>
+                      {slide.title}
                     </Text>
-                  </Row>
-                  <Column fullHeight spaceBetween>
-                    <Text body body3 mb={3}>
-                      {slide.description}
-                    </Text>
-                    <Text body caption1>
-                      {slide.size}
-                    </Text>
+                    <Row mb={4}>
+                      <Calendar />
+                      <Text caption2 ml={1} mute>
+                        {getPrettyDate(slide.date)}
+                      </Text>
+                    </Row>
+                    <Column fullHeight spaceBetween>
+                      <Text body body3 mb={3}>
+                        {slide.description}
+                      </Text>
+                      <Text body caption1>
+                        {slide.size}
+                      </Text>
+                    </Column>
                   </Column>
-                </Column>
-              </Card>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </SwiperHolder>
       </Content>
     </Container>
   )

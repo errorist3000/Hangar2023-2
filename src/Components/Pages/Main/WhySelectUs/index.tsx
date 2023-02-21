@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { Column, Image, Text } from 'Components/UI'
+import { Column, Image, Text, View } from 'Components/UI'
 
 import { LANDING_SECTION_ID } from 'Constants/ids'
 
@@ -18,9 +18,11 @@ function WhySelectUs({ data }: Props) {
   return (
     <Container>
       <Content id={LANDING_SECTION_ID.aboutUs}>
-        <ImageHolder>
-          <Image data={data} />
-        </ImageHolder>
+        <View.Desktop>
+          <ImageHolder>
+            <Image data={data} />
+          </ImageHolder>
+        </View.Desktop>
         <Column maxWidth={626}>
           <Text h3 heading>
             {t('title')}

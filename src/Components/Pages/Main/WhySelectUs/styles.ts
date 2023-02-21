@@ -14,12 +14,16 @@ export const Container = styled.div.attrs({
   ${padding}
 `
 
-export const Content = styled.div`
+export const Content = styled.div.attrs({
+  pt: [6, 6, 6, 13],
+  pb: [6, 6, 6, 0],
+})`
   display: flex;
   justify-content: center;
   gap: 32px;
-  padding-top: 80px;
   max-width: ${LANDING_CONTENT_WIDTH};
+
+  ${padding}
 `
 
 export const ImageHolder = styled.div`

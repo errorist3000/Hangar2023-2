@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { padding } from 'styled-system'
+import { layout, padding } from 'styled-system'
 import themeGet from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
@@ -15,16 +15,20 @@ export const Container = styled.div.attrs({
   ${padding}
 `
 
-export const Content = styled.div`
+export const Content = styled.div.attrs({
+  py: [10, 10, 12, 14],
+})`
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  max-width: ${LANDING_CONTENT_WIDTH}px;
-  padding-top: ${themeGet('space.14')}px;
-  padding-bottom: ${themeGet('space.14')}px;
+  width: 100%;
 
   .swiper-wrapper {
     padding-bottom: ${themeGet('space.7')}px;
+  }
+
+  .swiper-slide {
+    width: min-content;
   }
 
   .swiper-scrollbar-horizontal {
@@ -38,10 +42,19 @@ export const Content = styled.div`
     height: 100%;
     border-radius: inherit;
   }
+  ${padding}
 `
 
-export const Card = styled.div`
-  width: 412px;
+export const SwiperHolder = styled.div`
+  width: 100%;
+  max-width: ${LANDING_CONTENT_WIDTH}px;
+  overflow: hidden;
+  margin: 0 auto;
+`
+
+export const Card = styled.div.attrs({
+  maxWidth: ['unset', 'unset', 'unset', 412],
+})`
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -61,4 +74,6 @@ export const Card = styled.div`
     height: 24px;
     color: ${themeGet('colors.text.muted')};
   }
+
+  ${layout}
 `

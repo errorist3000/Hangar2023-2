@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { padding } from 'styled-system'
+import { flexbox, padding } from 'styled-system'
 import themeGet from '@styled-system/theme-get'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
@@ -16,13 +16,15 @@ export const Container = styled.div.attrs({
   ${padding}
 `
 
-export const Content = styled.div`
+export const Content = styled.div.attrs({
+  py: [7, 7, 9, 11],
+})`
   display: flex;
   justify-content: center;
   text-align: center;
-  padding-top: 80px;
-  padding-bottom: 80px;
   max-width: ${LANDING_CONTENT_WIDTH}px;
+
+  ${padding}
 `
 
 export const Card = styled.div`
@@ -42,4 +44,20 @@ export const IconHolder = styled.div`
     height: 54px;
     color: ${themeGet('colors.primary')};
   }
+`
+
+export const ContentWrapper = styled.div.attrs({
+  flexDirection: ['column', 'column', 'row'],
+  alignItems: ['center', 'center', 'flex-start'],
+})`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: ${themeGet('space.7')}px;
+
+  @media screen and (min-width: ${themeGet('breakpoints.2')}) {
+    gap: 200px;
+  }
+
+  ${flexbox}
 `

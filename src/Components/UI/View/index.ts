@@ -30,6 +30,12 @@ const Tablet = styled.div.attrs({
   ${generalCss}
 `
 
+const TabletAndDesktop = styled.div.attrs({
+  display: ['none', 'none', 'block'],
+})`
+  ${generalCss}
+`
+
 const Mobile = styled.div.attrs({
   display: ['block', 'block', 'none'],
 })`
@@ -38,8 +44,9 @@ const Mobile = styled.div.attrs({
 
 const View = {
   Desktop,
-  Tablet,
   Mobile,
+  Tablet,
+  TabletAndDesktop,
 }
 
 export default View
