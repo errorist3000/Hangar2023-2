@@ -21,6 +21,12 @@ function Inputs() {
           label={'Disabled'}
           placeholder={'Placeholder'}
         />
+        <Input
+          caption={'Caption'}
+          isMulti
+          label={'Text area'}
+          placeholder={'Placeholder'}
+        />
       </Row>
     </Column>
   )

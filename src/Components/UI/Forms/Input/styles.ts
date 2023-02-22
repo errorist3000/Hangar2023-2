@@ -59,11 +59,14 @@ export type StyledInputProps = IsMultiProps & MaskProps & NumberProps
 
 function resizeTypeCss({ resize }: StyledInputProps) {
   return css`
-    resize: ${resize || 'vertical'};
+    resize: ${resize};
   `
 }
 
 const TextArea = styled.textarea`
+  padding: ${mapToTheme('input.padding')}px;
+  min-height: inherit;
+
   ${resizeTypeCss}
 `
 
@@ -86,6 +89,7 @@ export const StyledInput = styled.input.attrs((props: StyledInputProps) => ({
   appearance: none;
   background: transparent;
   color: ${themeGet('colors.input.color')};
+  padding-inline: ${mapToTheme('input.padding')}px;
 
   ::placeholder {
     color: ${themeGet('colors.input.placeholder')};
@@ -114,7 +118,6 @@ const containerDisabledCss: styleFn = ({ disabled }: ContainerProps) =>
 
 export const Container = styled.div<ContainerProps>`
   display: flex;
-  padding-inline: ${mapToTheme('input.padding')}px;
   gap: ${themeGet('space.2')}px;
   min-height: ${mapToTheme('input.height')}px;
   background-color: ${themeGet('colors.input.bg')};
