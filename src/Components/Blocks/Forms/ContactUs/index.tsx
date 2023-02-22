@@ -4,6 +4,8 @@ import { Form, FormRenderProps } from 'react-final-form'
 import DialogControls from 'Components/Blocks/DialogControls'
 import { Column, InputField } from 'Components/UI'
 
+import { CONTACT_US_URL_PHP } from 'Constants/ids'
+
 enum Fields {
   Name = 'name',
   Email = 'email',
@@ -17,7 +19,18 @@ type Props = {
 
 function ContactUsForm({ onClose }: Props) {
   const submit = useCallback(
-    (values: Record<string, any>) => {
+    async (values: Record<string, any>) => {
+      try {
+        const post = JSON.stringify(values)
+
+        const request = new XMLHttpRequest()
+        request.open('POST', CONTACT_US_URL_PHP, true)
+        request.setRequestHeader('Content-type', 'application/json')
+        request.send(post)
+      } catch (error) {
+        console.log(error)
+      }
+
       onClose?.()
     },
     [onClose],

@@ -16,3 +16,6 @@ export const DATOCMS_ENDPOINT = {
   MAIN: 'https://graphql.datocms.com/',
   PREVIEW: '',
 }
+
+export const CONTACT_US_URL_PHP = 'https://angarpro.com/php/contact.php'
+export const CALCULATOR_URL_PHP = 'https://angarpro.com/php/calculator.php'
