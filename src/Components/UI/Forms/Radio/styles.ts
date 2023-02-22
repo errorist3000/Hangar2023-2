@@ -9,39 +9,6 @@ export interface SizeProps {
   small?: boolean
 }
 
-const sizes = {
-  fontSize: {
-    large: themeGet('fontSizes.2'),
-    default: themeGet('fontSizes.1'),
-    small: themeGet('fontSizes.0'),
-  },
-  lineHeight: {
-    large: 24,
-    default: 20,
-    small: 16,
-  },
-  radioBorderSize: {
-    large: 24,
-    default: 20,
-    small: 16,
-  },
-  circleSize: {
-    large: 12,
-    default: 10,
-    small: 8,
-  },
-  captionFontSize: {
-    large: themeGet('fontSizes.1'),
-    default: themeGet('fontSizes.0'),
-    small: themeGet('fontSizes.0'),
-  },
-  captionLineHeight: {
-    large: 20,
-    default: 16,
-    small: 16,
-  },
-}
-
 export const Circle = styled.div<SizeProps>`
   background: white;
   border-radius: 999px;
@@ -57,19 +24,6 @@ export const RadioBorder = styled.div<SizeProps>`
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-`
-
-export const LabelText = styled.div`
-  color: ${themeGet('colors.text.heading')};
-  white-space: pre-wrap;
-`
-
-export const CaptionText = styled.div<SizeProps>`
-  color: ${themeGet('colors.text.muted')};
-  font-weight: ${themeGet('fontWeights.1')};
-  font-size: 10px;
-  line-height: 300px;
-  letter-spacing: -0.012em;
 `
 
 export const InvisibleRadio = styled.input.attrs({ type: 'radio' })<
@@ -88,45 +42,6 @@ export const InvisibleRadio = styled.input.attrs({ type: 'radio' })<
 export interface VariantProps {
   alignTop?: boolean
   danger?: boolean
-}
-
-const variants = {
-  notCheckedRadioBorderColor: {
-    default: themeGet('colors.divider.contrast'),
-    danger: themeGet('colors.danger500'),
-  },
-  notCheckedRadioBorderWidth: {
-    default: 1,
-    danger: 2,
-  },
-  notCheckedRadioBackground: {
-    default: 'transparent',
-    danger: themeGet('colors.danger500'),
-  },
-  notCheckedHoverRadioBorderWidth: {
-    default: 2,
-    danger: 2,
-  },
-  notCheckedHoverRadioBorderColor: {
-    default: themeGet('colors.primary500'),
-    danger: themeGet('colors.danger500'),
-  },
-  notCheckedHoverRadioBackground: {
-    default: themeGet('colors.primary900'),
-    danger: themeGet('colors.danger900'),
-  },
-  checkedRadioBorderBackground: {
-    default: themeGet('colors.primary500'),
-    danger: themeGet('colors.danger500'),
-  },
-  disabledNotCheckedRadioBorderColor: {
-    default: themeGet('colors.divider.default'),
-    danger: themeGet('colors.divider.default'),
-  },
-  disabledCheckedRadioBackground: {
-    default: themeGet('colors.primary700'),
-    danger: themeGet('colors.danger700'),
-  },
 }
 
 export interface ContainerProps extends VariantProps, SizeProps, SpaceProps {}

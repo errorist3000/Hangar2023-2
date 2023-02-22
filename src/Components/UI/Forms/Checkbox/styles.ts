@@ -11,34 +11,6 @@ export interface SizeProps {
   small?: boolean
 }
 
-const sizes = {
-  fontSize: {
-    large: themeGet('fontSizes.2'),
-    default: themeGet('fontSizes.1'),
-    small: themeGet('fontSizes.0'),
-  },
-  lineHeight: {
-    large: 24,
-    default: 20,
-    small: 16,
-  },
-  checkboxBorder: {
-    large: 24,
-    default: 20,
-    small: 16,
-  },
-  captionFontSize: {
-    large: themeGet('fontSizes.1'),
-    default: themeGet('fontSizes.0'),
-    small: themeGet('fontSizes.0'),
-  },
-  captionLineHeight: {
-    large: 20,
-    default: 16,
-    small: 16,
-  },
-}
-
 export const CheckIcon = styled(Check).attrs({ weight: 'bold' })`
   color: white;
   width: 2em;
@@ -53,33 +25,6 @@ export const CheckboxBorder = styled.div<SizeProps>`
   border-radius: 4px;
   width: 40px;
   height: 40px;
-`
-
-export const LabelText = styled.div`
-  color: ${themeGet('colors.text.heading')};
-  white-space: pre-wrap;
-`
-
-export const CaptionText = styled.div<SizeProps>`
-  color: ${themeGet('colors.text.muted')};
-  font-size: 10px;
-  line-height: 300px;
-  font-weight: ${themeGet('fontWeights.1')};
-  white-space: pre-wrap;
-`
-
-export const ErrorText = styled.div<SizeProps>`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: ${themeGet('colors.danger500')};
-  font-size: 10px;
-  line-height: 300px;
-  font-weight: ${themeGet('fontWeights.1')};
-  position: absolute;
-  top: 100%;
-  left: 0;
-  height: 32px;
 `
 
 export const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox' })<
@@ -98,37 +43,6 @@ export const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox' })<
 export interface VariantProps {
   alignTop?: boolean
   danger?: boolean
-}
-
-const variants = {
-  notCheckedBorderColor: {
-    default: themeGet('colors.divider.contrast'),
-    danger: themeGet('colors.danger500'),
-  },
-  notCheckedHoverBorderColor: {
-    default: themeGet('colors.primary500'),
-    danger: themeGet('colors.danger500'),
-  },
-  notCheckedHoverBackgroundColor: {
-    default: themeGet('colors.primary900'),
-    danger: themeGet('colors.danger900'),
-  },
-  notCheckedHoverOutlineColor: {
-    danger: themeGet('colors.danger500'),
-    default: themeGet('colors.primary500'),
-  },
-  checkedBackground: {
-    danger: themeGet('colors.danger500'),
-    default: themeGet('colors.primary500'),
-  },
-  disabledNotCheckedBorderColor: {
-    danger: themeGet('colors.divider.default'),
-    default: themeGet('colors.divider.default'),
-  },
-  disabledCheckedBackground: {
-    danger: themeGet('colors.danger700'),
-    default: themeGet('colors.primary700'),
-  },
 }
 
 export interface ContainerProps
