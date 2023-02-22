@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
+
+import Text from 'Components/UI/Text'
 
 import { Item } from './styles'
 
-function NoOptionsMessage(props: { children: React.ReactNode }) {
-  return <Item {...props} />
+type Props = {
+  children: string | ReactNode
+}
+
+function NoOptionsMessage({ children }: Props) {
+  return (
+    <Item>
+      <Text body4 center mute my={2}>
+        {children}
+      </Text>
+    </Item>
+  )
 }
 
 export default NoOptionsMessage

@@ -8,7 +8,7 @@ import { SizeProps } from '../styles'
 import { CustomSelectProps } from '../types'
 
 function Option({
-  selectProps: { large, medium, small, value, scrollToOption },
+  selectProps: { value, scrollToOption },
   ...props
 }: OptionProps & { selectProps: SizeProps & CustomSelectProps }) {
   useEffect(() => {
@@ -18,17 +18,8 @@ function Option({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return (
-    // TODO: Find a way to extend Theme with ReactSelect Theme....
-    // @ts-ignore
-    <Item
-      {...props}
-      as={components.Option}
-      large={large}
-      medium={medium}
-      small={small}
-    />
-  )
+  // @ts-ignore
+  return <Item {...props} as={components.Option} />
 }
 
 export default Option

@@ -64,6 +64,7 @@ export const Wrapper = styled.div<WrapperProps>`
 
   input {
     font-size: ${mapToTheme('input.fontSize')}px;
+    margin: 0;
   }
 
   & .react-select-container {
@@ -85,9 +86,20 @@ export const Wrapper = styled.div<WrapperProps>`
 
     &:active,
     :focus-within {
+      border-color: ${themeGet('colors.input.hover.border')} !important;
+
+      &:hover {
+        border-color: ${themeGet('colors.input.hover.border')} !important;
+      }
+
       & .react-select__control {
+        border-color: ${themeGet('colors.input.hover.border')} !important;
       }
     }
+  }
+
+  & .react-select__control--is-focused {
+    box-shadow: none;
   }
 
   & .react-select__control--is-disabled {
@@ -106,6 +118,8 @@ export const Wrapper = styled.div<WrapperProps>`
   }
 
   & .react-select__dropdown-indicator {
+    padding: ${themeGet('space.2')}px 0;
+
     svg {
       transition: all ${themeGet('transitionTime.default')};
     }
@@ -121,23 +135,24 @@ export const Wrapper = styled.div<WrapperProps>`
 
   & .react-select__menu {
     border-radius: 4px !important;
-    box-shadow: ${themeGet('shadows.box')} !important;
+    box-shadow: ${themeGet('shadow.medium')} !important;
+    border: none !important;
 
     & .react-select__menu-list {
       padding: 0;
-      color: ${themeGet('colors.text.header')};
-      font-size: ${themeGet('fontSize.1')}px;
+      color: ${themeGet('colors.text.body')};
+      font-size: ${mapToTheme('input.fontSize')}px !important;
       font-weight: ${themeGet('fontWeight.0')};
 
       & .react-select__option--is-focused {
         background-color: ${themeGet('colors.bg.hover')};
-        color: ${themeGet('colors.main')};
+        color: ${themeGet('colors.text.heading')};
         cursor: pointer;
       }
 
       & .react-select__option--is-selected {
-        background-color: ${themeGet('colors.main')};
-        color: ${themeGet('colors.text.contrast')};
+        background-color: ${themeGet('colors.primary')};
+        color: ${themeGet('colors.text.inverse')};
       }
     }
   }
@@ -166,7 +181,7 @@ export const Wrapper = styled.div<WrapperProps>`
     }
 
     & .react-select__multi-value__label {
-      font-size: ${themeGet('fontSize.2')}px;
+      font-size: ${mapToTheme('input.fontSize')}px;
       font-weight: ${themeGet('fontWeight.0')};
       color: ${themeGet('colors.text.header')};
       padding: 0;

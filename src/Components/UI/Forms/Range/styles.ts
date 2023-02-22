@@ -86,7 +86,7 @@ export const Container = styled.div<ContainerProps>`
   & .input-range__label--value .input-range__label-container {
     background: ${themeGet('colors.white')};
     color: ${themeGet('colors.neutral100')};
-    font-size: ${themeGet('fontSizes.0')}px;
+    font-size: ${themeGet('fontSize.0')}px;
     line-height: 20px;
     padding: 6px 12px 6px 12px;
     border-radius: 6px;

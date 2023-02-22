@@ -5,7 +5,6 @@ import { MultiValueContainerWrapper } from './styles'
 
 function MultiValueContainer(props: MultiValueGenericProps) {
   return (
-    // TODO: Find a way to extend Theme with ReactSelect Theme....
     // @ts-ignore
     <MultiValueContainerWrapper
       {...props}

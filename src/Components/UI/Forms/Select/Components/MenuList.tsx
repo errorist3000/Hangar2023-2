@@ -5,7 +5,6 @@ import { MenuListWrapper } from './styles'
 
 function MenuList(props: MenuListProps) {
   return (
-    // TODO: Find a way to extend Theme with ReactSelect Theme....
     // @ts-ignore
     <MenuListWrapper {...props} as={components.MenuList} />
   )

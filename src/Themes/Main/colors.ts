@@ -8,6 +8,7 @@ const colors = {
     primary: palette.cultured,
     secondary: palette.raisinBlack,
     tertiary: palette.raisinBlack,
+    hover: palette.cultured,
   },
 
   text: {

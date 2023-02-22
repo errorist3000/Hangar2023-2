@@ -51,7 +51,10 @@ type CustomTypographyProps = {
   subHeader5?: boolean
 }
 
-type CustomGeneralProps = { preLine?: boolean }
+type CustomGeneralProps = {
+  preLine?: boolean
+  center?: boolean
+}
 
 type Props = CustomColorProps &
   CustomTypographyProps &
@@ -64,7 +67,7 @@ type Props = CustomColorProps &
 const h1Css = ({ h1 }: CustomTypographyProps) =>
   h1 &&
   css`
-    font-size: ${themeGet('fontSizes.9')}px;
+    font-size: ${themeGet('fontSize.9')}px;
     letter-spacing: -0.04em;
     font-weight: 700;
     line-height: 110%;
@@ -73,7 +76,7 @@ const h1Css = ({ h1 }: CustomTypographyProps) =>
 const h2Css = ({ h2 }: CustomTypographyProps) =>
   h2 &&
   css`
-    font-size: ${themeGet('fontSizes.8')}px;
+    font-size: ${themeGet('fontSize.8')}px;
     letter-spacing: -0.04em;
     font-weight: 700;
     line-height: 120%;
@@ -82,7 +85,7 @@ const h2Css = ({ h2 }: CustomTypographyProps) =>
 const h3Css = ({ h3 }: CustomTypographyProps) =>
   h3 &&
   css`
-    font-size: ${themeGet('fontSizes.7')}px;
+    font-size: ${themeGet('fontSize.7')}px;
     letter-spacing: -0.04em;
     font-weight: 700;
     line-height: 130%;
@@ -91,7 +94,7 @@ const h3Css = ({ h3 }: CustomTypographyProps) =>
 const h4Css = ({ h4 }: CustomTypographyProps) =>
   h4 &&
   css`
-    font-size: ${themeGet('fontSizes.6')}px;
+    font-size: ${themeGet('fontSize.6')}px;
     letter-spacing: -0.04em;
     font-weight: 700;
     line-height: 143%;
@@ -100,7 +103,7 @@ const h4Css = ({ h4 }: CustomTypographyProps) =>
 const action1Css = ({ action1 }: CustomTypographyProps) =>
   action1 &&
   css`
-    font-size: ${themeGet('fontSizes.5')}px;
+    font-size: ${themeGet('fontSize.5')}px;
     font-weight: 600;
     line-height: 150%;
   `
@@ -108,7 +111,7 @@ const action1Css = ({ action1 }: CustomTypographyProps) =>
 const action2Css = ({ action2 }: CustomTypographyProps) =>
   action2 &&
   css`
-    font-size: ${themeGet('fontSizes.4')}px;
+    font-size: ${themeGet('fontSize.4')}px;
     font-weight: 600;
     line-height: 156%;
   `
@@ -116,7 +119,7 @@ const action2Css = ({ action2 }: CustomTypographyProps) =>
 const action3Css = ({ action3 }: CustomTypographyProps) =>
   action3 &&
   css`
-    font-size: ${themeGet('fontSizes.3')}px;
+    font-size: ${themeGet('fontSize.3')}px;
     font-weight: 600;
     line-height: 165%;
   `
@@ -124,7 +127,7 @@ const action3Css = ({ action3 }: CustomTypographyProps) =>
 const action4Css = ({ action4 }: CustomTypographyProps) =>
   action4 &&
   css`
-    font-size: ${themeGet('fontSizes.2')}px;
+    font-size: ${themeGet('fontSize.2')}px;
     font-weight: 600;
     line-height: 175%;
   `
@@ -132,7 +135,7 @@ const action4Css = ({ action4 }: CustomTypographyProps) =>
 const action5Css = ({ action5 }: CustomTypographyProps) =>
   action5 &&
   css`
-    font-size: ${themeGet('fontSizes.1')}px;
+    font-size: ${themeGet('fontSize.1')}px;
     font-weight: 600;
     line-height: 180%;
   `
@@ -140,7 +143,7 @@ const action5Css = ({ action5 }: CustomTypographyProps) =>
 const body1Css = ({ body1 }: CustomTypographyProps) =>
   body1 &&
   css`
-    font-size: ${themeGet('fontSizes.5')}px;
+    font-size: ${themeGet('fontSize.5')}px;
     font-weight: 400;
     line-height: 150%;
   `
@@ -148,7 +151,7 @@ const body1Css = ({ body1 }: CustomTypographyProps) =>
 const body2Css = ({ body2 }: CustomTypographyProps) =>
   body2 &&
   css`
-    font-size: ${themeGet('fontSizes.4')}px;
+    font-size: ${themeGet('fontSize.4')}px;
     font-weight: 400;
     line-height: 156%;
   `
@@ -156,7 +159,7 @@ const body2Css = ({ body2 }: CustomTypographyProps) =>
 const body3Css = ({ body3 }: CustomTypographyProps) =>
   body3 &&
   css`
-    font-size: ${themeGet('fontSizes.3')}px;
+    font-size: ${themeGet('fontSize.3')}px;
     font-weight: 400;
     line-height: 165%;
   `
@@ -164,7 +167,7 @@ const body3Css = ({ body3 }: CustomTypographyProps) =>
 const body4Css = ({ body4 }: CustomTypographyProps) =>
   body4 &&
   css`
-    font-size: ${themeGet('fontSizes.2')}px;
+    font-size: ${themeGet('fontSize.2')}px;
     font-weight: 400;
     line-height: 175%;
   `
@@ -172,7 +175,7 @@ const body4Css = ({ body4 }: CustomTypographyProps) =>
 const body5Css = ({ body5 }: CustomTypographyProps) =>
   body5 &&
   css`
-    font-size: ${themeGet('fontSizes.1')}px;
+    font-size: ${themeGet('fontSize.1')}px;
     font-weight: 400;
     line-height: 180%;
   `
@@ -180,7 +183,7 @@ const body5Css = ({ body5 }: CustomTypographyProps) =>
 const caption1Css = ({ caption1 }: CustomTypographyProps) =>
   caption1 &&
   css`
-    font-size: ${themeGet('fontSizes.4')}px;
+    font-size: ${themeGet('fontSize.4')}px;
     font-weight: 500;
     line-height: 156%;
   `
@@ -188,7 +191,7 @@ const caption1Css = ({ caption1 }: CustomTypographyProps) =>
 const caption2Css = ({ caption2 }: CustomTypographyProps) =>
   caption2 &&
   css`
-    font-size: ${themeGet('fontSizes.3')}px;
+    font-size: ${themeGet('fontSize.3')}px;
     font-weight: 500;
     line-height: 165%;
   `
@@ -196,7 +199,7 @@ const caption2Css = ({ caption2 }: CustomTypographyProps) =>
 const caption3Css = ({ caption3 }: CustomTypographyProps) =>
   caption3 &&
   css`
-    font-size: ${themeGet('fontSizes.2')}px;
+    font-size: ${themeGet('fontSize.2')}px;
     font-weight: 500;
     line-height: 175%;
   `
@@ -204,7 +207,7 @@ const caption3Css = ({ caption3 }: CustomTypographyProps) =>
 const caption4Css = ({ caption4 }: CustomTypographyProps) =>
   caption4 &&
   css`
-    font-size: ${themeGet('fontSizes.1')}px;
+    font-size: ${themeGet('fontSize.1')}px;
     font-weight: 500;
     line-height: 180%;
   `
@@ -212,21 +215,21 @@ const caption4Css = ({ caption4 }: CustomTypographyProps) =>
 const caption5Css = ({ caption5 }: CustomTypographyProps) =>
   caption5 &&
   css`
-    font-size: ${themeGet('fontSizes.0')}px;
+    font-size: ${themeGet('fontSize.0')}px;
     font-weight: 500;
     line-height: 190%;
   `
 const display1Css = ({ display1 }: CustomTypographyProps) =>
   display1 &&
   css`
-    font-size: ${themeGet('fontSizes.8')}px;
+    font-size: ${themeGet('fontSize.8')}px;
     font-weight: 500;
     line-height: 120%;
   `
 const display2Css = ({ display2 }: CustomTypographyProps) =>
   display2 &&
   css`
-    font-size: ${themeGet('fontSizes.1')}px;
+    font-size: ${themeGet('fontSize.1')}px;
     font-weight: 500;
     line-height: 150%;
   `
@@ -234,7 +237,7 @@ const display2Css = ({ display2 }: CustomTypographyProps) =>
 const subHeader1Css = ({ subHeader1 }: CustomTypographyProps) =>
   subHeader1 &&
   css`
-    font-size: ${themeGet('fontSizes.6')}px;
+    font-size: ${themeGet('fontSize.6')}px;
     font-weight: 600;
     line-height: 143%;
   `
@@ -242,7 +245,7 @@ const subHeader1Css = ({ subHeader1 }: CustomTypographyProps) =>
 const subHeader2Css = ({ subHeader2 }: CustomTypographyProps) =>
   subHeader2 &&
   css`
-    font-size: ${themeGet('fontSizes.5')}px;
+    font-size: ${themeGet('fontSize.5')}px;
     font-weight: 600;
     line-height: 150%;
   `
@@ -250,7 +253,7 @@ const subHeader2Css = ({ subHeader2 }: CustomTypographyProps) =>
 const subHeader3Css = ({ subHeader3 }: CustomTypographyProps) =>
   subHeader3 &&
   css`
-    font-size: ${themeGet('fontSizes.4')}px;
+    font-size: ${themeGet('fontSize.4')}px;
     font-weight: 600;
     line-height: 156%;
   `
@@ -258,7 +261,7 @@ const subHeader3Css = ({ subHeader3 }: CustomTypographyProps) =>
 const subHeader4Css = ({ subHeader4 }: CustomTypographyProps) =>
   subHeader4 &&
   css`
-    font-size: ${themeGet('fontSizes.3')}px;
+    font-size: ${themeGet('fontSize.3')}px;
     font-weight: 600;
     line-height: 165%;
   `
@@ -266,7 +269,7 @@ const subHeader4Css = ({ subHeader4 }: CustomTypographyProps) =>
 const subHeader5Css = ({ subHeader5 }: CustomTypographyProps) =>
   subHeader5 &&
   css`
-    font-size: ${themeGet('fontSizes.2')}px;
+    font-size: ${themeGet('fontSize.2')}px;
     font-weight: 600;
     line-height: 180%;
   `
@@ -324,6 +327,12 @@ const preLineCss = ({ preLine }: CustomGeneralProps) =>
     white-space: pre-line;
   `
 
+const centerCss = ({ center }: CustomGeneralProps) =>
+  center &&
+  css`
+    text-align: center;
+  `
+
 const Text = styled.p<Props>`
   margin: 0;
 
@@ -368,6 +377,7 @@ const Text = styled.p<Props>`
   ${primaryCss}
   ${successCss}
   
+  ${centerCss}
   ${preLineCss}
 
   ${color}

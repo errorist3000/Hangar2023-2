@@ -2,6 +2,14 @@ import React from 'react'
 
 import { Column, Row, Select, Text } from 'Components/UI'
 
+const OPTIONS = [
+  { value: 1, label: 'Option 1' },
+  { value: 2, label: 'Option 2' },
+  { value: 3, label: 'Option 3' },
+  { value: 4, label: 'Option 4' },
+  { value: 5, label: 'Option 5' },
+]
+
 function Selects() {
   return (
     <Column gap={5}>
@@ -13,6 +21,7 @@ function Selects() {
         <Select
           caption={'Caption'}
           label={'Default'}
+          options={OPTIONS}
           placeholder={'Placeholder'}
         />
         <Select

@@ -9,7 +9,6 @@ function Input(props: InputProps) {
   if (isHidden) {
     return <components.Input {...props} />
   }
-  // TODO: Find a way to extend Theme with ReactSelect Theme....
   // @ts-ignore
   return <InputWrapper {...props} as={components.Input} />
 }

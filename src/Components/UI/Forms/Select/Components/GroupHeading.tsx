@@ -5,7 +5,6 @@ import { GroupHeadingWrapper } from './styles'
 
 function GroupHeading(props: GroupHeadingProps) {
   return (
-    // TODO: Find a way to extend Theme with ReactSelect Theme....
     // @ts-ignore
     <GroupHeadingWrapper {...props} as={components.GroupHeading} />
   )
