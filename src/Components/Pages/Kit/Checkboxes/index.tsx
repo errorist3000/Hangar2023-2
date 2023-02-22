@@ -12,6 +12,7 @@ function Checkboxes() {
       <Row fullWidth gap={4}>
         <Checkbox caption={'Caption'} label={'Default'} />
         <Checkbox caption={'Caption'} disabled label={'Disabled'} />
+        <Checkbox caption={'Caption'} checked disabled label={'Disabled'} />
       </Row>
     </Column>
   )

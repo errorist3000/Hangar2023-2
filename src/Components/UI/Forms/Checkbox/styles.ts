@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styled, { css } from 'styled-components'
+import { mapToTheme } from 'styled-map'
 import { layout, LayoutProps, space, SpaceProps, styleFn } from 'styled-system'
 import { themeGet } from '@styled-system/theme-get'
 
@@ -22,9 +23,9 @@ export const CheckboxBorder = styled.div<SizeProps>`
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  border-radius: 4px;
-  width: 40px;
-  height: 40px;
+  border-radius: ${mapToTheme('checkbox.borderRadius')}px;
+  width: ${mapToTheme('checkbox.size')}px;
+  height: ${mapToTheme('checkbox.size')}px;
 `
 
 export const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox' })<
@@ -63,10 +64,7 @@ export const Container = styled.label<ContainerProps>`
   position: relative;
   width: max-content;
   user-select: none;
-  gap: 12px;
-  font-weight: ${themeGet('fontWeights.2')};
-  font-size: 10px;
-  line-height: 300px;
+  gap: ${themeGet('space.2')}px;
 
   & > input {
     :enabled ~ ${CheckboxBorder} {
@@ -78,33 +76,38 @@ export const Container = styled.label<ContainerProps>`
     }
 
     :enabled:not(:checked) ~ ${CheckboxBorder} {
-      border-color: tomato;
+      border-color: ${themeGet('colors.checkbox.border')};
+      color: ${themeGet('colors.checkbox.color')};
+      background-color: ${themeGet('colors.checkbox.bg')};
 
       &:hover {
-        background-color: tomato;
-        border-color: blue;
-        outline: 1px solid green;
+        background-color: ${themeGet('colors.checkbox.hover.bg')};
+        border-color: ${themeGet('colors.checkbox.hover.border')};
       }
     }
 
     :enabled:checked ~ ${CheckboxBorder} {
-      background-color: tomato;
+      background-color: ${themeGet('colors.checkbox.checked.bg')};
+      border-color: ${themeGet('colors.checkbox.checked.border')};
+      color: ${themeGet('colors.checkbox.checked.color')};
 
       &:hover {
-        outline: 1px solid green;
+        border-color: ${themeGet('colors.checkbox.checked.hover.border')};
       }
     }
 
     :disabled:not(:checked) ~ ${CheckboxBorder} {
-      border-color: blue;
+      background-color: ${themeGet('colors.checkbox.disabled.bg')};
+      border-color: ${themeGet('colors.checkbox.disabled.border')};
+      color: ${themeGet('colors.checkbox.disabled.color')};
+      opacity: 50%;
     }
 
     :disabled:checked ~ ${CheckboxBorder} {
-      background-color: blue;
-    }
-
-    :focus-visible ~ ${CheckboxBorder} {
-      outline: 2px solid green;
+      background-color: ${themeGet('colors.checkbox.disabledChecked.bg')};
+      border-color: ${themeGet('colors.checkbox.disabledChecked.border')};
+      color: ${themeGet('colors.checkbox.disabledChecked.color')};
+      opacity: 50%;
     }
   }
 

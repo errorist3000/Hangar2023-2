@@ -13,13 +13,15 @@ import {
 
 type Props = ContainerProps & {
   alignTop?: boolean
-  name?: string
+  caption?: React.ReactNode
   checked?: boolean
   defaultChecked?: boolean
-  caption?: React.ReactNode
   disabled?: boolean
-  label?: React.ReactNode
   error?: React.ReactNode
+  label?: React.ReactNode
+  large?: boolean
+  name?: string
+  small?: boolean
   onChange?: React.ChangeEventHandler<HTMLInputElement>
   onFocus?: React.FocusEventHandler<HTMLInputElement>
   onBlur?: React.FocusEventHandler<HTMLInputElement>
@@ -27,12 +29,14 @@ type Props = ContainerProps & {
 
 function Checkbox({
   alignTop,
-  name,
   checked,
   defaultChecked,
   disabled,
-  label,
   error,
+  label,
+  large,
+  name,
+  small,
   onChange,
   onFocus,
   onBlur,
@@ -49,11 +53,11 @@ function Checkbox({
         onChange={onChange}
         onFocus={onFocus}
       />
-      <CheckboxBorder large={rest.large} small={rest.small}>
+      <CheckboxBorder large={large} small={small}>
         <CheckIcon />
       </CheckboxBorder>
-      <Column gap={1}>
-        <Label text={label} />
+      <Column>
+        <Label disabled={disabled} text={label} />
       </Column>
       {error && <Caption danger text={error} />}
     </Container>

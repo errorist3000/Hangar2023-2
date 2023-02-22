@@ -18,9 +18,9 @@ function Kit() {
 
       <Inputs />
       <Selects />
-      <Ranges />
       <Checkboxes />
       <Radios />
+      <Ranges />
     </Column>
   )
 }
