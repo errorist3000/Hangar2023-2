@@ -12,32 +12,34 @@ import {
 } from './styles'
 
 type Props = ContainerProps & {
-  alignTop?: boolean
-  name?: string
-  value?: string
-  checked?: boolean
   caption?: React.ReactNode
+  checked?: boolean
   disabled?: boolean
   label?: React.ReactNode
+  large?: boolean
+  name?: string
+  small?: boolean
+  value?: string
   onChange?: React.ChangeEventHandler<HTMLInputElement>
   onFocus?: React.FocusEventHandler<HTMLInputElement>
   onBlur?: React.FocusEventHandler<HTMLInputElement>
 }
 
 function Radio({
-  alignTop,
-  name,
-  value,
   checked,
   disabled,
   label,
+  large,
+  name,
+  small,
+  value,
   onChange,
   onFocus,
   onBlur,
   ...rest
 }: Props) {
   return (
-    <Container {...rest} alignTop={alignTop}>
+    <Container {...rest}>
       <InvisibleRadio
         checked={checked}
         disabled={disabled}
@@ -47,11 +49,11 @@ function Radio({
         onChange={onChange}
         onFocus={onFocus}
       />
-      <RadioBorder large={rest.large} small={rest.small}>
-        <Circle large={rest.large} small={rest.small} />
+      <RadioBorder large={large} small={small}>
+        <Circle large={large} small={small} />
       </RadioBorder>
-      <Column flexGrow={1} gap={1}>
-        <Label text={label} />
+      <Column>
+        <Label disabled={disabled} text={label} />
       </Column>
     </Container>
   )

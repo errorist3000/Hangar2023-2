@@ -107,6 +107,38 @@ const colors = {
       color: palette.white,
     },
   },
+
+  radio: {
+    bg: palette.white,
+    border: palette.americanSilver,
+    color: palette.mediumBlack,
+
+    hover: {
+      border: palette.mediumBlack,
+    },
+
+    checked: {
+      bg: palette.tiffanyBlue,
+      border: palette.tiffanyBlue,
+      color: palette.white,
+
+      hover: {
+        border: palette.mediumBlack,
+      },
+    },
+
+    disabled: {
+      bg: palette.white,
+      border: palette.americanSilver,
+      color: palette.mediumBlack,
+    },
+
+    disabledChecked: {
+      bg: palette.tiffanyBlue,
+      border: palette.tiffanyBlue,
+      color: palette.white,
+    },
+  },
 }
 
 export default colors

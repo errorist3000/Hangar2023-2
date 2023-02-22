@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styled, { css } from 'styled-components'
+import { mapToTheme } from 'styled-map'
 import { space, SpaceProps, styleFn } from 'styled-system'
 import { themeGet } from '@styled-system/theme-get'
 
@@ -10,10 +11,10 @@ export interface SizeProps {
 }
 
 export const Circle = styled.div<SizeProps>`
-  background: white;
+  background: ${themeGet('colors.radio.checked.color')};
   border-radius: 999px;
-  width: 40px;
-  height: 40px;
+  width: ${mapToTheme('radio.circleSize')}px;
+  height: ${mapToTheme('radio.circleSize')}px;
 `
 
 export const RadioBorder = styled.div<SizeProps>`
@@ -22,8 +23,8 @@ export const RadioBorder = styled.div<SizeProps>`
   justify-content: center;
   border-radius: 999px;
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: ${mapToTheme('radio.size')}px;
+  height: ${mapToTheme('radio.size')}px;
 `
 
 export const InvisibleRadio = styled.input.attrs({ type: 'radio' })<
@@ -58,10 +59,7 @@ export const Container = styled.label<ContainerProps>`
   position: relative;
   width: max-content;
   user-select: none;
-  gap: 8px;
-  font-weight: ${themeGet('fontWeights.2')};
-  font-size: 10px;
-  line-height: 300px;
+  gap: ${themeGet('space.2')}px;
 
   & > input {
     :enabled ~ ${RadioBorder} {
@@ -73,28 +71,30 @@ export const Container = styled.label<ContainerProps>`
     }
 
     :enabled:not(:checked) ~ ${RadioBorder} {
-      border: 1px solid crimson;
+      background-color: ${themeGet('colors.radio.bg')};
+      border: 1px solid ${themeGet('colors.radio.border')};
     }
 
     :enabled:not(:checked) ~ ${RadioBorder}:hover {
-      border: 1px solid crimson;
-      background: coral;
+      background-color: ${themeGet('colors.radio.hover.bg')};
+      border: 1px solid ${themeGet('colors.radio.hover.border')};
     }
 
     :enabled:checked ~ ${RadioBorder} {
-      background: coral;
+      background-color: ${themeGet('colors.radio.checked.bg')};
+      border: 1px solid ${themeGet('colors.radio.checked.border')};
     }
 
     :disabled:not(:checked) ~ ${RadioBorder} {
-      border: 1px solid crimson;
+      background-color: ${themeGet('colors.radio.disabled.bg')};
+      border: 1px solid ${themeGet('colors.radio.disabled.border')};
+      opacity: 50%;
     }
 
     :disabled:checked ~ ${RadioBorder} {
-      border: 1px solid crimson;
-    }
-
-    :focus-visible ~ ${RadioBorder} {
-      outline: 2px solid ${themeGet('colors.primary700')};
+      background-color: ${themeGet('colors.radio.disabledChecked.bg')};
+      border: 1px solid ${themeGet('colors.radio.disabledChecked.border')};
+      opacity: 50%;
     }
   }
 

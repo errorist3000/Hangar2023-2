@@ -5,7 +5,11 @@ const radio = {
     small: 16,
   },
 
-  borderRadius: { big: 12, default: 10, small: 8 },
+  circleSize: {
+    big: 12,
+    default: 10,
+    small: 8,
+  },
 }
 
 export default radio

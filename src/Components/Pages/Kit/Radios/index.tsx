@@ -10,8 +10,12 @@ function Radios() {
       </Text>
 
       <Row fullWidth gap={4}>
-        <Radio label={'Default'} />
+        <Column gap={3}>
+          <Radio label={'Default'} name={'name'} />
+          <Radio label={'Default'} name={'name'} />
+        </Column>
         <Radio disabled label={'Disabled'} />
+        <Radio checked disabled label={'Disabled'} />
       </Row>
     </Column>
   )
