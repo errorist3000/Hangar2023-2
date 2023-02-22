@@ -3,7 +3,7 @@ import { ReactI18NextChild } from 'react-i18next'
 
 import CloseButton from 'Components/UI/CloseButton'
 import Delimiter from 'Components/UI/Delimiter'
-import { Row } from 'Components/UI/Flex'
+import { Column, Row } from 'Components/UI/Flex'
 import Text from 'Components/UI/Text'
 
 import { StyledModal } from './styles'
@@ -12,11 +12,19 @@ type Props = {
   children?: ReactI18NextChild
   isCustom?: boolean
   isOpen?: boolean
+  minWidth?: number | number[]
   title?: string
   onClose: () => void
 }
 
-function Modal({ isCustom, isOpen = false, title, children, onClose }: Props) {
+function Modal({
+  isCustom,
+  isOpen = false,
+  title,
+  minWidth = 460,
+  children,
+  onClose,
+}: Props) {
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => {
@@ -37,7 +45,7 @@ function Modal({ isCustom, isOpen = false, title, children, onClose }: Props) {
           <Delimiter />
         </>
       )}
-      {children}
+      <Column minWidth={minWidth}>{children}</Column>
     </StyledModal>
   )
 }

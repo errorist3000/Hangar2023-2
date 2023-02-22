@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 
 import { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import orderBy from 'lodash/orderBy'
 
+import { ContactUsModal } from 'Components/Blocks'
 import { Button, Column, Image, Text } from 'Components/UI'
 
 import { LANDING_SECTION_ID } from 'Constants/ids'
@@ -17,6 +18,8 @@ type Props = {
   data?: DatoSchema.HeroRecord[]
 }
 function Hero({ data }: Props) {
+  const [isContactUsModalOpen, setIsContactUsModalOpen] = useState(false)
+
   const sortedDataByOrder = useMemo(() => orderBy(data, 'order', 'asc'), [data])
 
   return (
@@ -47,7 +50,12 @@ function Hero({ data }: Props) {
                   {slide.text}
                 </Text>
                 <ButtonHolder>
-                  <Button big outline width={192}>
+                  <Button
+                    big
+                    outline
+                    width={192}
+                    onClick={() => setIsContactUsModalOpen(true)}
+                  >
                     Запрос
                   </Button>
                   <Button big width={192}>
@@ -59,6 +67,13 @@ function Hero({ data }: Props) {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {isContactUsModalOpen && (
+        <ContactUsModal
+          isOpen={isContactUsModalOpen}
+          onClose={() => setIsContactUsModalOpen(false)}
+        />
+      )}
     </Container>
   )
 }

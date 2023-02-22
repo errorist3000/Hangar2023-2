@@ -1,4 +1,5 @@
+import ContactUsModal from './ContactUs'
 import ObjectsOnMapModal from './ObjectsOnMap'
 import ProjectGalleryModal from './ProjectGallery'
 
-export { ObjectsOnMapModal, ProjectGalleryModal }
+export { ContactUsModal, ObjectsOnMapModal, ProjectGalleryModal }

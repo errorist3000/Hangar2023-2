@@ -32,7 +32,7 @@ const buttonOutlineCss: styleFn = ({ outline }: VariantProps) =>
     }
   `
 
-const buttonTertiaryCss: styleFn = ({ secondary }: VariantProps) =>
+const buttonSecondaryCss: styleFn = ({ secondary }: VariantProps) =>
   secondary &&
   css`
     background: ${themeGet('colors.button.secondary.bg')};
@@ -71,7 +71,7 @@ const Button = styled.button<Props>`
   ${margin}
 
   ${buttonOutlineCss}
-  ${buttonTertiaryCss}
+  ${buttonSecondaryCss}
 `
 
 export default Button

@@ -7,7 +7,7 @@ const button = {
 
   borderRadius: { default: 6 },
 
-  fontSize: { big: 18, default: `action3`, small: `action4` },
+  fontSize: { big: 18, default: 16, small: 14 },
 }
 
 export default button

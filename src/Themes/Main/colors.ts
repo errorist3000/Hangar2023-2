@@ -31,8 +31,8 @@ const colors = {
       },
     },
 
-    tertiary: {
-      color: palette.tiffanyBlue,
+    secondary: {
+      color: palette.mediumBlack,
       bg: palette.brightGray,
       border: palette.brightGray,
 
