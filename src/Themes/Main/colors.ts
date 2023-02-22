@@ -139,6 +139,22 @@ const colors = {
       color: palette.white,
     },
   },
+
+  range: {
+    track: palette.americanSilver,
+    slider: palette.tiffanyBlue,
+    dot: palette.white,
+
+    hover: {
+      track: palette.tiffanyBlue,
+    },
+
+    disabled: {
+      track: palette.brightGray,
+      slider: palette.brightGray,
+      dot: palette.brightGray,
+    },
+  },
 }
 
 export default colors

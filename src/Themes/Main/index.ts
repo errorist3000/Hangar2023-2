@@ -7,6 +7,7 @@ import checkbox from './checkbox'
 import colors from './colors'
 import input from './input'
 import radio from './radio'
+import range from './range'
 
 const theme = merge({}, defaultTheme, {
   name: 'Main theme',
@@ -21,6 +22,7 @@ const theme = merge({}, defaultTheme, {
   colors,
   input,
   radio,
+  range,
 })
 
 export default theme
