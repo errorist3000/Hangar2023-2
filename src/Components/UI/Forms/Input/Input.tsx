@@ -2,8 +2,8 @@ import React, { forwardRef, ReactNode, Ref, useCallback, useState } from 'react'
 
 import { Eye, EyeSlash } from 'phosphor-react'
 
+import { Caption, Label } from 'Components/UI/Forms/ControlElements'
 import Loader from 'Components/UI/Loader'
-import Text from 'Components/UI/Text'
 
 import {
   Container,
@@ -98,11 +98,7 @@ function Input(
 
   return (
     <Wrapper {...rest} large={large} small={small}>
-      {label && (
-        <Text heading={!disabled} mute={disabled} subHeader5>
-          {label} {required && '*'}
-        </Text>
-      )}
+      <Label disabled={disabled} required={required} text={label} />
 
       <Container
         active={isActive}
@@ -146,15 +142,12 @@ function Input(
         {isLoading && <Loader />}
       </Container>
 
-      <Text
-        body={!danger && !disabled && !success}
-        caption5
+      <Caption
         danger={danger}
-        mute={disabled}
+        disabled={disabled}
         success={success}
-      >
-        {caption}
-      </Text>
+        text={caption}
+      />
     </Wrapper>
   )
 }

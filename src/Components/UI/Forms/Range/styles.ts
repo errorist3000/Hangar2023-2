@@ -5,7 +5,6 @@ import {
   margin,
   MarginProps,
   space,
-  SpaceProps,
 } from 'styled-system'
 import { themeGet } from '@styled-system/theme-get'
 
@@ -107,8 +106,4 @@ export const Container = styled.div<ContainerProps>`
   }
 
   ${margin}
-`
-export const Label = styled.label<SpaceProps>`
-  font-weight: ${themeGet('fontWeights.2')};
-  color: ${themeGet('colors.text.heading')};
 `

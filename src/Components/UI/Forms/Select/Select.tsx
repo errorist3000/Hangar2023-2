@@ -3,16 +3,10 @@ import { Props as ReactSelectProps } from 'react-select-five'
 
 import { WidthProps } from 'styled-system'
 
-import Text from 'Components/UI/Text'
+import { Caption, Label } from 'Components/UI/Forms/ControlElements'
 
 import * as Components from './Components'
-import {
-  Caption,
-  SizeProps,
-  StyledSelect,
-  Wrapper,
-  WrapperProps,
-} from './styles'
+import { SizeProps, StyledSelect, Wrapper, WrapperProps } from './styles'
 import { CustomSelectProps, OptionType } from './types'
 
 type OptionsType = OptionType[]
@@ -38,19 +32,20 @@ export type Props = WidthProps &
     isLoading?: boolean
     isMulti?: boolean
     isSearchable?: boolean
+    isValidNewOption?: (inputValue: string) => boolean
     label?: ReactNode
+    loadOptions?: (
+      inputValue: string,
+      callback: (options: OptionType[]) => void,
+    ) => Promise<OptionType[]> | void
     menuIsOpen?: boolean
     options?: OptionType[]
     placeholder?: string
     required?: boolean
     scrollToOption?: OptionType
-    withPortal?: boolean
-    loadOptions?: (
-      inputValue: string,
-      callback: (options: OptionType[]) => void,
-    ) => Promise<OptionType[]> | void
-    isValidNewOption?: (inputValue: string) => boolean
+    success?: boolean
     value?: ValueType
+    withPortal?: boolean
     onInputChange?: (newValue: string) => void
   }
 
@@ -76,6 +71,7 @@ function Select({
   required,
   scrollToOption,
   styles,
+  success,
   value,
   width,
   withPortal,
@@ -95,11 +91,7 @@ function Select({
 
   return (
     <Wrapper {...rest} width={width}>
-      {label && (
-        <Text heading={!disabled} mute={disabled} subHeader5>
-          {label} {required && '*'}
-        </Text>
-      )}
+      <Label disabled={disabled} required={required} text={label} />
 
       <StyledSelect
         {...rest}
@@ -125,7 +117,13 @@ function Select({
         value={value}
         width={width}
       />
-      {caption && danger && <Caption mt={2}>{caption}</Caption>}
+
+      <Caption
+        danger={danger}
+        disabled={disabled}
+        success={success}
+        text={caption}
+      />
     </Wrapper>
   )
 }

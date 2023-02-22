@@ -1,14 +1,13 @@
 import React from 'react'
 
 import { Column } from 'Components/UI/Flex'
+import { Label } from 'Components/UI/Forms/ControlElements'
 
 import {
-  CaptionText,
   Circle,
   Container,
   ContainerProps,
   InvisibleRadio,
-  LabelText,
   RadioBorder,
 } from './styles'
 
@@ -32,7 +31,6 @@ function Radio({
   checked,
   disabled,
   label,
-  caption,
   onChange,
   onFocus,
   onBlur,
@@ -53,12 +51,7 @@ function Radio({
         <Circle large={rest.large} small={rest.small} />
       </RadioBorder>
       <Column flexGrow={1} gap={1}>
-        {label && <LabelText>{label}</LabelText>}
-        {caption && (
-          <CaptionText large={rest.large} small={rest.small}>
-            {caption}
-          </CaptionText>
-        )}
+        <Label text={label} />
       </Column>
     </Container>
   )

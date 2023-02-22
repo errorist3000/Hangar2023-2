@@ -1,18 +1,14 @@
 import React from 'react'
 
-import { WarningCircle } from 'phosphor-react'
-
 import { Column } from 'Components/UI/Flex'
+import { Caption, Label } from 'Components/UI/Forms/ControlElements'
 
 import {
-  CaptionText,
   CheckboxBorder,
   CheckIcon,
   Container,
   ContainerProps,
-  ErrorText,
   InvisibleCheckbox,
-  LabelText,
 } from './styles'
 
 type Props = ContainerProps & {
@@ -36,7 +32,6 @@ function Checkbox({
   defaultChecked,
   disabled,
   label,
-  caption,
   error,
   onChange,
   onFocus,
@@ -58,18 +53,9 @@ function Checkbox({
         <CheckIcon />
       </CheckboxBorder>
       <Column gap={1}>
-        {label && <LabelText>{label}</LabelText>}
-        {caption && (
-          <CaptionText large={rest.large} small={rest.small}>
-            {caption}
-          </CaptionText>
-        )}
+        <Label text={label} />
       </Column>
-      {error && (
-        <ErrorText>
-          <WarningCircle weight="bold" /> <span>{error}</span>
-        </ErrorText>
-      )}
+      {error && <Caption danger text={error} />}
     </Container>
   )
 }

@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import ReactInputRange, { InputRangeProps } from 'react-input-range'
 
 import { Row } from 'Components/UI/Flex'
+import { Label } from 'Components/UI/Forms/ControlElements'
+import Text from 'Components/UI/Text'
 
-import { Container, ContainerProps, Label } from './styles'
+import { Container, ContainerProps } from './styles'
 
 type Props = ContainerProps &
   InputRangeProps & {
@@ -34,7 +36,7 @@ function Range({
       bg={bg}
       className={className}
     >
-      {label && <Label>{label}</Label>}
+      <Label text={label} />
       <ReactInputRange
         {...rest}
         onChangeComplete={() => setSliderActive(false)}
@@ -42,8 +44,8 @@ function Range({
       />
       {showValues && (
         <Row spaceBetween>
-          <Label>{labelLeft ?? rest.minValue}</Label>
-          <Label>{labelRight ?? rest.maxValue}</Label>
+          <Text>{labelLeft ?? rest.minValue}</Text>
+          <Text>{labelRight ?? rest.maxValue}</Text>
         </Row>
       )}
     </Container>

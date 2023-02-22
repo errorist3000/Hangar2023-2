@@ -177,12 +177,3 @@ export const Wrapper = styled.div<WrapperProps>`
   ${margin};
   ${layout};
 `
-
-export const Caption = styled.div<MarginProps>`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  font-size: 12px;
-  color: ${themeGet('colors.danger400')};
-  ${margin};
-`
