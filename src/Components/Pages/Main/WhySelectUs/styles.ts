@@ -3,7 +3,7 @@ import { padding } from 'styled-system'
 
 import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
 
-export const Container = styled.div.attrs({
+export const Container = styled.section.attrs({
   px: LANDING_PADDING_X,
 })`
   display: flex;

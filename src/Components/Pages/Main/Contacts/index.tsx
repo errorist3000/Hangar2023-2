@@ -36,7 +36,7 @@ function Contacts() {
             {CARDS.map(card => (
               <Card key={card.text}>
                 <IconHolder>{card.icon}</IconHolder>
-                <Text fontSize={6} heading mb={6} subHeader1>
+                <Text fontSize={5} heading mb={6} subHeader1>
                   {card.title}
                 </Text>
                 <Text action1 body>

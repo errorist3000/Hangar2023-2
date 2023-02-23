@@ -8,7 +8,7 @@ type ContainerProps = {
   shrink?: boolean
 }
 
-export const Container = styled.div.attrs({})`
+export const Container = styled.header.attrs({})`
   position: fixed;
   display: flex;
   flex-direction: column;

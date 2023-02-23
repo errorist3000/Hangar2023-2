@@ -4,7 +4,7 @@ import { themeGet } from '@styled-system/theme-get'
 
 import { motion } from 'framer-motion'
 
-export const Container = styled.div`
+export const Container = styled.section`
   display: flex;
   justify-content: center;
   align-self: flex-start;

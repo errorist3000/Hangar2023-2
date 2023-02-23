@@ -1,8 +1,12 @@
 import React from 'react'
 import { ReactI18NextChild } from 'react-i18next'
 
+import Head from 'next/head'
+
 import { Footer, Header } from 'Components/Blocks'
 import { Loader } from 'Components/UI'
+
+import { APP_NAME } from 'Constants/ids'
 
 import { Container } from './styles'
 
@@ -16,11 +20,16 @@ function LandingLayout({ footerData, children }: Props) {
   }
 
   return (
-    <Container>
-      <Header />
-      {children}
-      <Footer data={footerData} />
-    </Container>
+    <>
+      <Head>
+        <title>{APP_NAME}</title>
+      </Head>
+      <Container>
+        <Header />
+        {children}
+        <Footer data={footerData} />
+      </Container>
+    </>
   )
 }
 

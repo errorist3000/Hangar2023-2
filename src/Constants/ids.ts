@@ -1,5 +1,7 @@
 export const LANGUAGE = { RU: 'ru' }
 
+export const APP_NAME = 'AngarPro'
+
 export const LANDING_CONTENT_WIDTH = 1276
 
 export const LANDING_PADDING_X = [3, 3, 5, 11]
