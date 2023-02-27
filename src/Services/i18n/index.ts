@@ -2,7 +2,7 @@ import { initReactI18next } from 'react-i18next'
 
 import i18n from 'i18next'
 
-import { LANGUAGE } from 'Constants/ids'
+import { Language } from 'Constants/ids'
 
 import en from './translations/en.json'
 import ru from './translations/ru.json'
@@ -20,7 +20,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: LANGUAGE.RU,
+    lng: Language.Ru,
 
     interpolation: {
       escapeValue: false,

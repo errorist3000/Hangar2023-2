@@ -1,5 +1,3 @@
-export const LANGUAGE = { RU: 'ru' }
-
 export const APP_NAME = 'AngarPro'
 
 export const LANDING_CONTENT_WIDTH = 1276
@@ -21,3 +19,12 @@ export const DATOCMS_ENDPOINT = {
 
 export const CONTACT_US_URL_PHP = 'https://angarpro.com/php/contact.php'
 export const CALCULATOR_URL_PHP = 'https://angarpro.com/php/calculator.php'
+
+export enum Language {
+  En = 'en',
+  Ru = 'ru',
+}
+
+export const LOCAL_STORAGE = {
+  STORE: `${APP_NAME}.store`,
+}
