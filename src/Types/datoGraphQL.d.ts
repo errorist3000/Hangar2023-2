@@ -2041,6 +2041,64 @@ interface OrientationFilter {
   neq?: InputMaybe<UploadOrientation>;
 }
 
+/** Record of type Privacy Policy (privacy_policy) */
+interface PrivacyPolicyRecord extends RecordInterface {
+  __typename?: 'PrivacyPolicyRecord';
+  _allBodyLocales?: Maybe<Array<StringMultiLocaleField>>;
+  _allTitleLocales?: Maybe<Array<StringMultiLocaleField>>;
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _locales: Array<SiteLocale>;
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  body?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  id: Scalars['ItemId'];
+  title?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+}
+
+
+/** Record of type Privacy Policy (privacy_policy) */
+interface PrivacyPolicyRecord_AllBodyLocalesArgs {
+  locale?: InputMaybe<SiteLocale>;
+  markdown?: InputMaybe<Scalars['Boolean']>;
+}
+
+
+/** Record of type Privacy Policy (privacy_policy) */
+interface PrivacyPolicyRecord_AllTitleLocalesArgs {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+}
+
+
+/** Record of type Privacy Policy (privacy_policy) */
+interface PrivacyPolicyRecord_SeoMetaTagsArgs {
+  locale?: InputMaybe<SiteLocale>;
+}
+
+
+/** Record of type Privacy Policy (privacy_policy) */
+interface PrivacyPolicyRecordBodyArgs {
+  locale?: InputMaybe<SiteLocale>;
+  markdown?: InputMaybe<Scalars['Boolean']>;
+}
+
+
+/** Record of type Privacy Policy (privacy_policy) */
+interface PrivacyPolicyRecordTitleArgs {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+}
+
 interface ProjectModelFilter {
   OR?: InputMaybe<Array<InputMaybe<ProjectModelFilter>>>;
   _createdAt?: InputMaybe<CreatedAtFilter>;
@@ -2220,6 +2278,8 @@ interface Query {
   landingFooter?: Maybe<LandingFooterRecord>;
   /** Returns a specific record */
   novelty?: Maybe<NoveltyRecord>;
+  /** Returns the single instance record */
+  privacyPolicy?: Maybe<PrivacyPolicyRecord>;
   /** Returns a specific record */
   project?: Maybe<ProjectRecord>;
   /** Returns a specific asset */
@@ -2310,6 +2370,13 @@ interface QueryNoveltyArgs {
   filter?: InputMaybe<NoveltyModelFilter>;
   locale?: InputMaybe<SiteLocale>;
   orderBy?: InputMaybe<Array<InputMaybe<NoveltyModelOrderBy>>>;
+}
+
+
+/** The query root for this schema */
+interface QueryPrivacyPolicyArgs {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
 }
 
 

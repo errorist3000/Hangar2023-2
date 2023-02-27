@@ -22,7 +22,7 @@ export function createStore() {
     policyModule,
     persistor([KEY_I18N, KEY_POLICY_ACCEPTED], { key: LOCAL_STORAGE.STORE }),
 
-    process.env.NODE_ENV !== 'production' && storeonDevtools,
+    process.env.NEXT_PUBLIC_NODE_ENV !== 'production' && storeonDevtools,
   ]
 
   // @ts-ignore

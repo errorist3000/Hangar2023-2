@@ -1,0 +1,7 @@
+query Policy {
+  privacyPolicy(locale: ru) {
+    id
+    title
+    body
+  }
+}

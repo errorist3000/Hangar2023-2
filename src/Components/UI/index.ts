@@ -4,7 +4,6 @@ import { Radio, RadioField } from './Forms/Radio'
 import { Range, RangeField } from './Forms/Range'
 import { Select, SelectField } from './Forms/Select'
 import Button from './Button'
-import ClientOnly from './ClientOnly'
 import CloseButton from './CloseButton'
 import Delimiter from './Delimiter'
 import { Column, Row } from './Flex'
@@ -18,7 +17,6 @@ export {
   Button,
   Checkbox,
   CheckboxField,
-  ClientOnly,
   CloseButton,
   Column,
   Delimiter,

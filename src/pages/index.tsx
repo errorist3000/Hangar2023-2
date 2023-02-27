@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { PrivacyPolicyBlock } from 'Components/Blocks'
 import { LandingLayout } from 'Components/Layouts'
 import {
   Contacts,
@@ -47,6 +48,8 @@ type Props = {
 function Main({ pageData, projectsData, allNoveltiesData, footerData }: Props) {
   return (
     <LandingLayout footerData={footerData?.landingFooter}>
+      <PrivacyPolicyBlock />
+
       <Hero data={pageData?.homePage?.heroSection} />
       <Steps data={pageData?.homePage?.stepSection} />
       <Gallery

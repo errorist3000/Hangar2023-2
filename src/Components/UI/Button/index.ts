@@ -54,15 +54,21 @@ const Button = styled.button<Props>`
   background-color: ${themeGet('colors.button.primary.bg')};
   color: ${themeGet('colors.button.primary.color')};
   border: 2px solid ${themeGet('colors.button.primary.border')};
-  min-width: 100px;
+  min-width: 180px;
   font-size: ${mapToTheme('button.fontSize')}px;
   border-radius: ${mapToTheme('button.borderRadius')}px;
   cursor: pointer;
   font-weight: 600;
 
-  &:hover {
+  &:enabled:hover {
     background-color: ${themeGet('colors.button.primary.hover.bg')};
     border-color: ${themeGet('colors.button.primary.hover.border')};
+  }
+
+  &:disabled {
+    cursor: default;
+    background-color: ${themeGet('colors.button.primary.disabled.bg')};
+    border-color: ${themeGet('colors.button.primary.disabled.border')};
   }
 
   transition: all ${mapToTheme('transitionTime')};

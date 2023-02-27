@@ -29,6 +29,11 @@ const colors = {
         bg: darken(0.05, palette.tiffanyBlue),
         border: darken(0.05, palette.tiffanyBlue),
       },
+
+      disabled: {
+        bg: palette.americanSilver,
+        border: palette.americanSilver,
+      },
     },
 
     secondary: {

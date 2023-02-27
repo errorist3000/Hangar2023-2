@@ -1,3 +1,4 @@
-import useWindowWidth from 'Hooks/useWindowWidth'
+import usePolicy from './usePolicy'
+import useWindowWidth from './useWindowWidth'
 
-export { useWindowWidth }
+export { usePolicy, useWindowWidth }
