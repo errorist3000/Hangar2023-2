@@ -17,3 +17,16 @@ export const StyledModal = styled(Modal).attrs({
   ${border}
   ${layout}
 `
+
+export const WrapperCustom = styled.div.attrs<{ minWidth?: number | number[] }>(
+  props => ({
+    minWidth: ['unset', 'unset', props.minWidth],
+    maxWidth: ['100%', '100%', '95vw'],
+    maxHeight: ['95vh'],
+  }),
+)`
+  display: flex;
+  flex-direction: column;
+
+  ${layout}
+`

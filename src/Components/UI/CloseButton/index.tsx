@@ -5,7 +5,7 @@ import { X } from 'phosphor-react'
 import { Container } from './styles'
 
 type Props = {
-  onClick: () => void
+  onClick?: () => void
 }
 
 function CloseButton({ onClick }: Props) {

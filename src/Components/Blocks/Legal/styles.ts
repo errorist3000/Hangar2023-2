@@ -1,12 +1,17 @@
 import styled from 'styled-components'
+import { padding } from 'styled-system'
 import { themeGet } from '@styled-system/theme-get'
 
-export const Container = styled.div`
+export const Container = styled.div.attrs({
+  p: [3, 3, 4, 5],
+})`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
+  align-items: center;
+  overflow-y: auto;
+  position: relative;
+  border-radius: inherit;
 
   p {
     margin: 0;
@@ -27,4 +32,6 @@ export const Container = styled.div`
     font-weight: ${themeGet('fontWeight.1')};
     color: ${themeGet('colors.primary')};
   }
+
+  ${padding}
 `

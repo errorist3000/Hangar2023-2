@@ -55,6 +55,20 @@ const colors = {
     },
   },
 
+  buttonText: {
+    primary: {
+      color: palette.mediumBlack,
+
+      hover: {
+        color: palette.tiffanyBlue,
+      },
+
+      disabled: {
+        mute: palette.spanishGray,
+      },
+    },
+  },
+
   border: {
     default: palette.spanishGray,
     primary: palette.mediumBlack,

@@ -3,10 +3,10 @@ import { ReactI18NextChild } from 'react-i18next'
 
 import CloseButton from 'Components/UI/CloseButton'
 import Delimiter from 'Components/UI/Delimiter'
-import { Column, Row } from 'Components/UI/Flex'
+import { Row } from 'Components/UI/Flex'
 import Text from 'Components/UI/Text'
 
-import { StyledModal } from './styles'
+import { StyledModal, WrapperCustom } from './styles'
 
 type Props = {
   children?: ReactI18NextChild
@@ -45,7 +45,9 @@ function Modal({
           <Delimiter />
         </>
       )}
-      <Column minWidth={minWidth}>{children}</Column>
+      {/* @ts-ignore */}
+
+      <WrapperCustom minWidth={minWidth}>{children}</WrapperCustom>
     </StyledModal>
   )
 }

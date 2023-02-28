@@ -1,16 +1,26 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { Form, FormRenderProps } from 'react-final-form'
 
 import DialogControls from 'Components/Blocks/DialogControls'
-import { Column, InputField } from 'Components/UI'
+import { PrivacyPolicyModal } from 'Components/Blocks/Modals'
+import {
+  ButtonText,
+  CheckboxField,
+  Column,
+  InputField,
+  Text,
+} from 'Components/UI'
 
 import { CONTACT_US_URL_PHP } from 'Constants/ids'
+
+import { usePolicy } from 'Hooks'
 
 enum Fields {
   Name = 'name',
   Email = 'email',
   Phone = 'phone',
   Description = 'description',
+  isPolicyAccepted = 'isPolicyAccepted',
 }
 
 type Props = {
@@ -18,6 +28,14 @@ type Props = {
 }
 
 function ContactUsForm({ onClose }: Props) {
+  const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false)
+
+  const { setPolicy, isAccepted } = usePolicy()
+
+  const initialValues = {
+    [Fields.isPolicyAccepted]: isAccepted,
+  }
+
   const submit = useCallback(
     async (values: Record<string, any>) => {
       try {
@@ -37,7 +55,7 @@ function ContactUsForm({ onClose }: Props) {
   )
 
   const renderForm = useCallback(
-    ({ handleSubmit }: FormRenderProps) => (
+    ({ handleSubmit, values }: FormRenderProps) => (
       <>
         <Column gap={3} m={5}>
           <InputField
@@ -64,20 +82,51 @@ function ContactUsForm({ onClose }: Props) {
             placeholder={'Если возможно, уточните нам задачу'}
             rows={6}
           />
+
+          <CheckboxField
+            label={
+              <>
+                <Text as={'span'}>Я просчитал </Text>
+                <ButtonText
+                  as={'span'}
+                  small
+                  onClick={() => setIsPrivacyPolicyOpen(true)}
+                >
+                  Политику конфиденцияльности
+                </ButtonText>
+                <Text as={'span'}> и согласен</Text>
+              </>
+            }
+            name={Fields.isPolicyAccepted}
+            onChange={() => setPolicy(!values?.[Fields.isPolicyAccepted])}
+          />
         </Column>
 
         <DialogControls
           cancelText={'Отмена'}
           confirmText={'Отправить'}
+          disabled={!values?.[Fields.isPolicyAccepted]}
           onCancel={onClose}
           onConfirm={handleSubmit}
         />
       </>
     ),
-    [onClose],
+    [onClose, setPolicy],
   )
 
-  return <Form render={renderForm} onSubmit={submit} />
+  return (
+    <>
+      <Form
+        initialValues={initialValues}
+        render={renderForm}
+        onSubmit={submit}
+      />
+      <PrivacyPolicyModal
+        isOpen={isPrivacyPolicyOpen}
+        onClose={() => setIsPrivacyPolicyOpen(false)}
+      />
+    </>
+  )
 }
 
 export default ContactUsForm

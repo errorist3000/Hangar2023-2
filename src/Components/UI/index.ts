@@ -3,7 +3,7 @@ import { Input, InputField } from './Forms/Input'
 import { Radio, RadioField } from './Forms/Radio'
 import { Range, RangeField } from './Forms/Range'
 import { Select, SelectField } from './Forms/Select'
-import Button from './Button'
+import { Button, ButtonText } from './Button'
 import CloseButton from './CloseButton'
 import Delimiter from './Delimiter'
 import { Column, Row } from './Flex'
@@ -15,6 +15,7 @@ import View from './View'
 
 export {
   Button,
+  ButtonText,
   Checkbox,
   CheckboxField,
   CloseButton,

@@ -9,13 +9,8 @@ type Props = {
 }
 function PrivacyPolicyModal({ isOpen, onClose }: Props) {
   return (
-    <Modal
-      isOpen={isOpen}
-      minWidth={460}
-      title={'Свяжитесь с нами'}
-      onClose={onClose}
-    >
-      <PrivacyPolicyBlock />
+    <Modal isCustom isOpen={isOpen} minWidth={460} onClose={onClose}>
+      <PrivacyPolicyBlock onClose={onClose} />
     </Modal>
   )
 }

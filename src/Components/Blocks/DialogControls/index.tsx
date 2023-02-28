@@ -5,6 +5,7 @@ import { Button, Column, Delimiter, Row } from 'Components/UI'
 type Props = {
   cancelText?: string
   confirmText: string
+  disabled?: boolean
   onCancel?: () => void
   onConfirm: () => void
 }
@@ -12,6 +13,7 @@ type Props = {
 function ContactUsForm({
   cancelText,
   confirmText,
+  disabled,
   onCancel,
   onConfirm,
 }: Props) {
@@ -22,7 +24,7 @@ function ContactUsForm({
         <Button secondary width={1} onClick={onCancel}>
           {cancelText}
         </Button>
-        <Button width={1} onClick={onConfirm}>
+        <Button disabled={disabled} width={1} onClick={onConfirm}>
           {confirmText}
         </Button>
       </Row>

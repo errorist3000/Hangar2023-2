@@ -62,9 +62,9 @@ export const Container = styled.label<ContainerProps>`
   display: flex;
   align-items: center;
   position: relative;
-  width: max-content;
   user-select: none;
   gap: ${themeGet('space.2')}px;
+  width: 100%;
 
   & > input {
     :enabled ~ ${CheckboxBorder} {

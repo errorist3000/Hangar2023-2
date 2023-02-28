@@ -27,9 +27,11 @@ type Props = Omit<FlexboxProps, 'flexDirection'> &
     grow?: boolean
     height?: SizeProps
     justifyCenter?: boolean
+    justifyEnd?: boolean
     maxWidth?: SizeProps
     spaceBetween?: boolean
     width?: SizeProps
+    wrap?: boolean
   }
 
 const fullWidthCss: styleFn = ({ fullWidth }: Props) =>
@@ -62,6 +64,18 @@ const justifyCenterCss: styleFn = ({ justifyCenter }: Props) =>
     justify-content: center;
   `
 
+const justifyEndCss: styleFn = ({ justifyEnd }: Props) =>
+  justifyEnd &&
+  css`
+    justify-content: flex-end;
+  `
+
+const wrapCss: styleFn = ({ wrap }: Props) =>
+  wrap &&
+  css`
+    flex-wrap: wrap;
+  `
+
 const Flex = styled.div<Props>`
   display: flex;
 
@@ -76,6 +90,8 @@ const Flex = styled.div<Props>`
   ${fullWidthCss}
   ${spaceBetweenCss}
   ${justifyCenterCss}
+  ${justifyEndCss}
+  ${wrapCss}
 `
 
 export const Column = styled(Flex)`
