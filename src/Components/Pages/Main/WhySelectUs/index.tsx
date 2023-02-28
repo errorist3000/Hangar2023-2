@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import { Column, Image, Text, View } from 'Components/UI'
 
-import { LANDING_SECTION_ID } from 'Constants/ids'
+import { LandingPageSectionIds } from 'Constants/ids'
 
 import { Container, Content, ImageHolder } from './styles'
 
@@ -17,7 +17,7 @@ function WhySelectUs({ data }: Props) {
 
   return (
     <Container>
-      <Content id={LANDING_SECTION_ID.aboutUs}>
+      <Content id={LandingPageSectionIds.AboutUs}>
         <View.Desktop>
           <ImageHolder>
             <Image data={data} />

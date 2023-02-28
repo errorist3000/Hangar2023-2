@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Column, Image, Row, Text } from 'Components/UI'
 
 import { DATO_DATE_FORMAT } from 'Constants/datoCms'
-import { LANDING_SECTION_ID } from 'Constants/ids'
+import { LandingPageSectionIds } from 'Constants/ids'
 
 import { useWindowWidth } from 'Hooks'
 
@@ -42,7 +42,7 @@ function OurNews({ data }: Props) {
 
   return (
     <Container>
-      <Content id={LANDING_SECTION_ID.news}>
+      <Content id={LandingPageSectionIds.News}>
         <Text h3 heading mb={3}>
           {t('header')}
         </Text>

@@ -6,9 +6,9 @@ import { MapPin } from 'phosphor-react'
 import keyBy from 'lodash/keyBy'
 
 import { ObjectsOnMapModal, ProjectGalleryModal } from 'Components/Blocks'
-import { Button, ClientOnly, Column, Image, Text, View } from 'Components/UI'
+import { Button, Column, Image, Text, View } from 'Components/UI'
 
-import { LANDING_PADDING_X, LANDING_SECTION_ID } from 'Constants/ids'
+import { LANDING_PADDING_X, LandingPageSectionIds } from 'Constants/ids'
 
 import Utils from 'Services/Utils'
 
@@ -111,7 +111,7 @@ function Gallery({ data, projects }: Props) {
 
   const handleShowAllClick = useCallback(() => {
     setIsCollapsed(!isCollapsed)
-    Utils.Scroll.pageScroll(LANDING_SECTION_ID.gallery)
+    Utils.Scroll.pageScroll(LandingPageSectionIds.Gallery)
   }, [isCollapsed])
 
   useEffect(() => {
@@ -130,7 +130,7 @@ function Gallery({ data, projects }: Props) {
 
   return (
     <Container>
-      <Content id={LANDING_SECTION_ID.gallery}>
+      <Content id={LandingPageSectionIds.Gallery}>
         <Column center px={LANDING_PADDING_X}>
           <Text h3 heading mb={3}>
             {t('title')}
@@ -183,13 +183,11 @@ function Gallery({ data, projects }: Props) {
       )}
 
       {!!openProjectId && (
-        <ClientOnly>
-          <ProjectGalleryModal
-            isOpen
-            project={projectsById[openProjectId]}
-            onClose={() => setOpenProjectId(null)}
-          />
-        </ClientOnly>
+        <ProjectGalleryModal
+          isOpen
+          project={projectsById[openProjectId]}
+          onClose={() => setOpenProjectId(null)}
+        />
       )}
     </Container>
   )

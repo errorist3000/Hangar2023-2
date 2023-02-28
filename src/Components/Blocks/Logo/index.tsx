@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 import { logoFull } from 'Assets/Svg'
 
-import { LANDING_SECTION_ID } from 'Constants/ids'
+import { LandingPageSectionIds } from 'Constants/ids'
 import { ROOT } from 'Constants/routes'
 
 import Utils from 'Services/Utils'
@@ -16,7 +16,7 @@ function Logo() {
 
   return location.pathname === ROOT ? (
     <ContainerButton
-      onClick={() => Utils.Scroll.pageScroll(LANDING_SECTION_ID.hero)}
+      onClick={() => Utils.Scroll.pageScroll(LandingPageSectionIds.Hero)}
     >
       <LogoFull>{logoFull()}</LogoFull>
     </ContainerButton>

@@ -1,10 +1,12 @@
 {
   "block": {
     "navBar": {
+      "home": "Главная",
       "projects": "Проекты",
       "aboutUs": "О нас",
       "ourNews": "Новости",
-      "contacts": "Контакты"
+      "contacts": "Контакты",
+      "calculator": "Калькулятор"
     },
     "footer": {
       "titleLegalAddress": "Юридическая информация",

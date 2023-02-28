@@ -46,6 +46,7 @@ function ContactUsForm({ onClose }: Props) {
         request.setRequestHeader('Content-type', 'application/json')
         request.send(post)
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error)
       }
 

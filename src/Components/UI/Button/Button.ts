@@ -58,7 +58,7 @@ const Button = styled.button<Props>`
   font-size: ${mapToTheme('button.fontSize')}px;
   border-radius: ${mapToTheme('button.borderRadius')}px;
   cursor: pointer;
-  font-weight: ${themeGet('fontWeights.2')};
+  font-weight: ${themeGet('fontWeight.2')};
 
   &:enabled:hover {
     background-color: ${themeGet('colors.button.primary.hover.bg')};

@@ -5,7 +5,7 @@ import { EnvelopeSimple, PhoneCall } from 'phosphor-react'
 
 import { Column, Text } from 'Components/UI'
 
-import { LANDING_SECTION_ID } from 'Constants/ids'
+import { LandingPageSectionIds } from 'Constants/ids'
 
 import { Card, Container, Content, ContentWrapper, IconHolder } from './styles'
 
@@ -27,7 +27,7 @@ function Contacts() {
   ]
   return (
     <Container>
-      <Content id={LANDING_SECTION_ID.contacts}>
+      <Content id={LandingPageSectionIds.Contacts}>
         <Column>
           <Text h3 heading mb={[6, 6, 8, 9]}>
             {t('header')}

@@ -8,7 +8,7 @@ import orderBy from 'lodash/orderBy'
 import { ContactUsModal } from 'Components/Blocks'
 import { Button, Column, Image, Text } from 'Components/UI'
 
-import { LANDING_SECTION_ID } from 'Constants/ids'
+import { LandingPageSectionIds } from 'Constants/ids'
 
 import { ButtonHolder, Container, Content, PictureOverlay } from './styles'
 
@@ -23,7 +23,7 @@ function Hero({ data }: Props) {
   const sortedDataByOrder = useMemo(() => orderBy(data, 'order', 'asc'), [data])
 
   return (
-    <Container id={LANDING_SECTION_ID.hero}>
+    <Container id={LandingPageSectionIds.Hero}>
       <Swiper
         autoplay={{
           delay: 5000,
