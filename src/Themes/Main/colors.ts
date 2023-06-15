@@ -1,6 +1,10 @@
 import { darken } from 'polished'
 import palette from 'Themes/palette'
 
+import { TagKind } from 'Constants/tags'
+
+import shadow from './shadow'
+
 const colors = {
   primary: palette.tiffanyBlue,
   bg: {
@@ -21,13 +25,13 @@ const colors = {
 
   button: {
     primary: {
-      color: palette.white,
-      bg: palette.tiffanyBlue,
-      border: palette.tiffanyBlue,
+      color: palette.primaryNeutral0,
+      bg: palette.primary80,
+      border: palette.primary80,
 
       hover: {
-        bg: darken(0.05, palette.tiffanyBlue),
-        border: darken(0.05, palette.tiffanyBlue),
+        bg: palette.primary90,
+        border: palette.primary90,
       },
 
       disabled: {
@@ -172,6 +176,47 @@ const colors = {
       track: palette.brightGray,
       slider: palette.brightGray,
       dot: palette.brightGray,
+    },
+  },
+
+  switch: {
+    color: palette.primaryNeutral0,
+    bg: palette.primaryNeutral20,
+    hover: {
+      bg: palette.primaryNeutral50,
+    },
+    focus: {
+      bg: palette.primaryNeutral20,
+      shadow: shadow.secondaryFocus,
+    },
+    disabled: {
+      bg: palette.secondaryNeutral20,
+    },
+
+    on: {
+      color: palette.primaryNeutral0,
+      bg: palette.primary80,
+      hover: {
+        bg: palette.primary90,
+      },
+      focus: {
+        bg: palette.primary100,
+        shadow: shadow.primaryFocus,
+      },
+      disabled: {
+        bg: palette.primary30,
+      },
+    },
+  },
+
+  badge: {
+    bg: palette.primary80,
+  },
+
+  tag: {
+    [TagKind.Default]: {
+      bg: palette.primaryNeutral100,
+      color: palette.primaryNeutral0,
     },
   },
 }

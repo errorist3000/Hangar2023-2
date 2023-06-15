@@ -19,6 +19,7 @@ type Props = ContainerProps &
   StyledInputProps &
   WrapperProps & {
     caption?: string
+    clearable?: boolean
     danger?: boolean
     defaultValue?: string | number
     disabled?: boolean
@@ -38,6 +39,7 @@ type Props = ContainerProps &
     value?: string | number
     onBlur?: (event: React.FocusEvent<HTMLElement>) => void
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+    onClear?: (event: React.ChangeEvent<HTMLInputElement>) => void
     onFocus?: (event: React.FocusEvent<HTMLElement>) => void
     onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void
   }

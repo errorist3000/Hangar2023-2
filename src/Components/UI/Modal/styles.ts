@@ -13,6 +13,7 @@ export const StyledModal = styled(Modal).attrs({
   background-color: ${themeGet('colors.bg.default')};
   box-shadow: ${themeGet('shadow.large')};
   position: relative;
+  overflow: hidden;
 
   ${border}
   ${layout}

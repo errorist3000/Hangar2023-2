@@ -6,6 +6,7 @@ import {
   Radios,
   Ranges,
   Selects,
+  Tags,
 } from 'Components/Pages/Kit'
 import { Column, Text } from 'Components/UI'
 
@@ -16,6 +17,7 @@ function Kit() {
         UI Kit
       </Text>
 
+      <Tags />
       <Inputs />
       <Selects />
       <Checkboxes />

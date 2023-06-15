@@ -14,6 +14,8 @@ const input = {
   fontSize: { big: 16, default: 14, small: 12 },
 
   padding: { default: 12 },
+
+  iconSize: { default: 12 },
 }
 
 export default input
