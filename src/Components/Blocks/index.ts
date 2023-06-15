@@ -1,17 +1,19 @@
-import Footer from 'Components/Blocks/Footer'
-import Header from 'Components/Blocks/Header'
-import { PrivacyPolicyBlock } from 'Components/Blocks/Legal'
+import Footer from './Footer'
+import Header from './Header'
+import LanguageSelect from './LanguageSelect'
+import { PrivacyPolicyBlock } from './Legal'
 import {
   ContactUsModal,
   ObjectsOnMapModal,
   PrivacyPolicyModal,
   ProjectGalleryModal,
-} from 'Components/Blocks/Modals'
+} from './Modals'
 
 export {
   ContactUsModal,
   Footer,
   Header,
+  LanguageSelect,
   ObjectsOnMapModal,
   PrivacyPolicyBlock,
   PrivacyPolicyModal,
