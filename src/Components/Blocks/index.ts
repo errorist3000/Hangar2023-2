@@ -1,3 +1,4 @@
+import ContentCard from './ContentCard'
 import Footer from './Footer'
 import Header from './Header'
 import LanguageSelect from './LanguageSelect'
@@ -11,6 +12,7 @@ import {
 
 export {
   ContactUsModal,
+  ContentCard,
   Footer,
   Header,
   LanguageSelect,

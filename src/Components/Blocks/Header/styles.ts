@@ -2,7 +2,11 @@ import styled, { css } from 'styled-components'
 import { padding } from 'styled-system'
 import { themeGet } from '@styled-system/theme-get'
 
-import { LANDING_CONTENT_WIDTH, LANDING_PADDING_X } from 'Constants/ids'
+import {
+  LANDING_CONTENT_WIDTH,
+  LANDING_HEADER_HEIGHT,
+  LANDING_PADDING_X,
+} from 'Constants/ids'
 
 type ContainerProps = {
   shrink?: boolean
@@ -19,7 +23,7 @@ export const Container = styled.header.attrs({})`
 const barContainerShrinkCss = ({ shrink }: ContainerProps) =>
   shrink &&
   css`
-    height: 56px;
+    height: ${LANDING_HEADER_HEIGHT.SCROLLED}px;
   `
 
 export const BarContainer = styled.div.attrs({
@@ -30,7 +34,7 @@ export const BarContainer = styled.div.attrs({
   width: 100%;
   background-color: ${themeGet('colors.bg.tertiary')}99;
   backdrop-filter: blur(6px);
-  height: 72px;
+  height: ${LANDING_HEADER_HEIGHT.DEFAULT}px;
   transition: height ${themeGet('transitionTime.modal')} linear;
 
   ${padding}

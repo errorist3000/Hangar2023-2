@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { LandingLayout } from 'Components/Layouts'
+import { Calculations } from 'Components/Pages/Calculator'
 
 import client from 'Services/DatoCMS/client'
 import landingFooterQuery from 'Services/DatoCMS/Queries/landingFooter.graphql'
@@ -20,7 +21,7 @@ type Props = {
 function CalculatorPage({ footerData }: Props) {
   return (
     <LandingLayout footerData={footerData?.landingFooter}>
-      Calculator
+      <Calculations />
     </LandingLayout>
   )
 }

@@ -1,8 +1,10 @@
-export const APP_NAME = 'AngarPro'
+export const APP_NAME = 'HangarPro'
 
 export const LANDING_CONTENT_WIDTH = 1276
 
 export const LANDING_PADDING_X = [3, 3, 5, 11]
+
+export const LANDING_HEADER_HEIGHT = { SCROLLED: 56, DEFAULT: 72 }
 
 export enum LandingPageSectionIds {
   Hero = 'hero',
