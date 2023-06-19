@@ -9,7 +9,7 @@ import Price from 'Components/Pages/Calculator/Calculations/Price'
 import { Button, Column, Delimiter, Row } from 'Components/UI'
 
 import {
-  CalcBuildingDefaultParameters,
+  CALC_BUILDING_DEFAULT_PARAMETERS,
   CalcBuildingParams,
 } from 'Constants/calculator'
 import {
@@ -25,7 +25,7 @@ import { Container, StickyContainer } from './styles'
 
 function Calculations() {
   const [params, setParams] = useState<CalcBuildingParams>(
-    CalcBuildingDefaultParameters,
+    CALC_BUILDING_DEFAULT_PARAMETERS,
   )
 
   const offer = useMemo(() => getOffer(params), [params])
@@ -54,7 +54,7 @@ function Calculations() {
 
           <StickyContainer>
             <ContentCard headerText="Результа расчета">
-              <Description parameter={params} />
+              <Description params={params} />
 
               <Delimiter />
 

@@ -3,8 +3,8 @@ import * as Ipdf from 'pdfmake/interfaces'
 import Utils from 'Utils'
 
 import {
+  CALC_BUILDING_TYPE_NAMES,
   CalcBuildingParams,
-  CalcBuildingTypeNames,
   CalcOffer,
 } from 'Constants/calculator'
 import { LANDING_CREDITS } from 'Constants/ids'
@@ -38,7 +38,7 @@ export const headerContent = (params: CalcBuildingParams) => {
     bold: true,
   }
   const descriptionFences: Ipdf.Content = {
-    text: `Ограждения: ${CalcBuildingTypeNames[params.type]}.`,
+    text: `Ограждения: ${CALC_BUILDING_TYPE_NAMES[params.type]}.`,
     fontSize: style.fontSize,
     margin: style.margin,
   }
@@ -104,7 +104,7 @@ export const tableContent = (offer: CalcOffer) => {
             margin: headerStyle.margin,
           },
           {
-            text: 'Цена руб.',
+            text: 'Цена',
             alignment: headerStyle.alignment,
             bold: headerStyle.bold,
             fillColor: headerStyle.fillColor,
@@ -112,6 +112,7 @@ export const tableContent = (offer: CalcOffer) => {
             noWrap: true,
           },
         ],
+
         [
           { text: offer.skeletonMaterial.title, margin: dataRowStyle.margin },
           {
@@ -124,6 +125,7 @@ export const tableContent = (offer: CalcOffer) => {
             margin: priceCellStyle.margin,
           },
         ],
+
         [
           { text: offer.skeletonMounting.title, margin: dataRowStyle.margin },
           {
@@ -136,6 +138,7 @@ export const tableContent = (offer: CalcOffer) => {
             margin: priceCellStyle.margin,
           },
         ],
+
         [
           { text: offer.roofMaterial.title, margin: dataRowStyle.margin },
           {
@@ -148,6 +151,7 @@ export const tableContent = (offer: CalcOffer) => {
             margin: priceCellStyle.margin,
           },
         ],
+
         [
           { text: offer.roofMounting.title, margin: dataRowStyle.margin },
           {
@@ -160,6 +164,7 @@ export const tableContent = (offer: CalcOffer) => {
             margin: priceCellStyle.margin,
           },
         ],
+
         [
           { text: offer.wallsMaterial.title, margin: dataRowStyle.margin },
           {
@@ -172,6 +177,7 @@ export const tableContent = (offer: CalcOffer) => {
             margin: priceCellStyle.margin,
           },
         ],
+
         [
           { text: offer.wallsMounting.title, margin: dataRowStyle.margin },
           {
@@ -184,6 +190,7 @@ export const tableContent = (offer: CalcOffer) => {
             margin: priceCellStyle.margin,
           },
         ],
+
         [
           { text: offer.gate.title, margin: dataRowStyle.margin },
           { text: offer.gate.description, margin: dataRowStyle.margin },
@@ -193,6 +200,7 @@ export const tableContent = (offer: CalcOffer) => {
             margin: priceCellStyle.margin,
           },
         ],
+
         [
           { text: offer.door.title, margin: dataRowStyle.margin },
           { text: offer.door.description, margin: dataRowStyle.margin },
@@ -202,6 +210,7 @@ export const tableContent = (offer: CalcOffer) => {
             margin: priceCellStyle.margin,
           },
         ],
+
         [
           { text: offer.window.title, margin: dataRowStyle.margin },
           { text: offer.window.description, margin: dataRowStyle.margin },
@@ -211,6 +220,7 @@ export const tableContent = (offer: CalcOffer) => {
             margin: priceCellStyle.margin,
           },
         ],
+
         [
           {
             text: offer.total.title,
@@ -221,7 +231,7 @@ export const tableContent = (offer: CalcOffer) => {
           },
           '',
           {
-            text: offer.total.sum,
+            text: offer.total.price,
             alignment: 'right',
             bold: true,
             fillColor: headerStyle.fillColor,

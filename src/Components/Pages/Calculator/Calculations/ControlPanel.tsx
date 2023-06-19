@@ -4,12 +4,13 @@ import { ContentCard } from 'Components/Blocks'
 import { Delimiter, Radio, Range, Row, Select } from 'Components/UI'
 
 import {
-  CalcBuildingDefaultParameters,
+  CALC_BUILDING_DEFAULT_PARAMETERS,
+  CALC_GATE_COUNT_OPTIONS,
+  CALC_GATE_TYPE_OPTIONS,
   CalcBuildingParams,
   CalcBuildingSizeRanges,
   CalcBuildingSizeSteps,
   CalcBuildingTypes,
-  CalcGateOptions,
   CalcGateRanges,
   CalcGateSteps,
   CalcGateTypes,
@@ -28,9 +29,10 @@ function ControlPanel({ params, onParamsChange }: Props) {
     width: number
     height: number
   }>({
-    width: CalcBuildingDefaultParameters.gateWidth ?? CalcGateRanges.MinWidth,
+    width:
+      CALC_BUILDING_DEFAULT_PARAMETERS.gateWidth ?? CalcGateRanges.MinWidth,
     height:
-      CalcBuildingDefaultParameters.gateHeight ?? CalcGateRanges.MinHeight,
+      CALC_BUILDING_DEFAULT_PARAMETERS.gateHeight ?? CalcGateRanges.MinHeight,
   })
 
   const handleWidthChange = useCallback(
@@ -63,16 +65,26 @@ function ControlPanel({ params, onParamsChange }: Props) {
     [onParamsChange, params],
   )
 
-  const handleGateTypeChange = useCallback(
+  const handleGateCountChange = useCallback(
     (value: SelectOption) => {
       onParamsChange({
         ...params,
-        gateType: value,
+        gateCount: value,
         gateWidth: selectedGateSize.width,
         gateHeight: selectedGateSize.height,
       })
     },
     [onParamsChange, params, selectedGateSize],
+  )
+
+  const handleGateTypeChange = useCallback(
+    (value: SelectOption) => {
+      onParamsChange({
+        ...params,
+        gateType: value,
+      })
+    },
+    [onParamsChange, params],
   )
 
   const handleGateWidthChange = useCallback(
@@ -151,18 +163,30 @@ function ControlPanel({ params, onParamsChange }: Props) {
       <Delimiter />
 
       <CalculationsSection headerText="Ворота">
-        <Select
-          isSearchable={false}
-          label="Тип ворот"
-          options={CalcGateOptions}
-          placeholder="Выберите тип ворот"
-          value={params.gateType}
-          onChange={handleGateTypeChange}
-        />
+        <Row fullWidth gap={6}>
+          <Select
+            isSearchable={false}
+            label="К-во ворот"
+            options={CALC_GATE_COUNT_OPTIONS}
+            placeholder="Выберите количество ворот"
+            value={params.gateCount}
+            onChange={handleGateCountChange}
+          />
+          <Select
+            disabled={!params.gateCount.value}
+            isSearchable={false}
+            label="Тип ворот"
+            options={CALC_GATE_TYPE_OPTIONS}
+            placeholder="Выберите тип ворот"
+            value={params.gateType}
+            width={1}
+            onChange={handleGateTypeChange}
+          />
+        </Row>
 
         <Row fullWidth gap={6}>
           <Range
-            disabled={params.gateType.value === CalcGateTypes.None}
+            disabled={!params.gateCount.value}
             label="Ширина ворот в метрах"
             maxValue={CalcGateRanges.MaxWidth}
             minValue={CalcGateRanges.MinWidth}
@@ -172,7 +196,7 @@ function ControlPanel({ params, onParamsChange }: Props) {
           />
 
           <Range
-            disabled={params.gateType.value === CalcGateTypes.None}
+            disabled={!params.gateCount.value}
             label="Высота ворот в метрах"
             maxValue={CalcGateRanges.MaxHeight}
             minValue={CalcGateRanges.MinHeight}

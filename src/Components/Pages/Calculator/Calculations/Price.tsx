@@ -21,6 +21,9 @@ function Price({ offer }: Props) {
       </Text>
 
       {map(data, item => {
+        if (item.price === '0₽') {
+          return null
+        }
         const isTotal = item.id === CALC_OFFER_TOTAL_ID
         return (
           <Row fullWidth key={item.id} px={6} spaceBetween>

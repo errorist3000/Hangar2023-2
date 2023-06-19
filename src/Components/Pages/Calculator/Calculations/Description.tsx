@@ -3,17 +3,16 @@ import React from 'react'
 import { Column, Row, Text } from 'Components/UI'
 
 import {
+  CALC_BUILDING_TYPE_NAMES,
+  CALC_GATE_TYPE_NAMES,
   CalcBuildingParams,
-  CalcBuildingTypeNames,
-  CalcGateTypeNames,
-  CalcGateTypes,
 } from 'Constants/calculator'
 
 type Props = {
-  parameter: CalcBuildingParams
+  params: CalcBuildingParams
 }
 
-function Description({ parameter }: Props) {
+function Description({ params }: Props) {
   return (
     <Column gap={3}>
       <Text heading mx={6} subHeader3>
@@ -24,7 +23,7 @@ function Description({ parameter }: Props) {
           Тип покрытия здания:
         </Text>
         <Text action3 body>
-          {CalcBuildingTypeNames[parameter.type]}
+          {CALC_BUILDING_TYPE_NAMES[params.type]}
         </Text>
       </Row>
 
@@ -34,7 +33,7 @@ function Description({ parameter }: Props) {
         </Text>
         <Text action3 body>
           {/* @ts-ignore */}
-          {parameter.width}
+          {params.width}
         </Text>
       </Row>
 
@@ -44,7 +43,7 @@ function Description({ parameter }: Props) {
         </Text>
         <Text action3 body>
           {/* @ts-ignore */}
-          {parameter.length}
+          {params.length}
         </Text>
       </Row>
 
@@ -54,22 +53,22 @@ function Description({ parameter }: Props) {
         </Text>
         <Text action3 body>
           {/* @ts-ignore */}
-          {parameter.height}
+          {params.height}
         </Text>
       </Row>
 
-      <Row fullWidth px={6} spaceBetween>
-        <Text body body3>
-          Ворота:
-        </Text>
-        <Text action3 body>
-          {/* @ts-ignore */}
-          {CalcGateTypeNames[parameter.gateType.value]}
-          &nbsp;
-          {parameter.gateType.value !== CalcGateTypes.None &&
-            `${parameter.gateWidth}м x ${parameter.gateHeight}м`}
-        </Text>
-      </Row>
+      {params.gateCount.value && (
+        <Row fullWidth px={6} spaceBetween>
+          <Text body body3>
+            Ворота:
+          </Text>
+          <Text action3 body>
+            {/* @ts-ignore */}
+            {CALC_GATE_TYPE_NAMES[params.gateType.value]}
+            &nbsp; {`${params.gateWidth}м x ${params.gateHeight}м`}
+          </Text>
+        </Row>
+      )}
     </Column>
   )
 }

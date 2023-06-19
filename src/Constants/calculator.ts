@@ -25,11 +25,18 @@ export enum CalcGateSteps {
 }
 
 export enum CalcGateTypes {
-  None = 'none',
   Pivot = 'pivot',
   Sliding = 'sliding',
   LiftingManual = 'liftingManual',
   LiftingElectric = 'liftingElectric',
+}
+
+export const CALC_GATE_COUNTS = {
+  NONE: { label: 'нет', value: null },
+  ONE: { label: '1', value: 1 },
+  TWO: { label: '2', value: 2 },
+  THREE: { label: '3', value: 3 },
+  FOUR: { label: '4', value: 4 },
 }
 
 export enum CalcBuildingSizeSteps {
@@ -50,7 +57,7 @@ export enum CalcWindowTypes {
 }
 
 export type CalcBuildingParams = {
-  gateCount: number
+  gateCount: SelectOption
   gateHeight?: number
   gateType: SelectOption
   gateWidth?: number
@@ -63,40 +70,46 @@ export type CalcBuildingParams = {
   windowType: CalcWindowTypes
 }
 
-export const CalcBuildingTypeNames = {
+export const CALC_BUILDING_TYPE_NAMES = {
   [CalcBuildingTypes.Tent]: 'Тент',
   [CalcBuildingTypes.Sandwich]: 'Сэндвич-панель',
 }
 
-export const CalcGateTypeNames = {
-  [CalcGateTypes.None]: 'Нет',
+export const CALC_GATE_TYPE_NAMES = {
   [CalcGateTypes.Pivot]: 'Распашные',
   [CalcGateTypes.Sliding]: 'Откатные',
   [CalcGateTypes.LiftingManual]: 'Подъемные с ручным приводом',
   [CalcGateTypes.LiftingElectric]: 'Подъемные с электроприводом',
 }
 
-export const CalcGateOptions: SelectOption[] = [
-  { label: CalcGateTypeNames[CalcGateTypes.None], value: CalcGateTypes.None },
+export const CALC_GATE_TYPE_OPTIONS: SelectOption[] = [
   {
-    label: CalcGateTypeNames[CalcGateTypes.Pivot],
+    label: CALC_GATE_TYPE_NAMES[CalcGateTypes.Pivot],
     value: CalcGateTypes.Pivot,
   },
   {
-    label: CalcGateTypeNames[CalcGateTypes.Sliding],
+    label: CALC_GATE_TYPE_NAMES[CalcGateTypes.Sliding],
     value: CalcGateTypes.Sliding,
   },
   {
-    label: CalcGateTypeNames[CalcGateTypes.LiftingManual],
+    label: CALC_GATE_TYPE_NAMES[CalcGateTypes.LiftingManual],
     value: CalcGateTypes.LiftingManual,
   },
   {
-    label: CalcGateTypeNames[CalcGateTypes.LiftingElectric],
+    label: CALC_GATE_TYPE_NAMES[CalcGateTypes.LiftingElectric],
     value: CalcGateTypes.LiftingElectric,
   },
 ]
 
-export const CalcBuildingDefaultParameters: CalcBuildingParams = {
+export const CALC_GATE_COUNT_OPTIONS: SelectOption[] = [
+  { label: CALC_GATE_COUNTS.NONE.label, value: CALC_GATE_COUNTS.NONE.value },
+  { label: CALC_GATE_COUNTS.ONE.label, value: CALC_GATE_COUNTS.ONE.label },
+  { label: CALC_GATE_COUNTS.TWO.label, value: CALC_GATE_COUNTS.TWO.label },
+  { label: CALC_GATE_COUNTS.THREE.label, value: CALC_GATE_COUNTS.THREE.label },
+  { label: CALC_GATE_COUNTS.FOUR.label, value: CALC_GATE_COUNTS.FOUR.label },
+]
+
+export const CALC_BUILDING_DEFAULT_PARAMETERS: CalcBuildingParams = {
   type: CalcBuildingTypes.Tent,
   width:
     (CalcBuildingSizeRanges.MinWidth + CalcBuildingSizeRanges.MaxWidth) / 2,
@@ -104,8 +117,8 @@ export const CalcBuildingDefaultParameters: CalcBuildingParams = {
     (CalcBuildingSizeRanges.MinLength + CalcBuildingSizeRanges.MaxLength) / 2,
   height:
     (CalcBuildingSizeRanges.MinHeight + CalcBuildingSizeRanges.MaxHeight) / 2,
-  gateCount: 0,
-  gateType: CalcGateOptions[0],
+  gateCount: CALC_GATE_COUNT_OPTIONS[0],
+  gateType: CALC_GATE_TYPE_OPTIONS[0],
   region: 'Москва',
   doorCount: 0,
   windowType: CalcWindowTypes.None,
