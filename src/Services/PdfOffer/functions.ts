@@ -228,8 +228,6 @@ export const tableContent = ({ params, offer }: TableContentProps) => {
     ])
   }
 
-  console.log(body)
-
   body.push([
     {
       text: offer.total.title,
