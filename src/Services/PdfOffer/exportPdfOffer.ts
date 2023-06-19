@@ -1,5 +1,5 @@
-import * as pdfMake from 'pdfmake/build/pdfmake';
-import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import * as pdfMake from 'pdfmake/build/pdfmake'
+import * as pdfFonts from 'pdfmake/build/vfs_fonts'
 // eslint-disable-next-line import/no-unresolved
 import * as Ipdf from 'pdfmake/interfaces'
 
@@ -18,9 +18,7 @@ import {
 } from './functions'
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs
-
-
+;(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs
 
 type Props = {
   params: CalcBuildingParams
@@ -54,9 +52,6 @@ function saveOffer({ contact, offer, params }: Props) {
     CALC_BUILDING_TYPE_NAMES[params.type]
   } АнгарПро`
 
-  console.log(fileName)
-
-  // @ts-ignore
   pdfMake.createPdf(docDefinition).download(fileName)
 }
 

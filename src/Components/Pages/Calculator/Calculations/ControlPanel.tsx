@@ -13,7 +13,6 @@ import {
   CalcBuildingTypes,
   CalcGateRanges,
   CalcGateSteps,
-  CalcGateTypes,
   SelectOption,
 } from 'Constants/calculator'
 
