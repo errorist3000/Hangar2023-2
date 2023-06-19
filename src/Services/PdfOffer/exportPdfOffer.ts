@@ -34,15 +34,15 @@ function saveOffer({ contact, offer, params }: Props) {
   const docDefinition: Ipdf.TDocumentDefinitions = {
     info: {
       title: `Предложение на здание от ${contact}`,
-      author: 'HangarPro',
+      author: 'angarPro.com',
       subject: `Здание ${params.width} x ${params.length} x ${params.height}м.`,
     },
-    watermark: { text: 'HangarPro', fontSize: 150, angle: 70, opacity: 0.05 },
+    watermark: { text: 'Ангарпро', fontSize: 150, angle: 70, opacity: 0.05 },
     content: [
       titleTop(),
       header.title,
       header.description,
-      tableContent(offer),
+      tableContent({ params, offer }),
       remark(),
       footerContent(contact),
     ],

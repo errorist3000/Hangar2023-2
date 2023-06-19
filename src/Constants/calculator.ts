@@ -66,7 +66,7 @@ export type CalcBuildingParams = {
   type: CalcBuildingTypes.Tent | CalcBuildingTypes.Sandwich
   width: number
   region: string
-  doorCount: number
+  doorCount: SelectOption
   windowType: CalcWindowTypes
 }
 
@@ -109,6 +109,14 @@ export const CALC_GATE_COUNT_OPTIONS: SelectOption[] = [
   { label: CALC_GATE_COUNTS.FOUR.label, value: CALC_GATE_COUNTS.FOUR.label },
 ]
 
+export const CALC_DOOR_COUNT_OPTIONS: SelectOption[] = [
+  { label: CALC_GATE_COUNTS.NONE.label, value: CALC_GATE_COUNTS.NONE.value },
+  { label: CALC_GATE_COUNTS.ONE.label, value: CALC_GATE_COUNTS.ONE.label },
+  { label: CALC_GATE_COUNTS.TWO.label, value: CALC_GATE_COUNTS.TWO.label },
+  { label: CALC_GATE_COUNTS.THREE.label, value: CALC_GATE_COUNTS.THREE.label },
+  { label: CALC_GATE_COUNTS.FOUR.label, value: CALC_GATE_COUNTS.FOUR.label },
+]
+
 export const CALC_BUILDING_DEFAULT_PARAMETERS: CalcBuildingParams = {
   type: CalcBuildingTypes.Tent,
   width:
@@ -120,7 +128,7 @@ export const CALC_BUILDING_DEFAULT_PARAMETERS: CalcBuildingParams = {
   gateCount: CALC_GATE_COUNT_OPTIONS[0],
   gateType: CALC_GATE_TYPE_OPTIONS[0],
   region: 'Москва',
-  doorCount: 0,
+  doorCount: CALC_DOOR_COUNT_OPTIONS[0],
   windowType: CalcWindowTypes.None,
 }
 
