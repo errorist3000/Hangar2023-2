@@ -35,3 +35,8 @@ export enum Language {
 export const LOCAL_STORAGE = {
   STORE: `${APP_NAME}.store`,
 }
+
+export const LANDING_CREDITS = {
+  URL: 'https://angarpro.com',
+  EMAIL: 'post@angarpro.com',
+}

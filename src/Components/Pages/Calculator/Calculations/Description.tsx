@@ -3,19 +3,22 @@ import React from 'react'
 import { Column, Row, Text } from 'Components/UI'
 
 import {
-  CalcBuildingParameters,
+  CalcBuildingParams,
   CalcBuildingTypeNames,
   CalcGateTypeNames,
   CalcGateTypes,
 } from 'Constants/calculator'
 
 type Props = {
-  parameter: CalcBuildingParameters
+  parameter: CalcBuildingParams
 }
 
 function Description({ parameter }: Props) {
   return (
     <Column gap={3}>
+      <Text heading mx={6} subHeader3>
+        Параметры конструкции
+      </Text>
       <Row fullWidth px={6} spaceBetween>
         <Text body body3>
           Тип покрытия здания:

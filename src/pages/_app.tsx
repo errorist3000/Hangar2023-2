@@ -4,6 +4,7 @@ import { I18nextProvider } from 'react-i18next'
 import { ThemeProvider } from 'styled-components'
 
 import { ApolloProvider } from '@apollo/client'
+import numeral from 'numeral'
 import { StoreContext } from 'storeon/react'
 import { GlobalStyle, theme } from 'Themes'
 
@@ -18,6 +19,29 @@ type Props = {
 
 function MyApp({ Component, pageProps }: Props) {
   const store = createStore()
+
+  if (!numeral.locales.ru) {
+    numeral.register('locale', 'ru', {
+      delimiters: {
+        thousands: ' ',
+        decimal: ',',
+      },
+      abbreviations: {
+        thousand: 'тыс',
+        million: 'млн',
+        billion: 'млрд',
+        trillion: 'трлн',
+      },
+      ordinal(number) {
+        return number === 1 ? 'er' : 'ème'
+      },
+      currency: {
+        symbol: '₽',
+      },
+    })
+  }
+
+  numeral.locale('ru')
 
   return (
     // @ts-ignore

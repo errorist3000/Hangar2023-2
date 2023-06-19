@@ -43,7 +43,14 @@ export enum CalcBuildingTypes {
   Sandwich = 'sandwich',
 }
 
-export type CalcBuildingParameters = {
+export enum CalcWindowTypes {
+  None = 'none',
+  OneLine = 'oneLine',
+  TwoLine = 'twoLine',
+}
+
+export type CalcBuildingParams = {
+  gateCount: number
   gateHeight?: number
   gateType: SelectOption
   gateWidth?: number
@@ -51,6 +58,9 @@ export type CalcBuildingParameters = {
   length: number
   type: CalcBuildingTypes.Tent | CalcBuildingTypes.Sandwich
   width: number
+  region: string
+  doorCount: number
+  windowType: CalcWindowTypes
 }
 
 export const CalcBuildingTypeNames = {
@@ -86,7 +96,7 @@ export const CalcGateOptions: SelectOption[] = [
   },
 ]
 
-export const CalcBuildingDefaultParameters: CalcBuildingParameters = {
+export const CalcBuildingDefaultParameters: CalcBuildingParams = {
   type: CalcBuildingTypes.Tent,
   width:
     (CalcBuildingSizeRanges.MinWidth + CalcBuildingSizeRanges.MaxWidth) / 2,
@@ -94,5 +104,83 @@ export const CalcBuildingDefaultParameters: CalcBuildingParameters = {
     (CalcBuildingSizeRanges.MinLength + CalcBuildingSizeRanges.MaxLength) / 2,
   height:
     (CalcBuildingSizeRanges.MinHeight + CalcBuildingSizeRanges.MaxHeight) / 2,
+  gateCount: 0,
   gateType: CalcGateOptions[0],
+  region: 'Москва',
+  doorCount: 0,
+  windowType: CalcWindowTypes.None,
 }
+
+export const DOOR_SIZE = {
+  WIDTH: 0.9,
+  HEIGHT: 2.1,
+}
+
+export const WINDOW_SIZE = {
+  HEIGHT: 1.2,
+}
+
+export type CalcOffer = {
+  skeletonMaterial: {
+    id: number
+    title: string
+    description: string
+    price: string
+  }
+  skeletonMounting: {
+    id: number
+    title: string
+    description: string
+    price: string
+  }
+  roofMaterial: {
+    id: number
+    title: string
+    description: string
+    price: string
+  }
+  roofMounting: {
+    id: number
+    title: string
+    description: string
+    price: string
+  }
+  wallsMaterial: {
+    id: number
+    title: string
+    description: string
+    price: string
+  }
+  wallsMounting: {
+    id: number
+    title: string
+    description: string
+    price: string
+  }
+  gate: {
+    id: number
+    title: string
+    description: string
+    price: string
+  }
+  door: {
+    id: number
+    title: string
+    description: string
+    price: string
+  }
+  window: {
+    id: number
+    title: string
+    description: string
+    price: string
+  }
+  total: {
+    id: number
+    title: string
+    description: string
+    price: string
+  }
+}
+
+export const CALC_OFFER_TOTAL_ID = 9999
