@@ -75,15 +75,21 @@ function ControlPanel({ params, onParamsChange }: Props) {
     [onParamsChange, params, selectedGateSize],
   )
 
-  const handleGateWidthChange = useCallback((gateWidth: number) => {
-    setSelectedGateSize(prev => ({ ...prev, width: gateWidth }))
-    onParamsChange({ ...params, gateWidth })
-  }, [])
+  const handleGateWidthChange = useCallback(
+    (gateWidth: number) => {
+      setSelectedGateSize(prev => ({ ...prev, width: gateWidth }))
+      onParamsChange({ ...params, gateWidth })
+    },
+    [onParamsChange, params],
+  )
 
-  const handleGateHeightChange = useCallback((gateHeight: number) => {
-    setSelectedGateSize(prev => ({ ...prev, height: gateHeight }))
-    onParamsChange({ ...params, gateHeight })
-  }, [])
+  const handleGateHeightChange = useCallback(
+    (gateHeight: number) => {
+      setSelectedGateSize(prev => ({ ...prev, height: gateHeight }))
+      onParamsChange({ ...params, gateHeight })
+    },
+    [onParamsChange, params],
+  )
 
   return (
     <ContentCard headerText="Укажите параметры для расчета">

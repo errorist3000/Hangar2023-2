@@ -1,7 +1,5 @@
 import React from 'react'
 
-import numeral from 'numeral'
-
 import { LandingLayout } from 'Components/Layouts'
 import {
   Contacts,
